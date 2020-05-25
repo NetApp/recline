@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "cliche"
+version = "2020.6"
+description = "Writing argparse-based command line applications can become tedious, repetitive, and clichéd.  This library helps you quickly implement an interactive command-based application in Python"
+license = "BSD-3-Clause"
+authors = ["NetApp <ng-cliche-lib@netapp.com>"]
+readme = "README.md"
+
+homepage = "https://github.com/NetApp/cliche"
+repository = "https://github.com/NetApp/cliche"
+documentation = "https://cliche.readthedocs.org"
+keywords = ["cli", "argparse", "cliche"]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Shells",
+]
+
+packages = [
+    { include = "cliche" },
+    { include = "tests", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.5"
+
+[tool.poetry.dev-dependencies]
+pudb = "^2019.2"
+pylint = "^2.5.2"
+pytest = "^5.4.2"
+pytest-cov = "^2.8.1"
+sphinx = "^3.0.3"
+sphinx-rtd-theme = "^0.4.3"
+tox = "^3.15.0"
+
+[build-system]
+requires = ["poetry>=0.12", "rtd-poetry"]
+build-backend = "rtd_poetry"

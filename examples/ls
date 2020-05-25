@@ -1,0 +1,252 @@
+"""
+An example of how you might implement a unix style CLI command using cliche
+"""
+
+#!/usr/bin/env python
+
+import grp
+import io
+import locale
+import math
+import os
+import pwd
+import shutil
+import stat
+import time
+
+import cliche
+from cliche.arg_types.flag import Flag
+from cliche.arg_types.positional import Positional
+
+
+COLORS = {
+    "default": "",
+    "blue"   : "\x1b[01;34m",
+    "cyan"   : "\x1b[01;36m",
+    "green"  : "\x1b[01;32m",
+    "red"    : "\x1b[01;05;37;41m",
+}
+
+
+def get_details(file_path):
+    """Use the stat command to find out stuff about the file. This will affect
+    what color we print the file in.
+    """
+
+    stat_info = os.lstat(file_path)
+
+    permissions = "-"
+    color = "default"
+    link = None
+
+    if stat.S_ISDIR(stat_info.st_mode):
+        permissions = "d"
+        color = "blue"
+    elif stat.S_ISLNK(stat_info.st_mode):
+        permissions = "l"
+        color = "cyan"
+        link = os.readlink(file_path)
+        if not os.path.exists(file_path):
+            color = "red"
+    elif stat.S_ISREG(stat_info.st_mode):
+        if stat_info.st_mode & (stat.S_IXGRP|stat.S_IXUSR|stat.S_IXOTH):
+            color = "green"
+
+    mode = stat.S_IMODE(stat_info.st_mode)
+    for actor in ["USR", "GRP", "OTH"]:
+        for permission in ["R", "W", "X"]:
+            if mode & getattr(stat, "S_I%s%s" % (permission, actor)):
+                permissions += permission.lower()
+            else:
+                permissions += "-"
+
+    num_links = stat_info.st_nlink
+    try:
+        owner = pwd.getpwuid(stat_info.st_uid)[0]
+    except KeyError:
+        owner = stat_info.st_uid
+    try:
+        group = grp.getgrgid(stat_info.st_gid)[0]
+    except KeyError:
+        group = stat_info.st_gid
+
+    size = stat_info.st_size
+    time_str = time.strftime("%b %e %R", time.gmtime(stat_info.st_mtime))
+
+    details = "%s %s %s %s %s %s" % (permissions, num_links, owner, group, size, time_str)
+    return (details, color, link)
+
+
+def unformat_string(str_input):
+    """This function unformats our colorized strings. It's a hack."""
+
+    for color in COLORS.values():
+        str_input = str_input.replace(color, "")
+    return str_input.replace("\x1b[00m", "")
+
+
+def render_output(output_items):
+    """While the output would be too long for the screen, break it in half and
+    try again. Makes sure all the columns stay lined up. Entries are printed
+    from top to bottom then left to right. For example:
+
+    1 3 5
+    2 4 6
+    """
+
+    cols = len(output_items)
+    while True:
+        current_line = ""
+        for item in output_items[:cols]:
+            current_line += item
+        if len(unformat_string(current_line)) > shutil.get_terminal_size((80, 20)).columns:
+            cols = math.ceil(cols / 2)
+        else:
+            break
+
+    # now we know that cols number of items fit on one line
+    num_rows = math.ceil(len(output_items) / cols)
+    col_widths = {}
+    for row_index in range(0, num_rows):
+        row = ""
+        for col_index, item in enumerate(output_items[row_index::num_rows]):
+            if row_index == 0:
+                # we will calculate the column width for each col when we're looking
+                # at the first row. We'll examine each item in the column and set
+                # the column width to the max of all of them
+                col_top_index = col_index * num_rows + row_index
+                col_items = [
+                    unformat_string(x)
+                    for x in output_items[col_top_index:col_top_index+num_rows]
+                ]
+                col_widths[col_index] = len(max(col_items, key=len))
+            if len(unformat_string(item)) < col_widths[col_index]:
+                diff = ' ' * (col_widths[col_index] - len(unformat_string(item)))
+                item += diff
+            row += item
+        print(row)
+
+
+# pylint: disable=bad-continuation,invalid-name
+@cliche.command
+def ls(
+    path: Positional = ".",
+    a: Flag = None,
+    l: Flag = None,
+    r: Flag = None,
+) -> None:
+    """list directory contents
+
+    List information about the FILEs in the input path (the current directory by
+    default). Entries are sorted alphabetically by default.
+
+    Args:
+        path: The filesystem path to list entries in
+        a: do not ignore entries starting with '.'
+        l: use a long listing format
+        r: reverse the sort direction (direction is ascending by default)
+
+    Examples:
+        regular_listing:
+            $ ./ls test_dir
+            file_1   file_13    file_18     file_23  file_3        file_6
+            file_10  file_15    file_19     file_26  file_4        file_seq
+            file_11  file_16    file_20     file_27  file_4_again  foo_dir
+            file_12  file17777  file_21111  file_28  file_5_again
+            $
+        long_listing:
+            $ ./ls -l test_dir
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_1
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_10
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_11
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_12
+            -rwxr-xr-x 1 mcdermor engr 0 Sep 25 13:09 file_13
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_15
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_16
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file17777
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_18
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_19
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_20
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_21111
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_23
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_26
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_27
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_28
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_3
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_4
+            lrwxrwxrwx 1 mcdermor engr 6 Sep 25 16:47 file_4_again -> file_4
+            lrwxrwxrwx 1 mcdermor engr 6 Sep 25 16:47 file_5_again -> file_5
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_6
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:08 file_seq
+            drwxr-xr-x 2 mcdermor engr 4096 Sep 25 13:45 foo_dir
+            $
+        reverse_long_all_listing:
+            $ ./ls -alr test_dir
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 16:18 .hidden2
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 16:18 .hidden1
+            drwxr-xr-x 2 mcdermor engr 4096 Sep 25 13:45 foo_dir
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:08 file_seq
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_6
+            lrwxrwxrwx 1 mcdermor engr 6 Sep 25 16:47 file_5_again -> file_5
+            lrwxrwxrwx 1 mcdermor engr 6 Sep 25 16:47 file_4_again -> file_4
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_4
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_3
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_28
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_27
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_26
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_23
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_21111
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_20
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_19
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_18
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file17777
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_16
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_15
+            -rwxr-xr-x 1 mcdermor engr 0 Sep 25 13:09 file_13
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_12
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_11
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_10
+            -rw-r--r-- 1 mcdermor engr 0 Sep 25 13:09 file_1
+            drwxr-xr-x 4 mcdermor engr 4096 Sep 25 18:00 ..
+            drwxr-xr-x 3 mcdermor engr 4096 Sep 25 18:04 .
+            $
+    """
+
+    sort_reversed = True if r else False
+
+    files = os.listdir(path)
+
+    if a:
+        # insert the special . and .. entries
+        files.insert(0, '..')
+        files.insert(0, '.')
+
+    locale.setlocale(locale.LC_ALL, "")
+    files.sort(key=locale.strxfrm, reverse=sort_reversed)
+
+    output_items = []
+
+    if not a:
+        files = [file for file in files if not file.startswith(".")]
+
+    for file in files:
+        current_item = io.StringIO()
+        file_path = os.path.join(path, file)
+        details, color, link = get_details(file_path)
+        if l:
+            current_item.write("%s " % details)
+        current_item.write("%s%s\x1b[00m" % (COLORS[color], file))
+        if l and link:
+            current_item.write(" -> %s" % link)
+        elif not l:
+            current_item.write('  ')
+        output_items.append(current_item)
+
+    if not l:
+        render_output([item.getvalue() for item in output_items])
+    else:
+        for output in output_items:
+            print(output.getvalue())
+
+
+cliche.run(single_command='ls')
