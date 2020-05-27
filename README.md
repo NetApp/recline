@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/netapp-cliche/community.svg)](https://gitter.im/netapp-cliche/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # cliche
 
 Writing argparse-based command line applications can become tedious, repetitive,
