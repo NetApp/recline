@@ -135,38 +135,6 @@ $
 
 See the full documentation for more advanced usages and examples
 
-# Building the package
+# Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-If you are making and testing changes to cliche itself, the following commands
-will be useful to know. This repository makes use of [poetry](https://github.com/python-poetry/poetry)
-for configuring a virtual environment and so the commands below will reference
-it so that they are run inside of that environment. If you want more information
-about Poetry, then you can view the documentation [here](https://python-poetry.org/docs/basic-usage/)
-
-## Setting up your environment
-
-This command will create a new virtual environment and install the dependencies
-in it.
-
-```
-$ poetry install
-```
-
-## Testing changes
-
-```
-$ poetry run pytest --cov=cliche tests
-```
-
-## Building the package
-
-```
-$ poetry build
-```
-
-## Building the docs
-
-```
-$ poetry run sphinx-apidoc -H "API Reference" -o docs/api_reference cliche
-$ poetry run sphinx-build -b html docs build/html
-```
+You may read about the contribution process including how to build and test your changes [here](CONTRIBUTING.md).
