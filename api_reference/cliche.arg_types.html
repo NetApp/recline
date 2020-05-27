@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cliche.arg_types package &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cliche.commands package" href="cliche.commands.html" />
+    <link rel="prev" title="cliche package" href="cliche.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cliche.html">cliche package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cliche.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">cliche.arg_types package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.commands.html">cliche.commands package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.formatters.html">cliche.formatters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.repl.html">cliche.repl package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.vendor.html">cliche.vendor package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cliche.html#module-cliche">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="cliche.html">cliche package</a> &raquo;</li>
+        
+      <li>cliche.arg_types package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_reference/cliche.arg_types.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cliche-arg-types-package">
+<h1>cliche.arg_types package<a class="headerlink" href="#cliche-arg-types-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cliche.arg_types.choices">
+<span id="cliche-arg-types-choices-module"></span><h2>cliche.arg_types.choices module<a class="headerlink" href="#module-cliche.arg_types.choices" title="Permalink to this headline">¶</a></h2>
+<p>A Choices type allows the CLI command writer to specify a static list of choices
+for a parameter. Once the body of the function is invoked, it is guarenteed that
+the validation was done on the parameter to make sure it matched one.</p>
+<p>&#64;cliche.command(name=”cake make”)
+def make_cake(flavor: Choices.define([“chocolate”, “vanilla”, “marble”])) -&gt; None:</p>
+<blockquote>
+<div><p># We can assume flavor is one of the choices in the body of the fuction</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="cliche.arg_types.choices.Choices">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.choices.</code><code class="sig-name descname">Choices</code><a class="headerlink" href="#cliche.arg_types.choices.Choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.arg_types.cliche_type.ClicheType" title="cliche.arg_types.cliche_type.ClicheType"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.arg_types.cliche_type.ClicheType</span></code></a></p>
+<p>The Choices type validates the user input according to a list of possible choices</p>
+<dl class="py method">
+<dt id="cliche.arg_types.choices.Choices.define">
+<em class="property">static </em><code class="sig-name descname">define</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">available_choices</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>List<span class="p">, </span>Callable<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">cache_choices</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">inexact</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.arg_types.choices.Choices.define" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <cite>cliche.commands.types.Choices</cite> is a way to assert that an argument
+is one of a predefined list.</p>
+<p>Prior to being passed to your command, the argument will be compared to
+the list of defined choices. If it does not match one, an error will be
+printed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>available_choices: The list of allowable values for the argument or</dt><dd><p>a callable that will return a list.</p>
+</dd>
+<dt>cache_choices: If the available_choices argument was a callable, by</dt><dd><p>default it will be called each time the list of choices needs to
+be rendered. But if that callable is expensive, that may not be
+desirable. In that case, passing cache_choices as True will call
+the available_choices function only once to get the list and save
+the result.</p>
+</dd>
+<dt>inexact: If set to True, allow the value being validated to contain</dt><dd><p>the “*”, “|”, or “..” query characters. If these characters are
+present, then no validation will be done on the value (and validation
+is assumed to be done on whatever the command is calling)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types.cliche_type">
+<span id="cliche-arg-types-cliche-type-module"></span><h2>cliche.arg_types.cliche_type module<a class="headerlink" href="#module-cliche.arg_types.cliche_type" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the abstract base class for all cliche custom types</p>
+<dl class="py class">
+<dt id="cliche.arg_types.cliche_type.ClicheType">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.cliche_type.</code><code class="sig-name descname">ClicheType</code><a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>The base class for all other custom types in cliche. Default values for
+argparse are defined within each type.</p>
+<dl class="py attribute">
+<dt id="cliche.arg_types.cliche_type.ClicheType.action">
+<code class="sig-name descname">action</code><a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType.action" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#cliche.arg_types.cliche_type.UniqueParam" title="cliche.arg_types.cliche_type.UniqueParam"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniqueParam</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.arg_types.cliche_type.ClicheType.choices">
+<code class="sig-name descname">choices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eager</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType.choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>If an argument has a set list of choices that can be provided for it,
+then the type can specify to only allow that list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.arg_types.cliche_type.ClicheType.completer">
+<code class="sig-name descname">completer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>Any<span class="p">]</span><a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType.completer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The completer function should return a list of values that are valid
+for the argument. This function will ususally be implemented such that it
+is dynamic based on some API call or some current application state. If
+it is a static set of choices, it would be easier to use the choices
+method instead.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="cliche.arg_types.cliche_type.ClicheType.metavar">
+<code class="sig-name descname">metavar</code><em class="property"> = '&lt;value&gt;'</em><a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType.metavar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="cliche.arg_types.cliche_type.ClicheType.nargs">
+<code class="sig-name descname">nargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Union[int, str, None]<a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType.nargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of arguments that this type can accept. See the argparse
+documentation for details: <a class="reference external" href="https://docs.python.org/3/library/argparse.html#nargs">https://docs.python.org/3/library/argparse.html#nargs</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.arg_types.cliche_type.ClicheType.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#cliche.arg_types.cliche_type.ClicheType.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>The validate function has two uses. First, a type should verify that
+the user’s input matches the data that the type accepts. Second, it should
+transform the data if necessary. For example, it might try to cast a string
+to an integer and if it can, return the integer value.</p>
+<p>If validation fails, a ClicheTypeError should be raised with an appropriate
+message for the user.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.arg_types.cliche_type.UniqueParam">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.cliche_type.</code><code class="sig-name descname">UniqueParam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">option_strings</span></em>, <em class="sig-param"><span class="n">dest</span></em>, <em class="sig-param"><span class="n">nargs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">const</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">choices</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">help</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metavar</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.arg_types.cliche_type.UniqueParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.Action</span></code></p>
+<p>Utility class that throws an error if more than one occurrence of param is found.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types.cliche_type_error">
+<span id="cliche-arg-types-cliche-type-error-module"></span><h2>cliche.arg_types.cliche_type_error module<a class="headerlink" href="#module-cliche.arg_types.cliche_type_error" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the error class that is raised when there is a type error
+when validating user input.</p>
+<dl class="py exception">
+<dt id="cliche.arg_types.cliche_type_error.ClicheTypeError">
+<em class="property">exception </em><code class="sig-prename descclassname">cliche.arg_types.cliche_type_error.</code><code class="sig-name descname">ClicheTypeError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">message</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.arg_types.cliche_type_error.ClicheTypeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>This is a custom exception type that tries to reach into the previous frame
+and get some information if it is present in order to make its error message
+better.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types.flag">
+<span id="cliche-arg-types-flag-module"></span><h2>cliche.arg_types.flag module<a class="headerlink" href="#module-cliche.arg_types.flag" title="Permalink to this headline">¶</a></h2>
+<p>A Flag type allows the CLI command writer to specify an argument that behaves
+like a boolean flag. The difference between this and declaring an argument as a
+bool is that no “true” or “false” input is expected of the user if the argument
+is a flag. If it is a bool, then the user must provide either “true” or “false”
+explicitly on the command line.</p>
+<p>&#64;cliche.command
+def ls(l: Flag = None) -&gt; None:</p>
+<blockquote>
+<div><p># If the user provided “-l” then l will be set to True. Else l will be None</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="cliche.arg_types.flag.Flag">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.flag.</code><code class="sig-name descname">Flag</code><a class="headerlink" href="#cliche.arg_types.flag.Flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.arg_types.cliche_type.ClicheType" title="cliche.arg_types.cliche_type.ClicheType"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.arg_types.cliche_type.ClicheType</span></code></a></p>
+<p>A simple flag argument which will be set to true if provided</p>
+<dl class="py attribute">
+<dt id="cliche.arg_types.flag.Flag.action">
+<code class="sig-name descname">action</code><em class="property"> = 'store_true'</em><a class="headerlink" href="#cliche.arg_types.flag.Flag.action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types.positional">
+<span id="cliche-arg-types-positional-module"></span><h2>cliche.arg_types.positional module<a class="headerlink" href="#module-cliche.arg_types.positional" title="Permalink to this headline">¶</a></h2>
+<p>A Positional type allows the CLI command writer to specify an argument that the
+user will provide positionally. That is, instead of the user typing
+“-arg_name argvalue”, they can just type “argvalue”. For example:</p>
+<p>&#64;cliche.command
+def ls(path: Positional = “.”) -&gt; None:</p>
+<blockquote>
+<div><p># If the user provided “ls my_dir”, then path will be set to “my_dir”. If the
+# user just said “ls”, then path will be set to “.”.</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="cliche.arg_types.positional.Positional">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.positional.</code><code class="sig-name descname">Positional</code><a class="headerlink" href="#cliche.arg_types.positional.Positional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.arg_types.cliche_type.ClicheType" title="cliche.arg_types.cliche_type.ClicheType"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.arg_types.cliche_type.ClicheType</span></code></a></p>
+<p>The Positional type allows the user to not have to specify the arugment name</p>
+<dl class="py method">
+<dt id="cliche.arg_types.positional.Positional.define">
+<em class="property">static </em><code class="sig-name descname">define</code><span class="sig-paren">(</span><em class="sig-param">completer=None</em>, <em class="sig-param">data_type=&lt;class 'str'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.arg_types.positional.Positional.define" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows a Positional type to be defined with its own completer function</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types.ranged_int">
+<span id="cliche-arg-types-ranged-int-module"></span><h2>cliche.arg_types.ranged_int module<a class="headerlink" href="#module-cliche.arg_types.ranged_int" title="Permalink to this headline">¶</a></h2>
+<p>A RangedInt type allows the CLI command writer to specify an integer that is only
+valid within a certain range. If the user provides a value outside of that range,
+then the parameter validation will fail and they will receive an error message.</p>
+<p>&#64;cliche.command(name=”bake cake”)
+def bake(minutes: RangedInt.define(min=15, max=60)) -&gt; None:</p>
+<blockquote>
+<div><p># If the user tried to bake the cake for less than 15 minutes or more than
+# 60 minutes, then this body wouldn’t be called and they would get an error.</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="cliche.arg_types.ranged_int.RangedInt">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.ranged_int.</code><code class="sig-name descname">RangedInt</code><a class="headerlink" href="#cliche.arg_types.ranged_int.RangedInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.arg_types.cliche_type.ClicheType" title="cliche.arg_types.cliche_type.ClicheType"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.arg_types.cliche_type.ClicheType</span></code></a></p>
+<p>The RangedInt type allows a parameter which is an into to be constrained
+in which values are in the valid range.</p>
+<dl class="py method">
+<dt id="cliche.arg_types.ranged_int.RangedInt.define">
+<em class="property">static </em><code class="sig-name descname">define</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; _RangedInt<a class="headerlink" href="#cliche.arg_types.ranged_int.RangedInt.define" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <cite>cliche.commands.types.RangedInt</cite> is a way to annotate an integer with
+a min and max value.</p>
+<p>Prior to being passed to your command, the arguments of this type will
+be validated according to the parameters specified. For example, if a
+minimum is given, then the argument must be less than the minimum before
+your command will be called with it.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>name: This is the name of the parameter and is required for building</dt><dd><p>the help text of the command.</p>
+</dd>
+<dt>min: If provided, the user-supplied argument will be validated to be</dt><dd><p>and integer &gt;= this value.
+argument will be enforced.</p>
+</dd>
+<dt>max: If provided, the user-supplied argument will be validated to be</dt><dd><p>and integer &lt;= this value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types.remainder">
+<span id="cliche-arg-types-remainder-module"></span><h2>cliche.arg_types.remainder module<a class="headerlink" href="#module-cliche.arg_types.remainder" title="Permalink to this headline">¶</a></h2>
+<p>A Remainder type allows the CLI command writer to specify that an argument should
+consume all of the rest of the input from the CLI and that it will be interpreted
+inside of the command handler function.</p>
+<p>&#64;cliche.command
+def search(query: Remainder) -&gt; None:</p>
+<blockquote>
+<div><p># The user might use this command like “search stuff I want to know about”
+# and the query parameter would be filled with the value “stuff I want to know about”</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="cliche.arg_types.remainder.Remainder">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.arg_types.remainder.</code><code class="sig-name descname">Remainder</code><a class="headerlink" href="#cliche.arg_types.remainder.Remainder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.arg_types.cliche_type.ClicheType" title="cliche.arg_types.cliche_type.ClicheType"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.arg_types.cliche_type.ClicheType</span></code></a></p>
+<p>The Remainder type will capture all of the remaining input from the user
+into a single parameter, even if that input contained spaces which would
+normally be considered multiple values</p>
+<dl class="py method">
+<dt id="cliche.arg_types.remainder.Remainder.define">
+<em class="property">static </em><code class="sig-name descname">define</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">completer</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.arg_types.remainder.Remainder.define" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows a Remainder type to be defined with its own completer function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.arg_types.remainder.Remainder.nargs">
+<code class="sig-name descname">nargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cliche.arg_types.remainder.Remainder.nargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of arguments that this type can accept. See the argparse
+documentation for details: <a class="reference external" href="https://docs.python.org/3/library/argparse.html#nargs">https://docs.python.org/3/library/argparse.html#nargs</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.arg_types">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cliche.arg_types" title="Permalink to this headline">¶</a></h2>
+<p>This package contains the various custom type definitions for CLI command parameters.
+If you are defining a CLI command function that takes input with restrictions,
+you may want to use a type annotation to allow cliche to do the checking for you
+before your function ever gets invoked. For example:</p>
+<p>from cliche.arg_types import Choices</p>
+<p>&#64;cliche.command
+def commit(branch: Choices.define([‘dev’, ‘beta’, ‘stable’])) -&gt; None:</p>
+<blockquote>
+<div><p># the function can now assume that branch has already been validated to be
+# one of the options above before we got here</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cliche.commands.html" class="btn btn-neutral float-right" title="cliche.commands package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cliche.html" class="btn btn-neutral float-left" title="cliche package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

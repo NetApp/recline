@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cliche.commands package &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cliche.formatters package" href="cliche.formatters.html" />
+    <link rel="prev" title="cliche.arg_types package" href="cliche.arg_types.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cliche.html">cliche package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cliche.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cliche.arg_types.html">cliche.arg_types package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">cliche.commands package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.formatters.html">cliche.formatters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.repl.html">cliche.repl package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.vendor.html">cliche.vendor package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cliche.html#module-cliche">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="cliche.html">cliche package</a> &raquo;</li>
+        
+      <li>cliche.commands package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_reference/cliche.commands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cliche-commands-package">
+<h1>cliche.commands package<a class="headerlink" href="#cliche-commands-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cliche.commands.async_command">
+<span id="cliche-commands-async-command-module"></span><h2>cliche.commands.async_command module<a class="headerlink" href="#module-cliche.commands.async_command" title="Permalink to this headline">¶</a></h2>
+<p>This is the implementation of an async command for the cliche library. It allows
+for a command to be run in the foreground or background.</p>
+<dl class="py class">
+<dt id="cliche.commands.async_command.AsyncCommand">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.commands.async_command.</code><code class="sig-name descname">AsyncCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.async_command.AsyncCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>This is a custom Thread class meant to wrap an asynchronous cliche command.</p>
+<p>It provides the ability to gather a result as well as put the thread in the
+foreground or the background of the main REPL thread.</p>
+<dl class="py method">
+<dt id="cliche.commands.async_command.AsyncCommand.background">
+<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.async_command.AsyncCommand.background" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unblock the calling thread and put this thread into the background</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.async_command.AsyncCommand.foreground">
+<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#cliche.commands.async_command.AsyncCommand.foreground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block the calling thread until this thread is complete and return the result</p>
+<p>Also setup up a signal handler for SIGTSTP so that pressing ctrl+z will
+put this thread in the background</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.async_command.AsyncCommand.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.async_command.AsyncCommand.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the command in an asyncio loop. When it’s complete, the result
+will be recorded in this thread</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.async_command.AsyncCommand.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dont_delete</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.async_command.AsyncCommand.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kill the command and return control to the main thread</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="cliche.commands.async_command.CommandBackgrounded">
+<em class="property">exception </em><code class="sig-prename descclassname">cliche.commands.async_command.</code><code class="sig-name descname">CommandBackgrounded</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_pid</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.async_command.CommandBackgrounded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>When a command is moved from the foreground to the background, this exception
+is raised to signal the shell.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="cliche.commands.async_command.CommandCancelled">
+<em class="property">exception </em><code class="sig-prename descclassname">cliche.commands.async_command.</code><code class="sig-name descname">CommandCancelled</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_pid</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.async_command.CommandCancelled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>When a command is cancelled, this is exception is raised to signal the shell</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.async_command.set_terminal_echo">
+<code class="sig-prename descclassname">cliche.commands.async_command.</code><code class="sig-name descname">set_terminal_echo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">enabled</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.async_command.set_terminal_echo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code from <a class="reference external" href="https://docs.python.org/2/library/termios.html">https://docs.python.org/2/library/termios.html</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.commands.builtin_commands">
+<span id="cliche-commands-builtin-commands-module"></span><h2>cliche.commands.builtin_commands module<a class="headerlink" href="#module-cliche.commands.builtin_commands" title="Permalink to this headline">¶</a></h2>
+<p>The commands defined here are included with every cliche application</p>
+<dl class="py exception">
+<dt id="cliche.commands.builtin_commands.DebugInterrupt">
+<em class="property">exception </em><code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">DebugInterrupt</code><a class="headerlink" href="#cliche.commands.builtin_commands.DebugInterrupt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>An exception class to mark that we were interrupted by a debug request</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.builtin_commands.command_help">
+<code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">command_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.builtin_commands.command_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a list of available commands and their short description</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.builtin_commands.debug">
+<code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">debug</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.builtin_commands.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop into the Python debugger for development purposes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.builtin_commands.exit_command">
+<code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">exit_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">abort_jobs</span><span class="p">:</span> <span class="n"><a class="reference internal" href="cliche.arg_types.html#cliche.arg_types.flag.Flag" title="cliche.arg_types.flag.Flag">cliche.arg_types.flag.Flag</a></span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.builtin_commands.exit_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit the application</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.builtin_commands.fg">
+<code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">fg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.builtin_commands.fg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bring a job to the foreground</p>
+<p>If the job has already completed, then its results will be printed to the
+console. If the job has not yet finished, then the application will wait for
+it to finish before printing the results.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>job: The identifier of the job to track. If not provided, then the most</dt><dd><p>recent job will be tracked.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.builtin_commands.man">
+<code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">man</code><span class="sig-paren">(</span><em class="sig-param">command_name: cliche.arg_types.remainder.Remainder.define.&lt;locals&gt;._Remainder</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cliche.commands.builtin_commands.man" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the full man page for a given command</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>command: The name of the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.builtin_commands.man_commands">
+<code class="sig-prename descclassname">cliche.commands.builtin_commands.</code><code class="sig-name descname">man_commands</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">_</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">__</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.builtin_commands.man_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>A completer function for returning a list of commands the user might want
+to see the man page for. Don’t show alias names to reduce clutter and confusion.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.commands.cli_command">
+<span id="cliche-commands-cli-command-module"></span><h2>cliche.commands.cli_command module<a class="headerlink" href="#module-cliche.commands.cli_command" title="Permalink to this headline">¶</a></h2>
+<p>This module contains the definition of a CLICommand object. This is the main
+driver of the cliche library. Essentially, a CLICommand takes as input a wrapped
+function and parses the args and docstring so that when called from the REPL, the
+command can be used as prescribed or the help information can be queried.</p>
+<dl class="py class">
+<dt id="cliche.commands.cli_command.CLICommand">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.commands.cli_command.</code><code class="sig-name descname">CLICommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_alias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">hidden</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_async</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is the implementation of a &#64;cliche.command. It sets up all of the
+parameter validation, help text generation, and return output formatting for
+commands defined in the application.</p>
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.get_arg_action">
+<code class="sig-name descname">get_arg_action</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.get_arg_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default, arguments will be verified as unique. However, if a custom
+type defines an action that should be taken when parsing the command line,
+that action will be used instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.get_arg_description">
+<code class="sig-name descname">get_arg_description</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em>, <em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.get_arg_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the descrption of the arg from the parsed docstring if we can find
+one. Otherwise, the description will be blank.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.get_arg_help">
+<code class="sig-name descname">get_arg_help</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em>, <em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.get_arg_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a line of help text for an argument including the name, metavar,
+and description of the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.get_arg_metavar">
+<code class="sig-name descname">get_arg_metavar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.get_arg_metavar" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default, the metavar for an argument is the same as the name of that
+argument (and enclosed in &lt;&gt;). But there are many situations with custom
+types where the metavar will be defined by the type and should be taken
+from the type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.get_command_help">
+<code class="sig-name descname">get_command_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.get_command_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a block of help text for the command including all of its arguments
+as well as a short description of the command.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.get_command_usage">
+<code class="sig-name descname">get_command_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.get_command_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the short usage spec for the command</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.hidden">
+<em class="property">property </em><code class="sig-name descname">hidden</code><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>A command is hidden if it is either statically declared to be or it
+was provided with a fuction to determine if it should currently be hidden</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.commands.cli_command.CLICommand.print_help">
+<code class="sig-name descname">print_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.CLICommand.print_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the -help argument is passed to the command, then this method will
+print out the help for that command instead of the builtin argparse help printer.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.cli_command.command">
+<code class="sig-prename descclassname">cliche.commands.cli_command.</code><code class="sig-name descname">command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">group</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aliases</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atstart</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">atexit</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">hidden</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>Callable<span class="p">[</span>bool<span class="p">]</span><span class="p">, </span>bool<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapping a function with this registers it with the cliche library and
+exposes it as a command the user of the application can call.</p>
+<p>The name of the command will match the name of the function that is being
+wrapped. The arguments of the command will match the arguments that the
+function accepts. Any arugments that are required by the function will be
+required arguments for the command. Any arguments that are optional (listed
+as keyword arguments) will be optional for the command.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>name: If the command name shouldn’t inherit the function name, it can be</dt><dd><p>defined here. This can be especially useful if the command name has
+spaces in it.</p>
+</dd>
+<dt>group: If certain commands should be logically grouped together, they</dt><dd><p>should share the same group name.</p>
+</dd>
+<dt>aliases: An optional list of other names that will map back to the same</dt><dd><p>function. For example, if the function was called ‘exit’, a list of
+aliases might be [‘quit’, ‘q’].</p>
+</dd>
+<dt>atstart: If set to True, this command will run before the main REPL is</dt><dd><p>available for processing other commands. If this command fails, the
+REPL won’t become available.</p>
+</dd>
+<dt>atexit: Before exiting the program, this command will be run and can be</dt><dd><p>used to clean up any resources. This command should always take 0
+arguments.</p>
+</dd>
+<dt>hidden: If the command is hidden, then it will not be shown in the help</dt><dd><p>output or available for autocompletion. It will still be executable
+by the user if they type it out. This can be either a function which
+evaluates to True or False, or just a constant True or False.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.cli_command.get_annotation_type">
+<code class="sig-prename descclassname">cliche.commands.cli_command.</code><code class="sig-name descname">get_annotation_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.cli_command.get_annotation_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python 3.7 explicitly broke the issubclass checking on the typing module
+<a class="reference external" href="https://bugs.python.org/issue34568">https://bugs.python.org/issue34568</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.commands.man_utils">
+<span id="cliche-commands-man-utils-module"></span><h2>cliche.commands.man_utils module<a class="headerlink" href="#module-cliche.commands.man_utils" title="Permalink to this headline">¶</a></h2>
+<p>This module holds some utility functions used as part of the man command to format
+text from CLI commands into consistent man pages that respond to the terminal
+width.</p>
+<dl class="py function">
+<dt id="cliche.commands.man_utils.generate_help_text">
+<code class="sig-prename descclassname">cliche.commands.man_utils.</code><code class="sig-name descname">generate_help_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">screen_width</span></em>, <em class="sig-param"><span class="n">command_class</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.man_utils.generate_help_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates lines of help text which are formatted using the curses library.
+The final document resembles a typical Linux-style manpage. See here:
+<a class="reference external" href="https://www.tldp.org/HOWTO/Man-Page/q3.html">https://www.tldp.org/HOWTO/Man-Page/q3.html</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.commands.man_utils.wrapped_string">
+<code class="sig-prename descclassname">cliche.commands.man_utils.</code><code class="sig-name descname">wrapped_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">screen_width</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.commands.man_utils.wrapped_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will take a string and make sure it can fit within the
+given screen_width.</p>
+<p>If the string is too long to fit, it will be broken on word boundaries
+(specifically the ‘ ‘ character) if it can or the word will be split with
+a ‘-‘ character and the second half moved to the next line.</p>
+<p>If a prefix is given, the line(s) will be prefixed with that many ‘ ‘
+characters, including any wrapped lines.</p>
+<p>If the given string includes embeded newline characters, then each line
+will be evaluated according to the rules above including breaking on word
+boundaries and injecting a prefix.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.commands">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cliche.commands" title="Permalink to this headline">¶</a></h2>
+<p>This package contains the base command class and the builtin command for all
+cliche-based applications to use.</p>
+<dl class="py exception">
+<dt id="cliche.commands.ClicheCommandError">
+<em class="property">exception </em><code class="sig-prename descclassname">cliche.commands.</code><code class="sig-name descname">ClicheCommandError</code><a class="headerlink" href="#cliche.commands.ClicheCommandError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>If there is an error while executing a command, this excetpion should be
+raised an an error will be printed to the console.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cliche.formatters.html" class="btn btn-neutral float-right" title="cliche.formatters package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cliche.arg_types.html" class="btn btn-neutral float-left" title="cliche.arg_types package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

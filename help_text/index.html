@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command Help and Man Pages &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Async Commands" href="../async_commands/index.html" />
+    <link rel="prev" title="Input and Output" href="../input_output/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Help and Man Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#command-help">Command Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#man-pages">Man Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/modules.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Command Help and Man Pages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/help_text/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-help-and-man-pages">
+<h1>Command Help and Man Pages<a class="headerlink" href="#command-help-and-man-pages" title="Permalink to this headline">¶</a></h1>
+<p>A CLI application is only as good as its documentation. Since cliche is meant to be a
+documentation first library, it only makes sense that it provides good documentation
+to your users as well. And this documentation should come from the same source as the
+implementation so that they stay in sync. Take our <code class="docutils literal notranslate"><span class="pre">cake</span> <span class="pre">make</span></code> command from before
+and let’s add just a bit more to its docstring:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake make&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">make_cake</span><span class="p">(</span>
+    <span class="n">layers</span><span class="p">:</span> <span class="n">RangedInt</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">flavor</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">([</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;marble&#39;</span><span class="p">]),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Make a cake with the specified number of layers</span>
+
+<span class="sd">    Pat-a-cake, pat-a-cake, baker&#39;s man.</span>
+<span class="sd">    Bake me a cake as fast as you can</span>
+<span class="sd">    Pat it, and prick it, and mark it with &quot;B&quot;</span>
+<span class="sd">    And put it in the oven for Baby and me!</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        layers: The number of layers to make must be provided which is</span>
+<span class="sd">            an integer between 2 and 10.</span>
+<span class="sd">        flavor: The type of cake to make.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        layer_validation_failure:</span>
+<span class="sd">            ::&gt; cake make -flavor chocolate -layers 1</span>
+<span class="sd">            layers: 1 is not an integer in the range {2-10}.</span>
+<span class="sd">        type_validation_failure:</span>
+<span class="sd">            ::&gt; cake make -flavor bogus -layers 2</span>
+<span class="sd">            flavor: &quot;bogus&quot; must be one of chocolate, vanilla, marble.</span>
+<span class="sd">        success:</span>
+<span class="sd">            ::&gt; cake make -flavor chocolate -layers 2</span>
+<span class="sd">            Adding ingredients</span>
+<span class="sd">            Mixing the batter</span>
+<span class="sd">            Baking the cake</span>
+<span class="sd">            Made a 1 layer chocolate cake. Sorry, I burned one layer.</span>
+<span class="sd">            ::&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cakes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;cake layers&#39;</span><span class="p">,</span> <span class="n">layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;flavor&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">)]),</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Adding ingredients&#39;</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mixing the batter&#39;</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Baking the cake&#39;</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s1">&#39;Made a </span><span class="si">%s</span><span class="s1"> layer </span><span class="si">%s</span><span class="s1"> cake. Sorry, I burned one layer.&#39;</span> <span class="o">%</span>
+        <span class="p">(</span><span class="n">layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, we’ve added a more detailed description including multiple paragraphs
+and some examples of the command being run along with its output. This should give
+your users all the information they need in order to know how to use the command.</p>
+<div class="section" id="command-help">
+<h2>Command Help<a class="headerlink" href="#command-help" title="Permalink to this headline">¶</a></h2>
+<p>If the user wants to list the help for the command, they can use the <code class="docutils literal notranslate"><span class="pre">-help</span></code> argument
+and get most of the details from our declaration and description printed right in
+line with the command prompt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; cake make -help
+Make a cake with the specified number of layers
+
+Required arguments:
+-layers &lt;int{2-10}&gt; The number of layers to make must be provided which is an integer
+                    between 2 and 10.
+-flavor &lt;chocolate|vanilla|marble&gt; The type of cake to make.
+::&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="man-pages">
+<h2>Man Pages<a class="headerlink" href="#man-pages" title="Permalink to this headline">¶</a></h2>
+<p>Notice the examples are not shown here and neither is the longer part of the description.
+Usually, when a user wants to be reminded of how a command works, this information
+would be too much and would clutter up their screen. But what if they need more details?
+This is where cliche uses the UNIX style manpage system. If a user types <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">cake</span> <span class="pre">make</span></code>
+then they will be shown the following in a full screen display:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cake make                         cake.py                          cake make
+
+
+NAME
+    cake make -- Make a cake with the specified number of layers
+
+SYNOPSIS
+    cake make -layers &lt;int{2-10}&gt; -flavor &lt;chocolate|vanilla|marble&gt;
+DESCRIPTION
+    Pat-a-cake, pat-a-cake, baker&#39;s man.
+    Bake me a cake as fast as you can
+    Pat it, and prick it, and mark it with &quot;B&quot;
+    And put it in the oven for Baby and me!
+OPTIONS
+    Required:
+    -layers &lt;int{2-10}&gt; The number of layers to build the cake from.
+
+    -flavor &lt;chocolate|vanilla|marble&gt; The flavor of cake to make.
+
+EXAMPLES
+    layer_validation_failure:
+    ::&gt; cake make -flavor chocolate -layers 1
+    layers: 1 is not an integer in the range {2-10}.
+    type_validation_failure:
+    ::&gt; cake make -flavor bogus -layers 2
+    flavor: &quot;bogus&quot; must be one of chocolate, vanilla, marble.
+    success:
+    ::&gt; cake make -flavor chocolate -layers 2
+    Adding ingredients
+    Mixing the batter
+    Baking the cake
+    Made a 1 layer chocolate cake. Sorry, I burned one layer.
+    ::&gt;
+
+(END)
+</pre></div>
+</div>
+<p>This gives them access to all the information they will need including a detailed
+description and examples of running the command. All commands get <code class="docutils literal notranslate"><span class="pre">-help</span></code> arguments
+and <code class="docutils literal notranslate"><span class="pre">man</span></code> page entries for free.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../async_commands/index.html" class="btn btn-neutral float-right" title="Async Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../input_output/index.html" class="btn btn-neutral float-left" title="Input and Output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

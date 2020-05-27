@@ -1,0 +1,22 @@
+cliche package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cliche.arg_types
+   cliche.commands
+   cliche.formatters
+   cliche.repl
+   cliche.vendor
+
+Module contents
+---------------
+
+.. automodule:: cliche
+   :members:
+   :undoc-members:
+   :show-inheritance:

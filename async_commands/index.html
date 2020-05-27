@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Async Commands &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Things To Do" href="../todo/index.html" />
+    <link rel="prev" title="Command Help and Man Pages" href="../help_text/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Async Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#writing-an-async-command">Writing an Async Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#executing-an-async-command">Executing an Async Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-an-async-command-to-the-background">Send an Async Command to the Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bring-a-backgrounded-command-back-to-the-foreground">Bring a Backgrounded Command Back to the Foreground</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/modules.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Async Commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/async_commands/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="async-commands">
+<h1>Async Commands<a class="headerlink" href="#async-commands" title="Permalink to this headline">¶</a></h1>
+<p>In a REPL environment, there are often many commands the user may be able to run.
+Some commands may take a long time to complete and maybe there are other commands
+that even give status about what the first command is doing. Here’s an example
+program that we will highlight below:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This application has some commands that can run in the background and some in</span>
+<span class="sd">the foreground only.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">import</span> <span class="nn">cliche</span>
+<span class="kn">from</span> <span class="nn">cliche.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+
+
+<span class="n">PERCENT_COMPLETE</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Runs a deployment operation over a period of time</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        duration: The amount of time to run for</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">global</span> <span class="n">PERCENT_COMPLETE</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">seconds_slept</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">seconds_slept</span> <span class="o">&lt;</span> <span class="n">duration</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">seconds_slept</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">PERCENT_COMPLETE</span> <span class="o">=</span> <span class="p">(</span><span class="n">seconds_slept</span> <span class="o">/</span> <span class="n">duration</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="k">return</span> <span class="p">[{</span><span class="s1">&#39;duration&#39;</span><span class="p">:</span> <span class="n">duration</span><span class="p">}]</span>
+    <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I only managed to get </span><span class="si">%s</span><span class="s1"> out of </span><span class="si">%s</span><span class="s1"> seconds of sleep before you interrupted me&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">seconds_slept</span><span class="p">,</span> <span class="n">duration</span><span class="p">))</span>
+
+
+<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;deploy status&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">deploy_status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Get the current deployment status percentage of an ongoing operation&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">PERCENT_COMPLETE</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No deployment has been started yet&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The current deployment is </span><span class="si">%s%%</span><span class="s2"> complete&quot;</span> <span class="o">%</span> <span class="n">PERCENT_COMPLETE</span><span class="p">)</span>
+
+
+<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="writing-an-async-command">
+<h2>Writing an Async Command<a class="headerlink" href="#writing-an-async-command" title="Permalink to this headline">¶</a></h2>
+<p>Writing a command that can be put in the background is easy. Simply add the <code class="docutils literal notranslate"><span class="pre">async</span></code>
+keyword while defining the function. This tells cliche that the command may be long
+running and it allows the user of the application to execute the command and put it
+in the background or foreground as desired.</p>
+<p>In the body of your async command, it is recommended to use <code class="docutils literal notranslate"><span class="pre">await</span></code> with coroutines
+where available to help make your command more responsive. Backgrounding and foregrounding
+don’t rely on this, but cancelling an async command can only be done on the next
+switch of the event loop.</p>
+<p>In our <code class="docutils literal notranslate"><span class="pre">deploy</span></code> command above, we’ve implemented a simple async sleep loop to
+simulate something that takes a long time. We’ve declared the function with <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code>
+and inside the function body we’ve used <code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">asyncio.sleep(1)</span></code> inside the loop
+to make long running behavior.</p>
+<p>In this example, there is a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block around the async operation. This
+is optional, but it allows our command to have special behavior in the case the user
+cancels the command. We get one more opportunity to run and clean up if needed. In
+this case, we elected to show the user a short message saying that we didn’t get to
+complete.</p>
+</div>
+<div class="section" id="executing-an-async-command">
+<h2>Executing an Async Command<a class="headerlink" href="#executing-an-async-command" title="Permalink to this headline">¶</a></h2>
+<p>From the user’s perspective, there isn’t too much that is different about an async
+command. Commands are executed the same way as non-async commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python examples/async.py
+&gt; deploy -duration 5
++----------+
+| Duration |
++----------+
+| 5        |
++----------+
+&gt;
+</pre></div>
+</div>
+<p>If the user knows that the command will take a long time, they may wish to run
+it from the background to begin with. In this case, they can pass <code class="docutils literal notranslate"><span class="pre">-background</span></code>
+when starting the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python examples/async.py
+&gt; deploy -duration 5 -background
+^Z
+Job 2 is running in the background
+&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-an-async-command-to-the-background">
+<h2>Send an Async Command to the Background<a class="headerlink" href="#send-an-async-command-to-the-background" title="Permalink to this headline">¶</a></h2>
+<p>If the command was started in the foreground and the users wishes to run other commands
+while the first is executing, they can press <code class="docutils literal notranslate"><span class="pre">ctrl+z</span></code> to send it to the background.
+When doing this, the command continues to execute, but the user is free to run other
+commands as well:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python examples/async.py
+&gt; deploy -duration 30
+^Z
+Job 1 is running in the background
+&gt; deploy status
+The current deployment is 20.0% complete
+&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="bring-a-backgrounded-command-back-to-the-foreground">
+<h2>Bring a Backgrounded Command Back to the Foreground<a class="headerlink" href="#bring-a-backgrounded-command-back-to-the-foreground" title="Permalink to this headline">¶</a></h2>
+<p>After a command was sent to the background, the shell prints a message indicating
+the job number associated with the command. The user may re-attach to the command
+by using the <code class="docutils literal notranslate"><span class="pre">fg</span></code> builtin. This will bring the command back to the foreground
+and once again block user input until the command has completed:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; deploy -duration 30
+^Z
+Job 2 is running in the background
+&gt; deploy status
+The current deployment is 26.666666666666668% complete
+&gt; fg -job 2
++----------+
+| Duration |
++----------+
+| 30       |
++----------+
+&gt;
+</pre></div>
+</div>
+<p>If the command completed executing while in the background, it remains avaialable
+for the user to foreground it in order to retrieve its result. In this case, the
+user can expect to execute the <code class="docutils literal notranslate"><span class="pre">fg</span></code> command and the result would be printed immediately.</p>
+<p>Once a command execution has finished and the result has been returned, whether
+it finished in the foreground or it was foregrounded after completion, the entry
+is cleaned up and it is no longer available to be foregrounded:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; deploy -duration 30
+^Z
+Job 3 is running in the background
+&gt; fg -job 3
++----------+
+| Duration |
++----------+
+| 30       |
++----------+
+&gt; fg -job 3
+Could not find a running job for 3
+&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../todo/index.html" class="btn btn-neutral float-right" title="Things To Do" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../help_text/index.html" class="btn btn-neutral float-left" title="Command Help and Man Pages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

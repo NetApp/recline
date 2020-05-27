@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Input and Output &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Command Help and Man Pages" href="../help_text/index.html" />
+    <link rel="prev" title="Quickstart" href="../quickstart/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-checking">Input Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-formatting">Output Formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/modules.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Input and Output</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/input_output/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="input-and-output">
+<h1>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h1>
+<p>In the following examples, we will be discussing this code:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">import</span> <span class="nn">cliche</span>
+<span class="kn">from</span> <span class="nn">cliche.arg_types.ranged_int</span> <span class="kn">import</span> <span class="n">RangedInt</span>
+<span class="kn">from</span> <span class="nn">cliche.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
+<span class="kn">from</span> <span class="nn">cliche.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+
+
+<span class="n">cakes</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake make&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">make_cake</span><span class="p">(</span>
+    <span class="n">layers</span><span class="p">:</span> <span class="n">RangedInt</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">flavor</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">([</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;marble&#39;</span><span class="p">]),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Make a cake with the specified number of layers</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        layers: The number of layers to make must be provided which is</span>
+<span class="sd">            an integer between 2 and 10.</span>
+<span class="sd">        flavor: The type of cake to make.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cakes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;cake layers&#39;</span><span class="p">,</span> <span class="n">layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;flavor&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">)]),</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s1">&#39;Made a </span><span class="si">%s</span><span class="s1"> layer </span><span class="si">%s</span><span class="s1"> cake. Sorry, I burned one layer.&#39;</span> <span class="o">%</span>
+        <span class="p">(</span><span class="n">layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake show&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_cake</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Show all of our completed cake work&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">cakes</span>
+
+
+<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">history_file</span><span class="o">=</span><span class="s1">&#39;.cake_history.txt&#39;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s1">&#39;::&gt; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Which produces the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; help
+Available Commands:
+
+cake make - Make the specified number of cakes
+cake show - Show all of our completed cake work
+
+Built-in Commands
+-----------------
+exit - Exit the application
+help - Display a list of available commands and their short description
+man - Display the full man page for a given command
+</pre></div>
+</div>
+<div class="section" id="input-checking">
+<h2>Input Checking<a class="headerlink" href="#input-checking" title="Permalink to this headline">¶</a></h2>
+<p>In the example above, the <code class="docutils literal notranslate"><span class="pre">cake</span> <span class="pre">make</span></code> command takes two required parameters, number and type.
+The layers parameter must be between 2 and 10 and this is checking is done by the
+cliche library itself and only after the parameter has been verified will the command
+actually be invoked. Here’s an example of what it looks like if the argument passed
+does not match the requirements:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; cake make -flavor chocolate -layers 1
+layers: &quot;1&quot; is not an integer in the range {2-10}.
+::&gt; cake make -flavor bogus -layers 2
+flavor: &quot;bogus&quot; must be one of chocolate, vanilla, marble.
+</pre></div>
+</div>
+<p>If the user provides valid inputs, then the command will be invoked and its function
+body will execute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; cake make -flavor chocolate -layers 2
+Made a 1 layer chocolate cake. Sorry, I burned one layer.
+::&gt; cake make -flavor chocolate -layers 5
+Made a 4 layer chocolate cake. Sorry, I burned one layer.
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-formatting">
+<h2>Output Formatting<a class="headerlink" href="#output-formatting" title="Permalink to this headline">¶</a></h2>
+<p>There are often two kinds of commands. Commands that Create, Update, or Delete are
+one type, and commands that Read values are another. For commands that are about
+reading and displaying data, it is often useful to run that data through some sort
+of common formatting so that similar commands look similar to the user. In our cake
+application, the <code class="docutils literal notranslate"><span class="pre">cake</span> <span class="pre">show</span></code> command lists the cakes that have been made. Here’s
+what the output might look like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; cake show
++-------------+-----------+
+| Cake Layers | Flavor    |
++-------------+-----------+
+| 1           | chocolate |
+| 4           | chocolate |
++-------------+-----------+
+</pre></div>
+</div>
+<p>In our implementation code, all we needed to do was to return data that was in a
+tablular sort of format (in this case, an iterable which contains key/value pairs of data).
+The cliche library provides a common TableFormat class which knows how to construct
+the table shown above based on the sizes of the headers and values in the output.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../help_text/index.html" class="btn btn-neutral float-right" title="Command Help and Man Pages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../quickstart/index.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

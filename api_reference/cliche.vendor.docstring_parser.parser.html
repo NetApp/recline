@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cliche.vendor.docstring_parser.parser package &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="cliche.vendor.docstring_parser package" href="cliche.vendor.docstring_parser.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cliche.html">cliche package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cliche.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cliche.arg_types.html">cliche.arg_types package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.commands.html">cliche.commands package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.formatters.html">cliche.formatters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.repl.html">cliche.repl package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cliche.vendor.html">cliche.vendor package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cliche.html#module-cliche">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="cliche.html">cliche package</a> &raquo;</li>
+        
+          <li><a href="cliche.vendor.html">cliche.vendor package</a> &raquo;</li>
+        
+          <li><a href="cliche.vendor.docstring_parser.html">cliche.vendor.docstring_parser package</a> &raquo;</li>
+        
+      <li>cliche.vendor.docstring_parser.parser package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_reference/cliche.vendor.docstring_parser.parser.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cliche-vendor-docstring-parser-parser-package">
+<h1>cliche.vendor.docstring_parser.parser package<a class="headerlink" href="#cliche-vendor-docstring-parser-parser-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cliche.vendor.docstring_parser.parser.common">
+<span id="cliche-vendor-docstring-parser-parser-common-module"></span><h2>cliche.vendor.docstring_parser.parser.common module<a class="headerlink" href="#module-cliche.vendor.docstring_parser.parser.common" title="Permalink to this headline">¶</a></h2>
+<p>Common methods for parsing.</p>
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.Docstring">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">Docstring</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.Docstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Docstring object representation.</p>
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.Docstring.examples">
+<em class="property">property </em><code class="sig-name descname">examples</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.Docstring.examples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return example information indicated in docstring.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.Docstring.params">
+<em class="property">property </em><code class="sig-name descname">params</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.Docstring.params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return parameters indicated in docstring.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.Docstring.raises">
+<em class="property">property </em><code class="sig-name descname">raises</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.Docstring.raises" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return exceptions indicated in docstring.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.Docstring.returns">
+<em class="property">property </em><code class="sig-name descname">returns</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.Docstring.returns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return return information indicated in docstring.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringExamples">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">DocstringExamples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringExamples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta</span></code></a></p>
+<p>DocstringMeta symbolizing :examples metadata.</p>
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringExamples.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringExamples.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the example name associated with given param.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringMeta">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">DocstringMeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Docstring meta information.</p>
+<p>Symbolizes lines in form of</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param arg</dt>
+<dd class="field-odd"><p>description</p>
+</dd>
+<dt class="field-even">raises ValueError</dt>
+<dd class="field-even"><p>if something happens</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringMeta.from_meta">
+<em class="property">classmethod </em><code class="sig-name descname">from_meta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meta</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.DocstringMeta" title="cliche.vendor.docstring_parser.parser.common.DocstringMeta">cliche.vendor.docstring_parser.parser.common.DocstringMeta</a></span></em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringMeta.from_meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy DocstringMeta from another instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringParam">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">DocstringParam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.DocstringMeta" title="cliche.vendor.docstring_parser.parser.common.DocstringMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.vendor.docstring_parser.parser.common.DocstringMeta</span></code></a></p>
+<p>DocstringMeta symbolizing :param metadata.</p>
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringParam.arg_name">
+<em class="property">property </em><code class="sig-name descname">arg_name</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringParam.arg_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return argument name associated with given param.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringParam.type_name">
+<em class="property">property </em><code class="sig-name descname">type_name</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringParam.type_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return type name associated with given param.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringRaises">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">DocstringRaises</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringRaises" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta</span></code></a></p>
+<p>DocstringMeta symbolizing :raises metadata.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringReturns">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">DocstringReturns</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringReturns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta</span></code></a></p>
+<p>DocstringMeta symbolizing :returns metadata.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">DocstringTypeMeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.DocstringMeta" title="cliche.vendor.docstring_parser.parser.common.DocstringMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.vendor.docstring_parser.parser.common.DocstringMeta</span></code></a></p>
+<p>Docstring meta whose only optional arg contains type information.</p>
+<dl class="py method">
+<dt id="cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta.type_name">
+<em class="property">property </em><code class="sig-name descname">type_name</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.DocstringTypeMeta.type_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return type name associated with given docstring metadata.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt id="cliche.vendor.docstring_parser.parser.common.ParseError">
+<em class="property">exception </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.common.</code><code class="sig-name descname">ParseError</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.common.ParseError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+<p>Base class for all parsing related errors.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.vendor.docstring_parser.parser.google">
+<span id="cliche-vendor-docstring-parser-parser-google-module"></span><h2>cliche.vendor.docstring_parser.parser.google module<a class="headerlink" href="#module-cliche.vendor.docstring_parser.parser.google" title="Permalink to this headline">¶</a></h2>
+<p>Google-style docstring parsing.</p>
+<dl class="py function">
+<dt id="cliche.vendor.docstring_parser.parser.google.parse">
+<code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.google.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.Docstring" title="cliche.vendor.docstring_parser.parser.common.Docstring">cliche.vendor.docstring_parser.parser.common.Docstring</a><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.google.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the Google-style docstring into its components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>parsed docstring</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.vendor.docstring_parser.parser.rest">
+<span id="cliche-vendor-docstring-parser-parser-rest-module"></span><h2>cliche.vendor.docstring_parser.parser.rest module<a class="headerlink" href="#module-cliche.vendor.docstring_parser.parser.rest" title="Permalink to this headline">¶</a></h2>
+<p>ReST-style docstring parsing.</p>
+<dl class="py function">
+<dt id="cliche.vendor.docstring_parser.parser.rest.parse">
+<code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.rest.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.Docstring" title="cliche.vendor.docstring_parser.parser.common.Docstring">cliche.vendor.docstring_parser.parser.common.Docstring</a><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.rest.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the ReST-style docstring into its components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>parsed docstring</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cliche.vendor.docstring_parser.parser">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cliche.vendor.docstring_parser.parser" title="Permalink to this headline">¶</a></h2>
+<p>Docstring parsing.</p>
+<dl class="py class">
+<dt id="cliche.vendor.docstring_parser.parser.Style">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.</code><code class="sig-name descname">Style</code><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.Style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="cliche.vendor.docstring_parser.parser.Style.auto">
+<code class="sig-name descname">auto</code><em class="property"> = 3</em><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.Style.auto" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cliche.vendor.docstring_parser.parser.Style.google">
+<code class="sig-name descname">google</code><em class="property"> = 2</em><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.Style.google" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="cliche.vendor.docstring_parser.parser.Style.rest">
+<code class="sig-name descname">rest</code><em class="property"> = 1</em><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.Style.rest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cliche.vendor.docstring_parser.parser.parse">
+<code class="sig-prename descclassname">cliche.vendor.docstring_parser.parser.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param">text: str</em>, <em class="sig-param">style: cliche.vendor.docstring_parser.parser.Style = &lt;Style.auto: 3&gt;</em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#cliche.vendor.docstring_parser.parser.common.Docstring" title="cliche.vendor.docstring_parser.parser.common.Docstring">cliche.vendor.docstring_parser.parser.common.Docstring</a><a class="headerlink" href="#cliche.vendor.docstring_parser.parser.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the docstring into its components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – docstring text to parse</p></li>
+<li><p><strong>style</strong> – docstring style</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parsed docstring representation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="cliche.vendor.docstring_parser.html" class="btn btn-neutral float-left" title="cliche.vendor.docstring_parser package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
