@@ -1,4 +1,5 @@
 ![](https://github.com/NetApp/cliche/workflows/build/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/NetApp/cliche/branch/master/graph/badge.svg?token=QPHL12QH4N)](https://codecov.io/gh/NetApp/cliche)
 [![Gitter](https://badges.gitter.im/netapp-cliche/community.svg)](https://gitter.im/netapp-cliche/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # cliche
