@@ -1,16 +1,11 @@
-name: on_pull_request
-on:
-  pull_request:
-    branches: [master]
+name: build
+on: push
 jobs:
-  reviewdog:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Install Build Tools
         run: |
-          mkdir -p $HOME/bin
-          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b $HOME/bin
-          echo ::add-path::$HOME/bin
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
           echo ::add-path::$HOME/.poetry/bin
       - uses: actions/checkout@v2
@@ -22,8 +17,6 @@ jobs:
           POETRY_VIRTUALENVS_CREATE: "false"
         run: |
           poetry install
-      - name: Run reviewdog
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Package
         run: |
-          poetry run pylint -j 0 --ignore=vendor cliche | reviewdog -reporter=github-pr-check -diff="git diff master" -efm="%f:%l:%c: %m"
+          poetry build
