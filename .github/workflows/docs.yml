@@ -1,10 +1,10 @@
-name: build
+name: docs
 on:
   push:
     branches:
       - master
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Build Tools
