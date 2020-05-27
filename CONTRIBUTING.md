@@ -37,8 +37,8 @@ $ poetry build
 ### Building the docs
 
 ```
-$ poetry run sphinx-apidoc -H "API Reference" -o docs/api_reference cliche
-$ poetry run sphinx-build -b html docs build/html
+$ poetry run sphinx-apidoc -H "API Reference" -o doc_source/api_reference cliche
+$ poetry run sphinx-build -b html doc_source build/html
 ```
 
 ## Filing Issues

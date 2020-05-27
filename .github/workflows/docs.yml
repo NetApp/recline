@@ -1,0 +1,33 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Build Tools
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+          echo ::add-path::$HOME/.poetry/bin
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.5"
+      - name: Install Python Requirements
+        env:
+          POETRY_VIRTUALENVS_CREATE: "false"
+        run: |
+          poetry install
+      - name: Build Docs
+        run: |
+          poetry run sphinx-apidoc -H "API Reference" -o doc_source/api_reference cliche
+          poetry run sphinx-build -b html doc_source build/html
+          cp -r build/html/* docs/
+      - name: Publish Docs
+          uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH: gh-pages
+            FOLDER: docs
