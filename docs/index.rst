@@ -96,7 +96,8 @@ it also comes with full power features for larger use cases including:
     quickstart/index
     input_output/index
     help_text/index
-    shell_behavior/index
+    tab_completion/index
+    command_chaining/index
     async_commands/index
     todo/index
     api_reference/modules
