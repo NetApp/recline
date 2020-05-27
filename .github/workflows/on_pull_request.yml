@@ -14,6 +14,9 @@ jobs:
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
           echo ::add-path::$HOME/.poetry/bin
       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.5"
       - name: Install Python Requirements
         env:
           POETRY_VIRTUALENVS_CREATE: "false"
