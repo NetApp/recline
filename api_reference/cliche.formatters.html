@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cliche.repl package" href="cliche.repl.html" />
-    <link rel="prev" title="cliche.commands package" href="cliche.commands.html" /> 
+    <link rel="next" title="cliche.formatters.output_formatter module" href="cliche.formatters.output_formatter.html" />
+    <link rel="prev" title="cliche.commands.man_utils module" href="cliche.commands.man_utils.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,6 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell_behavior/index.html">Shell Behavior</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
@@ -95,7 +96,6 @@
 <li class="toctree-l4"><a class="reference internal" href="cliche.commands.html">cliche.commands package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">cliche.formatters package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cliche.repl.html">cliche.repl package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cliche.vendor.html">cliche.vendor package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="cliche.html#module-cliche">Module contents</a></li>
@@ -175,67 +175,12 @@
 <h1>cliche.formatters package<a class="headerlink" href="#cliche-formatters-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cliche.formatters.output_formatter.html">cliche.formatters.output_formatter module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cliche.formatters.table_formatter.html">cliche.formatters.table_formatter module</a></li>
+</ul>
 </div>
-<div class="section" id="module-cliche.formatters.output_formatter">
-<span id="cliche-formatters-output-formatter-module"></span><h2>cliche.formatters.output_formatter module<a class="headerlink" href="#module-cliche.formatters.output_formatter" title="Permalink to this headline">¶</a></h2>
-<p>This module contains the abstract class that all other output formatters should
-inherit from</p>
-<dl class="py class">
-<dt id="cliche.formatters.output_formatter.OutputFormatter">
-<em class="property">class </em><code class="sig-prename descclassname">cliche.formatters.output_formatter.</code><code class="sig-name descname">OutputFormatter</code><a class="headerlink" href="#cliche.formatters.output_formatter.OutputFormatter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p>All output formatters should inherit from this class</p>
-<dl class="py method">
-<dt id="cliche.formatters.output_formatter.OutputFormatter.format_output">
-<em class="property">abstract </em><code class="sig-name descname">format_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.formatters.output_formatter.OutputFormatter.format_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>The implementation of this method should expect to receive the results
-of a command ouput and to process them and output them in whatever manner
-is appropriate for the specific formatter.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-cliche.formatters.table_formatter">
-<span id="cliche-formatters-table-formatter-module"></span><h2>cliche.formatters.table_formatter module<a class="headerlink" href="#module-cliche.formatters.table_formatter" title="Permalink to this headline">¶</a></h2>
-<p>This module contains a table formatter for CLI output. The table formatter expects
-output to be an iterable of dictionary-like objects. For example, if a CLI command
-returned something like:</p>
-<p>[{‘foo’: ‘bar’, ‘count’: 1}, {‘foo’: ‘baz’, ‘count’: 2}]</p>
-<p>Then the table formatter would print this to the screen:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 42%" />
-<col style="width: 58%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Foo</p></td>
-<td><p>Count</p></td>
-</tr>
-<tr class="row-even"><td><p>bar
-baz</p></td>
-<td><p>1
-2</p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py class">
-<dt id="cliche.formatters.table_formatter.TableFormat">
-<em class="property">class </em><code class="sig-prename descclassname">cliche.formatters.table_formatter.</code><code class="sig-name descname">TableFormat</code><a class="headerlink" href="#cliche.formatters.table_formatter.TableFormat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cliche.formatters.output_formatter.OutputFormatter" title="cliche.formatters.output_formatter.OutputFormatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.formatters.output_formatter.OutputFormatter</span></code></a></p>
-<p>A TableFormat object can be used as the return type for a CLI command. When
-specified, the returned value from the CLI command is assumed to be an interable
-of dictionary-like objects. All of the objects are assumed to be homogenous
-with respsect to their keys. It will print out a table representing the data.</p>
-<dl class="py method">
-<dt id="cliche.formatters.table_formatter.TableFormat.format_output">
-<code class="sig-name descname">format_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.formatters.table_formatter.TableFormat.format_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>If there are no results given to us, print a message, otherwise print
-a table with a row for each record in the results.</p>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 <div class="section" id="module-cliche.formatters">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cliche.formatters" title="Permalink to this headline">¶</a></h2>
@@ -254,10 +199,10 @@ which will ususally print the result to the screen for the user.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cliche.repl.html" class="btn btn-neutral float-right" title="cliche.repl package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cliche.formatters.output_formatter.html" class="btn btn-neutral float-right" title="cliche.formatters.output_formatter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cliche.commands.html" class="btn btn-neutral float-left" title="cliche.commands package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cliche.commands.man_utils.html" class="btn btn-neutral float-left" title="cliche.commands.man_utils module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

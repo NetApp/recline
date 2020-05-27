@@ -1,0 +1,7 @@
+cliche.formatters.table\_formatter module
+=========================================
+
+.. automodule:: cliche.formatters.table_formatter
+   :members:
+   :undoc-members:
+   :show-inheritance:

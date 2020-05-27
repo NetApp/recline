@@ -1,0 +1,7 @@
+cliche.commands.cli\_command module
+===================================
+
+.. automodule:: cliche.commands.cli_command
+   :members:
+   :undoc-members:
+   :show-inheritance:

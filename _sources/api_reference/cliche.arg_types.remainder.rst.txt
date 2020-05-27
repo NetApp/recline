@@ -1,0 +1,7 @@
+cliche.arg\_types.remainder module
+==================================
+
+.. automodule:: cliche.arg_types.remainder
+   :members:
+   :undoc-members:
+   :show-inheritance:

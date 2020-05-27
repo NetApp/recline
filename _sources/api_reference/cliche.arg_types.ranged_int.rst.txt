@@ -1,0 +1,7 @@
+cliche.arg\_types.ranged\_int module
+====================================
+
+.. automodule:: cliche.arg_types.ranged_int
+   :members:
+   :undoc-members:
+   :show-inheritance:

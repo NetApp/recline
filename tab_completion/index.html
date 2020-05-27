@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tab Completion &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell_behavior/index.html">Shell Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/modules.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Tab Completion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tab_completion/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tab-completion">
+<h1>Tab Completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h1>
+<p>The library provides generic tab completion functionality. This can either be
+automatic (for example, parameters of type <code class="docutils literal notranslate"><span class="pre">bool</span></code>) or provided by the business
+logic of the application. Consider the sample program below:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cliche</span>
+<span class="kn">from</span> <span class="nn">cliche.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
+<span class="kn">from</span> <span class="nn">cliche.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+
+<span class="c1"># A stand-in for a database or some other form of persistence</span>
+<span class="n">ORDERS</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">MENU</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;black bean&#39;</span><span class="p">,</span> <span class="s1">&#39;choirizo&#39;</span><span class="p">,</span> <span class="s1">&#39;steak&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">get_customers</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">ORDERS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">get_order_types</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">o</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">ORDERS</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+
+<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;order burrito&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">order_burrito</span><span class="p">(</span>
+    <span class="n">customer_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">available_choices</span><span class="o">=</span><span class="n">MENU</span><span class="p">),</span>
+    <span class="n">grilled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Place an order for a delicious burrito</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        cusomter_name: The name of the customer who is ordering</span>
+<span class="sd">        type: Describes the fillings of the burrito</span>
+<span class="sd">        grilled: If the burrito should be browned on the grill</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ORDERS</span><span class="p">[</span><span class="n">customer_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;grilled&quot;</span><span class="p">:</span> <span class="n">grilled</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One order for a </span><span class="si">%s</span><span class="s2"> burrito, coming up!&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">)</span>
+
+<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;show orders&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_orders</span><span class="p">(</span>
+    <span class="n">customer_name</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">available_choices</span><span class="o">=</span><span class="n">get_customers</span><span class="p">)</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">available_choices</span><span class="o">=</span><span class="n">get_order_types</span><span class="p">)</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">grilled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;List all of the orders that match the given query</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        cusomter_name: The name of the customer who made the order</span>
+<span class="sd">        type: The type of burrito that was ordered</span>
+<span class="sd">        grilled: List only burritos with this grilling status</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of all orders matching the query</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">matching_orders</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">customer</span><span class="p">,</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">ORDERS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">customer_name</span> <span class="ow">and</span> <span class="n">customer</span> <span class="o">!=</span> <span class="n">customer_name</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="ow">and</span> <span class="nb">type</span> <span class="o">!=</span> <span class="n">order</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">grilled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">grilled</span> <span class="o">!=</span> <span class="n">order</span><span class="p">[</span><span class="s2">&quot;grilled&quot;</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="n">matching_orders</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;customer&quot;</span><span class="p">:</span> <span class="n">customer</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">order</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span> <span class="s2">&quot;grilled&quot;</span><span class="p">:</span> <span class="n">order</span><span class="p">[</span><span class="s2">&quot;grilled&quot;</span><span class="p">]})</span>
+
+    <span class="k">return</span> <span class="n">matching_orders</span>
+
+<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;tacos galore&gt; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the examples below, I will put the string <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> in the output to show
+where the <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> key was typed. The characters are not literally displayed
+when running the program.</p>
+</div>
+<div class="section" id="command-completion">
+<h2>Command Completion<a class="headerlink" href="#command-completion" title="Permalink to this headline">¶</a></h2>
+<p>The first level of tab completion is command completion. This means that the user
+can press the <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> key in order to show the list of commands the matches the
+current input on the command line. For example, if there was nothing typed yet, the
+program above would display this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; [Tab]
+?              debug          exit
+fg             help           man
+order burrito  q              quit
+show orders
+tacos galore&gt;
+</pre></div>
+</div>
+<p>Here, all of the available commands, including the builtin commands are shown. If
+the user started typing the command they wanted to execute and then hit <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code>,
+it might look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; ord[Tab]
+tacos galore&gt; order burrito
+</pre></div>
+</div>
+<p>Hard to show here, but there would not be two lines on the display. The library
+knows that the only command that matches the prefix <code class="docutils literal notranslate"><span class="pre">ord</span></code> is <code class="docutils literal notranslate"><span class="pre">order</span> <span class="pre">burrito</span></code>
+and completes the rest of the words.</p>
+</div>
+<div class="section" id="argument-completion">
+<h2>Argument Completion<a class="headerlink" href="#argument-completion" title="Permalink to this headline">¶</a></h2>
+<p>Continuing from the last section, if the user presses <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> immediately,
+they will be shown a list of available arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; order burrito [Tab]
+-customer_name  -grilled        -type
+tacos galore&gt; order burrito -
+</pre></div>
+</div>
+<p>Here, we can see that the list is shown starting on the next line and then the
+library reprinted what was already typed and started filling in the common prefix
+that all of the arguments have in common (in this case, just a <code class="docutils literal notranslate"><span class="pre">-</span></code>). If there
+had been more of a common prefix, it would have included that as well.</p>
+<p>Knowing that they want to fill in the type field, the user types a <code class="docutils literal notranslate"><span class="pre">t</span></code> and presses
+<code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> again:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; order burrito -t[Tab]
+tacos galore&gt; order burrito -type
+</pre></div>
+</div>
+<p>Again, this would not appear on two lines on the display.</p>
+</div>
+<div class="section" id="value-completion">
+<h2>Value Completion<a class="headerlink" href="#value-completion" title="Permalink to this headline">¶</a></h2>
+<p>Continuing from the last section, the user wants to complete an order so they
+press <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> once more to determine which types are available:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; order burrito -type [Tab]
+black\ bean  choirizo     steak
+tacos galore&gt; order burrito -type ch[Tab]
+tacos galore&gt; order burrito -type chorizo -cust[Tab]
+tacos galore&gt; order burrito -type chorizo -customer_name Suzane
+One order for a choirizo burrito, coming up!
+tacos galore&gt;
+</pre></div>
+</div>
+<p>After finishing our order, we can see the current orders by again pressing <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code>
+as we navigate the show command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; sh[Tab]
+tacos galore&gt; show orders [Tab]
+-customer_name  -grilled        -type
+tacos galore&gt; show orders -cu[Tab]
+tacos galore&gt; show orders -customer_name [Tab]
+tacos galore&gt; show orders -customer_name Suzane
++----------+----------+---------+
+| Customer | Type     | Grilled |
++----------+----------+---------+
+| Suzane   | choirizo | True    |
++----------+----------+---------+
+tacos galore&gt;
+</pre></div>
+</div>
+<p>Since we pressed <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> to find the possible choices for customer name and there
+was only one, the library filled it in for us. If there was more than one value
+available, it would have showed us choices like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; order burrito -type choirizo -customer_name Sue
+One order for a choirizo burrito, coming up!
+tacos galore&gt; show orders -customer_name [Tab]
+Sue     Suzane
+tacos galore&gt; show orders -customer_name Su
+</pre></div>
+</div>
+<p>We can see that this time, since they share a prefix, the library filled in the
+common parts of the name and waits for the user to give more uniqueness.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

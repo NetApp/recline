@@ -1,0 +1,7 @@
+cliche.repl.shell module
+========================
+
+.. automodule:: cliche.repl.shell
+   :members:
+   :undoc-members:
+   :show-inheritance:

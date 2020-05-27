@@ -1,0 +1,7 @@
+cliche.arg\_types.positional module
+===================================
+
+.. automodule:: cliche.arg_types.positional
+   :members:
+   :undoc-members:
+   :show-inheritance:

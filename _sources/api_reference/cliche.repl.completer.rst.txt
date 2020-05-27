@@ -1,0 +1,7 @@
+cliche.repl.completer module
+============================
+
+.. automodule:: cliche.repl.completer
+   :members:
+   :undoc-members:
+   :show-inheritance:

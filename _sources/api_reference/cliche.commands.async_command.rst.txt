@@ -1,0 +1,7 @@
+cliche.commands.async\_command module
+=====================================
+
+.. automodule:: cliche.commands.async_command
+   :members:
+   :undoc-members:
+   :show-inheritance:

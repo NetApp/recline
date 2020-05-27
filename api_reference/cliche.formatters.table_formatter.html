@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cliche.formatters.table_formatter module &mdash; cliche 2020.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cliche.repl package" href="cliche.repl.html" />
+    <link rel="prev" title="cliche.formatters.output_formatter module" href="cliche.formatters.output_formatter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cliche
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell_behavior/index.html">Shell Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cliche.html">cliche package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="cliche.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cliche.arg_types.html">cliche.arg_types package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.commands.html">cliche.commands package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cliche.formatters.html">cliche.formatters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cliche.repl.html">cliche.repl package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cliche.html#module-cliche">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cliche</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="cliche.html">cliche package</a> &raquo;</li>
+        
+          <li><a href="cliche.formatters.html">cliche.formatters package</a> &raquo;</li>
+        
+      <li>cliche.formatters.table_formatter module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_reference/cliche.formatters.table_formatter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cliche.formatters.table_formatter">
+<span id="cliche-formatters-table-formatter-module"></span><h1>cliche.formatters.table_formatter module<a class="headerlink" href="#module-cliche.formatters.table_formatter" title="Permalink to this headline">¶</a></h1>
+<p>This module contains a table formatter for CLI output. The table formatter expects
+output to be an iterable of dictionary-like objects. For example, if a CLI command
+returned something like:</p>
+<p>[{‘foo’: ‘bar’, ‘count’: 1}, {‘foo’: ‘baz’, ‘count’: 2}]</p>
+<p>Then the table formatter would print this to the screen:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 58%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Foo</p></td>
+<td><p>Count</p></td>
+</tr>
+<tr class="row-even"><td><p>bar
+baz</p></td>
+<td><p>1
+2</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="cliche.formatters.table_formatter.TableFormat">
+<em class="property">class </em><code class="sig-prename descclassname">cliche.formatters.table_formatter.</code><code class="sig-name descname">TableFormat</code><a class="headerlink" href="#cliche.formatters.table_formatter.TableFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cliche.formatters.output_formatter.html#cliche.formatters.output_formatter.OutputFormatter" title="cliche.formatters.output_formatter.OutputFormatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">cliche.formatters.output_formatter.OutputFormatter</span></code></a></p>
+<p>A TableFormat object can be used as the return type for a CLI command. When
+specified, the returned value from the CLI command is assumed to be an interable
+of dictionary-like objects. All of the objects are assumed to be homogenous
+with respsect to their keys. It will print out a table representing the data.</p>
+<dl class="py method">
+<dt id="cliche.formatters.table_formatter.TableFormat.format_output">
+<code class="sig-name descname">format_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cliche.formatters.table_formatter.TableFormat.format_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>If there are no results given to us, print a message, otherwise print
+a table with a row for each record in the results.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cliche.repl.html" class="btn btn-neutral float-right" title="cliche.repl package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cliche.formatters.output_formatter.html" class="btn btn-neutral float-left" title="cliche.formatters.output_formatter module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

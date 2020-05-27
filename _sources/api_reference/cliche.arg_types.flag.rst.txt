@@ -1,0 +1,7 @@
+cliche.arg\_types.flag module
+=============================
+
+.. automodule:: cliche.arg_types.flag
+   :members:
+   :undoc-members:
+   :show-inheritance:

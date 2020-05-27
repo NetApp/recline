@@ -1,3 +1,4 @@
+.. _async-commands:
 Async Commands
 ==============
 
