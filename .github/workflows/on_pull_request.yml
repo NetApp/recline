@@ -6,13 +6,15 @@ jobs:
   reviewdog:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Requirements
+      - name: Install Build Tools
         run: |
           mkdir -p $HOME/bin
           curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b $HOME/bin
           echo ::add-path::$HOME/bin
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
           echo ::add-path::$HOME/.poetry/bin
+      -name: Install Python Requirements
+        run: |
           poetry install
       - uses: actions/checkout@v2
       - name: Run reviewdog
