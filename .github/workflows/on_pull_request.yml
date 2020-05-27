@@ -13,7 +13,7 @@ jobs:
           echo ::add-path::$HOME/bin
           curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
           echo ::add-path::$HOME/.poetry/bin
-      -name: Install Python Requirements
+      - name: Install Python Requirements
         run: |
           poetry install
       - uses: actions/checkout@v2
