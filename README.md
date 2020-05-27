@@ -133,7 +133,7 @@ I'm at your command, Dave
 $
 ```
 
-See the full documentation for more advanced usages and examples
+See the [full documentation](https://netapp.github.io/cliche) for more advanced usages and examples
 
 # Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 

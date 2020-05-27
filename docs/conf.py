@@ -35,7 +35,14 @@ release = cliche.__version__
 extensions = [
     'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
+    'sphinxcontrib.apidoc',
 ]
+
+apidoc_module_dir = '../cliche'
+apidoc_output_dir = 'api_reference'
+apidoc_excluded_paths = ['vendor']
+apidoc_separate_modules = True
+apidoc_extra_args = ["-H", "API Reference"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

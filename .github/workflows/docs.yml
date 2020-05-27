@@ -22,12 +22,11 @@ jobs:
           poetry install
       - name: Build Docs
         run: |
-          poetry run sphinx-apidoc -H "API Reference" -o doc_source/api_reference cliche
-          poetry run sphinx-build -b html doc_source build/html
-          cp -r build/html/* docs/
+          poetry run sphinx-apidoc -H "API Reference" -o docs/api_reference cliche
+          poetry run sphinx-build -b html docs build/html
       - name: Publish Docs
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: docs
+          FOLDER: build/html
