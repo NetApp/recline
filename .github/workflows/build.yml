@@ -19,7 +19,7 @@ jobs:
           poetry install
       - name: Build Package
         run: |
-          poetry run pytest --cov=cliche --cov-report=xml tests
+          poetry run pytest --cov=recline --cov-report=xml tests
           poetry build
       # skip this for now
       # - name: Upload coverage to Codecov

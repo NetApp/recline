@@ -8,9 +8,9 @@ import re
 import readline
 import sys
 
-import cliche
-from cliche.arg_types.cliche_type import UniqueParam
-from cliche.vendor import argcomplete
+import recline
+from recline.arg_types.recline_type import UniqueParam
+from recline.vendor import argcomplete
 
 
 def match_command_hook(substitution, matches, *_):
@@ -30,8 +30,8 @@ def match_command_hook(substitution, matches, *_):
 
     sys.stdout.write(
         '\n%s\n%s%s\r%s%s' % (
-            print_columns(completions), cliche.PROMPT, current_line,
-            cliche.PROMPT, current_line[:end],
+            print_columns(completions), recline.PROMPT, current_line,
+            recline.PROMPT, current_line[:end],
         )
     )
 

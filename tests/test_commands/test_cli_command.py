@@ -2,18 +2,18 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.commands.cli_command module
+A test module for the recline.commands.cli_command module
 """
 
 from typing import List
 
 import pytest
 
-import cliche
-from cliche.arg_types.choices import Choices
-from cliche.arg_types.flag import Flag
-from cliche.commands.cli_command import CLICommand
-from cliche.formatters.table_formatter import TableFormat
+import recline
+from recline.arg_types.choices import Choices
+from recline.arg_types.flag import Flag
+from recline.commands.cli_command import CLICommand
+from recline.formatters.table_formatter import TableFormat
 
 
 # pylint: disable=bad-continuation,unused-argument
@@ -110,40 +110,40 @@ def test_get_command_help():
 def test_register_start():
     """Verify we can register a single command run run at the start of the applciation"""
 
-    cliche.commands.START_COMMAND = None
+    recline.commands.START_COMMAND = None
 
-    @cliche.command(atstart=True)
+    @recline.command(atstart=True)
     def start_cmd():
         """This command will run at the start of the application"""
 
     assert (
-        cliche.commands.START_COMMAND.func == start_cmd  # pylint: disable=comparison-with-callable
+        recline.commands.START_COMMAND.func == start_cmd  # pylint: disable=comparison-with-callable
     )
 
     with pytest.raises(RuntimeError):
-        @cliche.command(atstart=True)
+        @recline.command(atstart=True)
         def another_start_cmd():  # pylint: disable=unused-variable
             """Can only have one start command"""
 
-    cliche.commands.START_COMMAND = None
+    recline.commands.START_COMMAND = None
 
 
 def test_register_exit():
     """Verify we can register a single command to run at the end of the applciation"""
 
-    cliche.commands.EXIT_COMMAND = None
+    recline.commands.EXIT_COMMAND = None
 
-    @cliche.command(atexit=True)
+    @recline.command(atexit=True)
     def exit_cmd():
         """This command will run at the exit of the application"""
 
     assert (
-        cliche.commands.EXIT_COMMAND.func == exit_cmd  # pylint: disable=comparison-with-callable
+        recline.commands.EXIT_COMMAND.func == exit_cmd  # pylint: disable=comparison-with-callable
     )
 
     with pytest.raises(RuntimeError):
-        @cliche.command(atexit=True)
+        @recline.command(atexit=True)
         def another_exit_cmd():  # pylint: disable=unused-variable
             """Can only have one exit command"""
 
-    cliche.commands.EXIT_COMMAND = None
+    recline.commands.EXIT_COMMAND = None

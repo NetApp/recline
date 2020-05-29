@@ -2,7 +2,7 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.arg_types.positional module
+A test module for the recline.arg_types.positional module
 """
 
 import argparse
@@ -10,12 +10,12 @@ from contextlib import ExitStack as does_not_raise
 
 import pytest
 
-from cliche.arg_types.cliche_type_error import ClicheTypeError
-from cliche.arg_types.positional import Positional
+from recline.arg_types.recline_type_error import ReclineTypeError
+from recline.arg_types.positional import Positional
 
 
 @pytest.mark.parametrize("user_input, expectation", [
-    ("my_dir", does_not_raise()), ("", pytest.raises(ClicheTypeError)),
+    ("my_dir", does_not_raise()), ("", pytest.raises(ReclineTypeError)),
 ])
 def test_positional(user_input, expectation):
     """Verify the Positional type will assert the user provided something"""
@@ -38,7 +38,7 @@ def test_positional(user_input, expectation):
 
 
 @pytest.mark.parametrize("user_input, data_type, expectation", [
-    ("my_val", str, does_not_raise()), ("my_val", int, pytest.raises(ClicheTypeError)),
+    ("my_val", str, does_not_raise()), ("my_val", int, pytest.raises(ReclineTypeError)),
 ])
 def test_positional_type(user_input, data_type, expectation):
     """Verify the Positional type will assert the user provided a correct type"""

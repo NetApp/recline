@@ -1,5 +1,5 @@
 """
-This is the implementation of an async command for the cliche library. It allows
+This is the implementation of an async command for the recline library. It allows
 for a command to be run in the foreground or background.
 """
 
@@ -14,7 +14,7 @@ from threading import Thread
 import time
 from typing import Any
 
-import cliche
+import recline
 
 
 class CommandBackgrounded(Exception):
@@ -37,7 +37,7 @@ class CommandCancelled(Exception):
 
 # pylint: disable=too-many-instance-attributes
 class AsyncCommand(Thread):
-    """This is a custom Thread class meant to wrap an asynchronous cliche command.
+    """This is a custom Thread class meant to wrap an asynchronous recline command.
 
     It provides the ability to gather a result as well as put the thread in the
     foreground or the background of the main REPL thread.
@@ -49,9 +49,9 @@ class AsyncCommand(Thread):
         self.result = None
         self.exception = None
         self.command = command
-        self.job_pid = cliche.NEXT_JOB_PID
-        cliche.JOBS[self.job_pid] = self
-        cliche.NEXT_JOB_PID += 1
+        self.job_pid = recline.NEXT_JOB_PID
+        recline.JOBS[self.job_pid] = self
+        recline.NEXT_JOB_PID += 1
 
         self._args = args
         self._kwargs = kwargs
@@ -84,7 +84,7 @@ class AsyncCommand(Thread):
         self._killed = True
         if dont_delete:
             return
-        del cliche.JOBS[self.job_pid]
+        del recline.JOBS[self.job_pid]
 
     def background(self) -> None:
         """Unblock the calling thread and put this thread into the background"""
@@ -108,9 +108,9 @@ class AsyncCommand(Thread):
             if not self._wait:
                 raise CommandBackgrounded(self.job_pid)
             if self.exception:
-                del cliche.JOBS[self.job_pid]
+                del recline.JOBS[self.job_pid]
                 raise self.exception
-            return cliche.JOBS.pop(self.job_pid).result
+            return recline.JOBS.pop(self.job_pid).result
 
     @contextmanager
     def _manipulate_signals(self):

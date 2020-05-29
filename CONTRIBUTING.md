@@ -7,7 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Building the package
 
-If you are making and testing changes to cliche itself, the following commands
+If you are making and testing changes to recline itself, the following commands
 will be useful to know. This repository makes use of [poetry](https://github.com/python-poetry/poetry)
 for configuring a virtual environment and so the commands below will reference
 it so that they are run inside of that environment. If you want more information
@@ -25,7 +25,7 @@ $ poetry install
 ### Testing changes
 
 ```
-$ poetry run pytest --cov=cliche tests
+$ poetry run pytest --cov=recline tests
 ```
 
 ### Building the package
@@ -43,7 +43,7 @@ $ poetry run sphinx-build -b html docs build/html
 ## Filing Issues
 
 If you find a bug or you have a feature request, you can file an issue using the
-GitHub [issues](https://github.com/NetApp/cliche/issues) system. Please be sure to include as much information as possible about the issue you are facing and your configuration or reproduction steps.
+GitHub [issues](https://github.com/NetApp/recline/issues) system. Please be sure to include as much information as possible about the issue you are facing and your configuration or reproduction steps.
 
 ## Creating a Pull Request
 
@@ -106,7 +106,7 @@ further defined and clarified by project maintainers.
 ### Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at ng-cliche-lib@netapp.com. All
+reported by contacting the project team at ng-netapp-oss@netapp.com. All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.

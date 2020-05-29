@@ -6,9 +6,9 @@ width.
 
 import curses
 
-from cliche.arg_types.positional import Positional
-from cliche.arg_types.remainder import Remainder
-from cliche.commands.cli_command import get_annotation_type
+from recline.arg_types.positional import Positional
+from recline.arg_types.remainder import Remainder
+from recline.commands.cli_command import get_annotation_type
 
 
 def wrapped_string(text, screen_width, prefix=0):

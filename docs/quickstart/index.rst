@@ -5,12 +5,12 @@ After installing the package, you can get started with a few lines in ``hello.py
 
 .. code-block:: Python
 
-    import cliche
+    import recline
 
-    @cliche.command
+    @recline.command
     def hello(name: str = None) -> None:
         """A basic hello world
-        
+
         You can greet just about anybody with this command if they give you
         their name!
 
@@ -22,12 +22,12 @@ After installing the package, you can get started with a few lines in ``hello.py
             response += ", %s" % name
         print(response)
 
-    cliche.run()
+    recline.relax()
 
 Interactive Mode
 ----------------
 
-The default mode when a cliche applciation is run is an interactive style. Running
+The default mode when a recline applciation is run is an interactive style. Running
 our above ``hello.py`` results in the following output::
 
     $ python hello.py
@@ -52,16 +52,16 @@ our above ``hello.py`` results in the following output::
     > hello -name Dave
     I'm at your command, Dave
     > exit
-    $ 
+    $
 
 
 Non-interactive mode
 --------------------
 
 If you would like to use the application as part of a larger script, it is much
-easier to do in a non-interactive way. This is also possible using cliche without
+easier to do in a non-interactive way. This is also possible using recline without
 needing to change the application. Here's an example::
 
     $ python hello.py -c "hello -name Dave"
     I'm at your command, Dave
-    $ 
+    $

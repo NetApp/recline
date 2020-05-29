@@ -1,22 +1,22 @@
 [tool.poetry]
-name = "cliche"
-version = "2020.6"
+name = "recline"
+version = "2020.5rc1"
 description = "Writing argparse-based command line applications can become tedious, repetitive, and clichéd.  This library helps you quickly implement an interactive command-based application in Python"
 license = "BSD-3-Clause"
-authors = ["NetApp <ng-cliche-lib@netapp.com>"]
+authors = ["NetApp <ng-netapp-oss@netapp.com>"]
 readme = "README.md"
 
-homepage = "https://github.com/NetApp/cliche"
-repository = "https://github.com/NetApp/cliche"
-documentation = "https://netapp.github.io/cliche"
-keywords = ["cli", "argparse", "cliche"]
+homepage = "https://github.com/NetApp/recline"
+repository = "https://github.com/NetApp/recline"
+documentation = "https://netapp.github.io/recline"
+keywords = ["cli", "interactive", "shell", "argparse", "recline"]
 classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: System :: Shells",
 ]
 
 packages = [
-    { include = "cliche" },
+    { include = "recline" },
     { include = "tests", format = "sdist" },
 ]
 

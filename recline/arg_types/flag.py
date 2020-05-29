@@ -5,14 +5,14 @@ bool is that no "true" or "false" input is expected of the user if the argument
 is a flag. If it is a bool, then the user must provide either "true" or "false"
 explicitly on the command line.
 
-@cliche.command
+@recline.command
 def ls(l: Flag = None) -> None:
     # If the user provided "-l" then l will be set to True. Else l will be None
 """
 
-from cliche.arg_types.cliche_type import ClicheType
+from recline.arg_types.recline_type import ReclineType
 
 
-class Flag(ClicheType):
+class Flag(ReclineType):
     """A simple flag argument which will be set to true if provided"""
     action = 'store_true'

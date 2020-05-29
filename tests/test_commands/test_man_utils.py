@@ -2,16 +2,16 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.commands.man_utils module
+A test module for the recline.commands.man_utils module
 """
 
 from inspect import Parameter
 
 import pytest
 
-from cliche.commands import man_utils
-from cliche.commands.cli_command import CLICommand
-from cliche.vendor.docstring_parser.parser.common import DocstringMeta
+from recline.commands import man_utils
+from recline.commands.cli_command import CLICommand
+from recline.vendor.docstring_parser.parser.common import DocstringMeta
 
 
 @pytest.mark.parametrize("text, screen_width, prefix, output", [

@@ -22,7 +22,7 @@ jobs:
           poetry install
       - name: Build Docs
         run: |
-          poetry run sphinx-apidoc -H "API Reference" -o docs/api_reference cliche
+          poetry run sphinx-apidoc -H "API Reference" -o docs/api_reference recline
           poetry run sphinx-build -b html docs build/html
       - name: Publish Docs
         uses: JamesIves/github-pages-deploy-action@releases/v3

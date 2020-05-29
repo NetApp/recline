@@ -16,14 +16,14 @@ program that we will highlight below:
 
     import asyncio
 
-    import cliche
-    from cliche.formatters.table_formatter import TableFormat
+    import recline
+    from recline.formatters.table_formatter import TableFormat
 
 
     PERCENT_COMPLETE = None
 
 
-    @cliche.command
+    @recline.command
     async def deploy(duration: int = 30) -> TableFormat:
         """Runs a deployment operation over a period of time
 
@@ -44,7 +44,7 @@ program that we will highlight below:
             print('I only managed to get %s out of %s seconds of sleep before you interrupted me' % (seconds_slept, duration))
 
 
-    @cliche.command(name="deploy status")
+    @recline.command(name="deploy status")
     def deploy_status() -> None:
         """Get the current deployment status percentage of an ongoing operation"""
 
@@ -55,13 +55,13 @@ program that we will highlight below:
         print("The current deployment is %s%% complete" % PERCENT_COMPLETE)
 
 
-    cliche.run()
+    recline.relax()
 
 Writing an Async Command
 ------------------------
 
 Writing a command that can be put in the background is easy. Simply add the ``async``
-keyword while defining the function. This tells cliche that the command may be long
+keyword while defining the function. This tells recline that the command may be long
 running and it allows the user of the application to execute the command and put it
 in the background or foreground as desired.
 

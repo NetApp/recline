@@ -1,5 +1,5 @@
 """
-An example of how you might implement a unix style CLI command using cliche
+An example of how you might implement a unix style CLI command using recline
 """
 
 #!/usr/bin/env python
@@ -14,9 +14,9 @@ import shutil
 import stat
 import time
 
-import cliche
-from cliche.arg_types.flag import Flag
-from cliche.arg_types.positional import Positional
+import recline
+from recline.arg_types.flag import Flag
+from recline.arg_types.positional import Positional
 
 
 COLORS = {
@@ -128,7 +128,7 @@ def render_output(output_items):
 
 
 # pylint: disable=bad-continuation,invalid-name
-@cliche.command
+@recline.command
 def ls(
     path: Positional = ".",
     a: Flag = None,
@@ -249,4 +249,4 @@ def ls(
             print(output.getvalue())
 
 
-cliche.run(single_command='ls')
+recline.relax(single_command='ls')

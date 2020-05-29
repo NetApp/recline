@@ -14,7 +14,7 @@ easier.
 Multiple Output Choices
 ***********************
 
-cliche supports output formatting, but in the current version, you can only specify
+recline supports output formatting, but in the current version, you can only specify
 a single output format type. It may make sense to support multiple output types
 for a single command and to have the application user select between them at runtime.
 
@@ -22,7 +22,7 @@ This could look something like this:
 
 .. code-block:: Python
 
-    @cliche.command(name='cake show')
+    @recline.command(name='cake show')
     def show_cake() ->  Union[TableFormat, CSVFormat, JSONFormat]
         return cakes
 
@@ -69,7 +69,7 @@ be taken and it would be up to the next command in the pipe to interpret it.
 Known Issues
 ------------
 
-Issues can be filed and tracked via GitHub: https://github.com/NetApp/cliche/issues
+Issues can be filed and tracked via GitHub: https://github.com/NetApp/recline/issues
 
 Status Codes
 ************
@@ -78,9 +78,9 @@ There is some notion of status/exit codes in the shell.py file, but they don't
 make it all the way out to the external shell when operating in non-interactive
 mode::
 
-    (pyenv) cycrh6rtp31:libCliche/$ python examples/cake.py -c "cake make"
+    $ python examples/cake.py -c "cake make"
     usage: cake.py -layers <int{2-10}> -flavor <value>
     cake.py: error: the following arguments are required: -layers, -flavor
-    (pyenv) cycrh6rtp31:libCliche/$ echo $?
+    $ echo $?
     0
-    (pyenv) cycrh6rtp31:libCliche/$
+    $

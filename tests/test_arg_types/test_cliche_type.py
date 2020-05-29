@@ -2,7 +2,7 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.arg_types.cliche_type module
+A test module for the recline.arg_types.recline_type module
 """
 
 import argparse
@@ -10,7 +10,7 @@ from contextlib import ExitStack as does_not_raise
 
 import pytest
 
-from cliche.arg_types.cliche_type import UniqueParam
+from recline.arg_types.recline_type import UniqueParam
 
 
 @pytest.mark.parametrize('user_input, expectation', [

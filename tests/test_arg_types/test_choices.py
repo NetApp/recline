@@ -2,21 +2,21 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.arg_types.choices module
+A test module for the recline.arg_types.choices module
 """
 
 from contextlib import ExitStack as does_not_raise
 
 import pytest
 
-from cliche.arg_types.choices import Choices
-from cliche.arg_types.cliche_type_error import ClicheTypeError
+from recline.arg_types.choices import Choices
+from recline.arg_types.recline_type_error import ReclineTypeError
 
 
 @pytest.mark.parametrize("valid_choices, inexact, user_choice, expectation", [
     (["chocolate", "vanilla"], False, "chocolate", does_not_raise()),
-    (["chocolate", "vanilla"], False, "strawberry", pytest.raises(ClicheTypeError)),
-    ([], False, "anything", pytest.raises(ClicheTypeError)),
+    (["chocolate", "vanilla"], False, "strawberry", pytest.raises(ReclineTypeError)),
+    ([], False, "anything", pytest.raises(ReclineTypeError)),
     (["chocolate", "vanilla"], True, "cho*", does_not_raise()),
 ])
 def test_choices(valid_choices, inexact, user_choice, expectation):
@@ -31,8 +31,8 @@ def test_choices(valid_choices, inexact, user_choice, expectation):
 @pytest.mark.parametrize("valid_choices, cache, user_choice, expectation, func_access", [
     (["chocolate", "vanilla"], True, "chocolate", does_not_raise(), 1),
     (["chocolate", "vanilla"], False, "chocolate", does_not_raise(), 3),
-    (["chocolate", "vanilla"], True, "strawberry", pytest.raises(ClicheTypeError), 1),
-    ([], "anything", False, pytest.raises(ClicheTypeError), 2),
+    (["chocolate", "vanilla"], True, "strawberry", pytest.raises(ReclineTypeError), 1),
+    ([], "anything", False, pytest.raises(ReclineTypeError), 2),
 ])
 def test_choices_callable(valid_choices, cache, user_choice, expectation, func_access):
     """Verify the Choices type will be picky about which values are allowed when

@@ -2,16 +2,16 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.commands.builtin_commands module
+A test module for the recline.commands.builtin_commands module
 """
 
 import pdb
 import pudb
 import pytest
 
-import cliche
-from cliche.commands import builtin_commands
-from cliche.commands.cli_command import CLICommand
+import recline
+from recline.commands import builtin_commands
+from recline.commands.cli_command import CLICommand
 
 
 @pytest.mark.parametrize("commands, expected_commands, expected_groups", [
@@ -50,7 +50,7 @@ def test_help_command(commands, expected_commands, expected_groups, capsys):
     """
 
     for command in commands:
-        cliche.commands.COMMAND_REGISTRY[command["name"]] = CLICommand(lambda: None, **command)
+        recline.commands.COMMAND_REGISTRY[command["name"]] = CLICommand(lambda: None, **command)
 
     builtin_commands.command_help()
     captured = capsys.readouterr()

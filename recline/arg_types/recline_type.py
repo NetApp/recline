@@ -1,5 +1,5 @@
 """
-This module contains the abstract base class for all cliche custom types
+This module contains the abstract base class for all recline custom types
 """
 
 from abc import ABC
@@ -19,8 +19,8 @@ class UniqueParam(argparse.Action):  # pylint: disable=too-few-public-methods
         setattr(namespace, self.dest, values)
 
 
-class ClicheType(ABC):
-    """The base class for all other custom types in cliche. Default values for
+class ReclineType(ABC):
+    """The base class for all other custom types in recline. Default values for
     argparse are defined within each type.
     """
 
@@ -60,7 +60,7 @@ class ClicheType(ABC):
         transform the data if necessary. For example, it might try to cast a string
         to an integer and if it can, return the integer value.
 
-        If validation fails, a ClicheTypeError should be raised with an appropriate
+        If validation fails, a ReclineTypeError should be raised with an appropriate
         message for the user.
         """
 

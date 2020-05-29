@@ -1,5 +1,5 @@
 """
-The commands defined here are included with every cliche application
+The commands defined here are included with every recline application
 """
 
 from collections import OrderedDict
@@ -7,12 +7,13 @@ import curses
 from operator import attrgetter
 import sys
 
-import cliche
-from cliche.arg_types.flag import Flag
-from cliche.arg_types.remainder import Remainder
-from cliche.commands import ClicheCommandError
-from cliche.commands.cli_command import command
-from cliche.commands.man_utils import  generate_help_text
+import recline
+from recline.arg_types.choices import Choices
+from recline.arg_types.flag import Flag
+from recline.arg_types.remainder import Remainder
+from recline.commands import ReclineCommandError
+from recline.commands.cli_command import command
+from recline.commands.man_utils import  generate_help_text
 
 
 class DebugInterrupt(Exception):
@@ -30,7 +31,7 @@ def command_help() -> None:
     groups = OrderedDict()
     print('Available Commands:')
     print()
-    for command_entry in cliche.commands.COMMAND_REGISTRY.values():
+    for command_entry in recline.commands.COMMAND_REGISTRY.values():
         if command_entry.is_alias or command_entry.hidden:
             continue
 
@@ -62,7 +63,7 @@ def man_commands(*_, **__):
     """
 
     return [
-        name for name, command in cliche.commands.COMMAND_REGISTRY.items() if not command.is_alias
+        name for name, command in recline.commands.COMMAND_REGISTRY.items() if not command.is_alias
     ]
 
 
@@ -76,7 +77,7 @@ def man(command_name: Remainder.define(completer=man_commands)) -> None:
     """
 
     command_name = ' '.join(command_name)
-    command_class = cliche.commands.COMMAND_REGISTRY.get(command_name, None)
+    command_class = recline.commands.COMMAND_REGISTRY.get(command_name, None)
     if not command_class:
         print('No manual entry for %s' % command_name)
         return
@@ -97,7 +98,7 @@ def man(command_name: Remainder.define(completer=man_commands)) -> None:
 
             # title
             window.addstr(0, 0, command_name)
-            window.addstr(0, (max_cols - len(cliche.PROGRAM_NAME)) // 2, cliche.PROGRAM_NAME)
+            window.addstr(0, (max_cols - len(recline.PROGRAM_NAME)) // 2, recline.PROGRAM_NAME)
             window.addstr(0, max_cols - len(command_name), command_name)
             window.addstr('\n\n')
 
@@ -155,7 +156,7 @@ def man(command_name: Remainder.define(completer=man_commands)) -> None:
 def exit_command(abort_jobs: Flag = False) -> None:
     """Exit the application"""
 
-    if not abort_jobs and cliche.JOBS:
+    if not abort_jobs and recline.JOBS:
         answer = input("There are backgrounded jobs. Are you sure you want to quit? ")
         if answer.lower().startswith("y"):
             abort_jobs = True
@@ -170,9 +171,9 @@ def exit_command(abort_jobs: Flag = False) -> None:
         # Traceback (most recent call last):
         # File "/usr/software/pkgs/Python-3.5.2/lib/python3.5/asyncio/tasks.py", line 85, in __del__
         # AttributeError: 'NoneType' object has no attribute '_PENDING'
-        for job in cliche.JOBS.values():
+        for job in recline.JOBS.values():
             job.stop(dont_delete=True)
-        cliche.JOBS = {}
+        recline.JOBS = {}
 
     # now we should be safe to exit
     sys.exit(EXIT_COMMAND_CODE)
@@ -201,7 +202,9 @@ def debug() -> None:
 
 
 @command(group=_GROUPNAME)
-def fg(job: int = None) -> None:  # pylint: disable=invalid-name
+def fg(job: Choices.define(  # pylint: disable=invalid-name
+        available_choices=lambda: list(recline.JOBS.keys()), data_type=int,
+    )=None) -> None:
     """Bring a job to the foreground
 
     If the job has already completed, then its results will be printed to the
@@ -215,13 +218,13 @@ def fg(job: int = None) -> None:  # pylint: disable=invalid-name
 
     if not job:
         try:
-            job = sorted(cliche.JOBS.keys())[-1]
+            job = sorted(recline.JOBS.keys())[-1]
         except IndexError:
-            raise ClicheCommandError("No running jobs found")
-    elif job not in cliche.JOBS:
-        raise ClicheCommandError("Could not find a running job for %s" % job)
+            raise ReclineCommandError("No running jobs found")
+    elif job not in recline.JOBS:
+        raise ReclineCommandError("Could not find a running job for %s" % job)
 
-    thread = cliche.JOBS[job]
+    thread = recline.JOBS[job]
     result = thread.foreground()
     if thread.command.output_formatter:
         thread.command.output_formatter.format_output(result)

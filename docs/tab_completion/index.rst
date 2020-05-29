@@ -7,9 +7,9 @@ logic of the application. Consider the sample program below:
 
 .. code-block:: Python
 
-    import cliche
-    from cliche.arg_types.choices import Choices
-    from cliche.formatters.table_formatter import TableFormat
+    import recline
+    from recline.arg_types.choices import Choices
+    from recline.formatters.table_formatter import TableFormat
 
     # A stand-in for a database or some other form of persistence
     ORDERS = {}
@@ -21,7 +21,7 @@ logic of the application. Consider the sample program below:
     def get_order_types():
         return [o["type"] for o in ORDERS.values()]
 
-    @cliche.command(name="order burrito")
+    @recline.command(name="order burrito")
     def order_burrito(
         customer_name: str,
         type: Choices.define(available_choices=MENU),
@@ -38,7 +38,7 @@ logic of the application. Consider the sample program below:
         ORDERS[customer_name] = {"type": type, "grilled": grilled}
         print("One order for a %s burrito, coming up!" % type)
 
-    @cliche.command(name="show orders")
+    @recline.command(name="show orders")
     def show_orders(
         customer_name: Choices.define(available_choices=get_customers) = None,
         type: Choices.define(available_choices=get_order_types) = None,
@@ -67,7 +67,7 @@ logic of the application. Consider the sample program below:
 
         return matching_orders
 
-    cliche.run(prompt="tacos galore> ")
+    recline.relax(prompt="tacos galore> ")
 
 .. note::
     In the examples below, I will put the string ``[Tab]`` in the output to show

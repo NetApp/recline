@@ -1,5 +1,5 @@
 """
-This is the main staring point for a cliche application
+This is the main staring point for a recline application
 """
 
 import atexit
@@ -11,16 +11,16 @@ import sys
 import traceback
 from typing import Callable, List, Union
 
-import cliche
-from cliche import commands
-from cliche.arg_types.cliche_type_error import ClicheTypeError
-from cliche.commands import ClicheCommandError, builtin_commands
-from cliche.commands.async_command import AsyncCommand, CommandBackgrounded, CommandCancelled
-from cliche.repl import completer
+import recline
+from recline import commands
+from recline.arg_types.recline_type_error import ReclineTypeError
+from recline.commands import ReclineCommandError, builtin_commands
+from recline.commands.async_command import AsyncCommand, CommandBackgrounded, CommandCancelled
+from recline.repl import completer
 
 
 # pylint: disable=too-many-arguments,bad-continuation
-def run(
+def relax(
     argv: str = None,
     program_name: str = None,
     motd: Union[Callable[[], str], str] = None,
@@ -29,7 +29,7 @@ def run(
     repl_mode: bool = True,
     single_command: str = None,
 ) -> None:
-    """This is the main entry point of a cliche-based application. Call this after
+    """This is the main entry point of a recline-based application. Call this after
     all of your commands have been defined.
 
     This will start the application in its REPL mode (by default) or in a single
@@ -51,7 +51,7 @@ def run(
         prompt: This is the prompt to display to the user to let them know that
             the system is ready to accept a command. If not provided, a default
             will be used.
-        repl_mode: By default, applications using cliche expect to act as a REPL
+        repl_mode: By default, applications using recline expect to act as a REPL
             environment where the user will run many commands. These applications
             can still run a single command if the user passes a -c. But, it is
             convienent for some applications to act more like a traditional CLI
@@ -88,7 +88,7 @@ def run(
     # The main loop (the L in REPL)
     while True:
         try:
-            current_input = input(cliche.PROMPT).strip()  # the R in REPL
+            current_input = input(recline.PROMPT).strip()  # the R in REPL
             if current_input == "":
                 continue
             execute(current_input)  # The E and P in REPL
@@ -162,7 +162,7 @@ def run_one_command(current_input: str) -> int:
         return 0
     except CommandCancelled:
         pass
-    except (ClicheTypeError, ClicheCommandError) as exc:
+    except (ReclineTypeError, ReclineCommandError) as exc:
         print(str(exc))
     except Exception as exc:  # pylint: disable=broad-except
         print("Command execution error: %s" % exc)
@@ -180,12 +180,12 @@ def run_one_command(current_input: str) -> int:
 
 def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[str]) -> None:
     if not program_name:
-        cliche.PROGRAM_NAME = argv[0].split(os.path.sep)[-1]
+        recline.PROGRAM_NAME = argv[0].split(os.path.sep)[-1]
     else:
-        cliche.PROGRAM_NAME = program_name
+        recline.PROGRAM_NAME = program_name
 
     if prompt is not None:
-        cliche.PROMPT = prompt
+        recline.PROMPT = prompt
 
     if history_file:
         track_command_history(history_file)

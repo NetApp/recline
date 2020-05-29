@@ -3,17 +3,17 @@ A Positional type allows the CLI command writer to specify an argument that the
 user will provide positionally. That is, instead of the user typing
 "-arg_name argvalue", they can just type "argvalue". For example:
 
-@cliche.command
+@recline.command
 def ls(path: Positional = ".") -> None:
     # If the user provided "ls my_dir", then path will be set to "my_dir". If the
     # user just said "ls", then path will be set to ".".
 """
 
-from cliche.arg_types.cliche_type import ClicheType
-from cliche.arg_types.cliche_type_error import ClicheTypeError
+from recline.arg_types.recline_type import ReclineType
+from recline.arg_types.recline_type_error import ReclineTypeError
 
 
-class Positional(ClicheType):
+class Positional(ReclineType):
     """The Positional type allows the user to not have to specify the arugment name"""
 
     @staticmethod
@@ -29,11 +29,11 @@ class Positional(ClicheType):
 
             def validate(self, arg: str):
                 if arg is None or arg == "":
-                    raise ClicheTypeError("Value cannot be empty")
+                    raise ReclineTypeError("Value cannot be empty")
                 try:
                     return self.data_type(arg)
                 except Exception:
-                    raise ClicheTypeError(
+                    raise ReclineTypeError(
                         "Cannot parse %s as a valid %s" % (arg, data_type.__name__)
                     )
 

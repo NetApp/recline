@@ -1,6 +1,6 @@
 """
 This module contains the definition of a CLICommand object. This is the main
-driver of the cliche library. Essentially, a CLICommand takes as input a wrapped
+driver of the recline library. Essentially, a CLICommand takes as input a wrapped
 function and parses the args and docstring so that when called from the REPL, the
 command can be used as prescribed or the help information can be queried.
 """
@@ -13,13 +13,13 @@ import json
 import logging
 from typing import Callable, List, Union
 
-from cliche import commands
-from cliche.arg_types.cliche_type import ClicheType, UniqueParam
-from cliche.arg_types.positional import Positional
-from cliche.arg_types.flag import Flag
-from cliche.arg_types.remainder import Remainder
-from cliche.formatters.output_formatter import OutputFormatter
-from cliche.vendor import docstring_parser
+from recline import commands
+from recline.arg_types.recline_type import ReclineType, UniqueParam
+from recline.arg_types.positional import Positional
+from recline.arg_types.flag import Flag
+from recline.arg_types.remainder import Remainder
+from recline.formatters.output_formatter import OutputFormatter
+from recline.vendor import docstring_parser
 
 
 LOGGER = logging.getLogger(__name__)
@@ -27,7 +27,7 @@ LOGGER.addHandler(logging.NullHandler())
 
 
 class CLICommand:  # pylint: disable=too-many-instance-attributes
-    """This is the implementation of a @cliche.command. It sets up all of the
+    """This is the implementation of a @recline.command. It sets up all of the
     parameter validation, help text generation, and return output formatting for
     commands defined in the application.
     """
@@ -113,7 +113,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
             action = parser.add_argument(*spec[0], **spec[1])
             action.completer = lambda *x, **y: [None]
             annotation_type = get_annotation_type(arg)
-            if issubclass(annotation_type, ClicheType):
+            if issubclass(annotation_type, ReclineType):
                 if inspect.isclass(arg.annotation):
                     type_instance = arg.annotation()
                 action.completer = type_instance.completer
@@ -135,7 +135,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         if arg.default != inspect.Parameter.empty:
             spec_kwargs['default'] = arg.default
 
-        def _cliche_type_annotation_handler(arg_annotation, nargs=None):
+        def _recline_type_annotation_handler(arg_annotation, nargs=None):
             nonlocal spec_args, spec_kwargs, arg
 
             if inspect.isclass(arg_annotation):
@@ -164,8 +164,8 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         if arg.annotation:
             annotation_type = get_annotation_type(arg)
             if issubclass(annotation_type, List):
-                if issubclass(arg.annotation.__args__[0], ClicheType):
-                    _cliche_type_annotation_handler(arg.annotation.__args__[0], '+')
+                if issubclass(arg.annotation.__args__[0], ReclineType):
+                    _recline_type_annotation_handler(arg.annotation.__args__[0], '+')
                 else:
                     spec_kwargs['nargs'] = '+'
             if issubclass(annotation_type, bool):
@@ -175,8 +175,8 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
                 spec_kwargs['type'] = int
             if issubclass(annotation_type, dict):
                 spec_kwargs['type'] = json.loads
-            if issubclass(annotation_type, ClicheType):
-                _cliche_type_annotation_handler(annotation_type)
+            if issubclass(annotation_type, ReclineType):
+                _recline_type_annotation_handler(annotation_type)
 
         return spec_args, spec_kwargs, arg
 
@@ -191,7 +191,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
             return action
 
         annotation_type = get_annotation_type(arg)
-        if issubclass(annotation_type, ClicheType):
+        if issubclass(annotation_type, ReclineType):
             return annotation_type.action
         return action
 
@@ -210,7 +210,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
 
         if issubclass(annotation_type, Positional):
             return basic
-        if issubclass(annotation_type, ClicheType):
+        if issubclass(annotation_type, ReclineType):
             return arg.annotation.metavar
         if issubclass(annotation_type, List):
             return '<%s> [%s ...]' % (arg.name, arg.name)
@@ -324,7 +324,7 @@ def command(
     atexit: bool = False,
     hidden: Union[Callable[[], bool], bool] = False
 ):
-    """Wrapping a function with this registers it with the cliche library and
+    """Wrapping a function with this registers it with the recline library and
     exposes it as a command the user of the application can call.
 
     The name of the command will match the name of the function that is being

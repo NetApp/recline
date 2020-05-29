@@ -17,7 +17,7 @@ Then the table formatter would print this to the screen:
 
 from collections import OrderedDict
 
-from cliche.formatters.output_formatter import OutputFormatter
+from recline.formatters.output_formatter import OutputFormatter
 
 
 class TableFormat(OutputFormatter):  # pylint: disable=too-few-public-methods

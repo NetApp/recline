@@ -6,17 +6,17 @@ A simple application for making and listing the cakes we have
 from collections import OrderedDict
 from time import sleep
 
-import cliche
-from cliche.arg_types.choices import Choices
-from cliche.arg_types.ranged_int import RangedInt
-from cliche.formatters.table_formatter import TableFormat
+import recline
+from recline.arg_types.choices import Choices
+from recline.arg_types.ranged_int import RangedInt
+from recline.formatters.table_formatter import TableFormat
 
 
 CAKES = []
 
 
 # pylint: disable=bad-continuation
-@cliche.command(name="cake make")
+@recline.command(name="cake make")
 def make_cake(
     layers: RangedInt.define(min=2, max=10),
     flavor: Choices.define(["chocolate", "vanilla", "marble"]),
@@ -58,11 +58,11 @@ def make_cake(
     print("Made a %s layer %s cake. Sorry, I burned one layer." % (layers - 1, flavor))
 
 
-@cliche.command(name="cake show")
+@recline.command(name="cake show")
 def show_cake() -> TableFormat:
     """Show all of our completed cake work"""
 
     return CAKES
 
 
-cliche.run(history_file=".cake_history.txt", prompt="::> ")
+recline.relax(history_file=".cake_history.txt", prompt="::> ")

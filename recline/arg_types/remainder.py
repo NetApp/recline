@@ -3,7 +3,7 @@ A Remainder type allows the CLI command writer to specify that an argument shoul
 consume all of the rest of the input from the CLI and that it will be interpreted
 inside of the command handler function.
 
-@cliche.command
+@recline.command
 def search(query: Remainder) -> None:
     # The user might use this command like "search stuff I want to know about"
     # and the query parameter would be filled with the value "stuff I want to know about"
@@ -11,10 +11,10 @@ def search(query: Remainder) -> None:
 
 import argparse
 
-from cliche.arg_types.cliche_type import ClicheType
+from recline.arg_types.recline_type import ReclineType
 
 
-class Remainder(ClicheType):
+class Remainder(ReclineType):
     """The Remainder type will capture all of the remaining input from the user
     into a single parameter, even if that input contained spaces which would
     normally be considered multiple values

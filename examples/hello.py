@@ -4,10 +4,10 @@ A "hello world" application for CLI commands
 
 from typing import List
 
-import cliche
+import recline
 
 
-@cliche.command
+@recline.command
 def hello(name: str = None) -> None:
     """A basic hello world
 
@@ -22,7 +22,7 @@ def hello(name: str = None) -> None:
     print(response)
 
 
-@cliche.command(name="group hello")
+@recline.command(name="group hello")
 def group_hello(names: List[str], formal: bool = False) -> None:
     """A less-basic hello world
 
@@ -39,4 +39,4 @@ def group_hello(names: List[str], formal: bool = False) -> None:
     print(response)
 
 
-cliche.run(history_file='.hello_history.txt')
+recline.relax(history_file='.hello_history.txt')

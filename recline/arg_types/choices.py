@@ -3,23 +3,26 @@ A Choices type allows the CLI command writer to specify a static list of choices
 for a parameter. Once the body of the function is invoked, it is guarenteed that
 the validation was done on the parameter to make sure it matched one.
 
-@cliche.command(name="cake make")
+@recline.command(name="cake make")
 def make_cake(flavor: Choices.define(["chocolate", "vanilla", "marble"])) -> None:
     # We can assume flavor is one of the choices in the body of the fuction
 """
 
 from typing import Callable, List, Union
 
-from cliche.arg_types.cliche_type import ClicheType
-from cliche.arg_types.cliche_type_error import ClicheTypeError
+from recline.arg_types.recline_type import ReclineType
+from recline.arg_types.recline_type_error import ReclineTypeError
 
 
-class Choices(ClicheType):
+class Choices(ReclineType):
     """The Choices type validates the user input according to a list of possible choices"""
 
     @staticmethod
-    def define(available_choices: Union[List, Callable], cache_choices=False, inexact=False):
-        """A `cliche.commands.types.Choices` is a way to assert that an argument
+    def define(
+            available_choices: Union[List, Callable], cache_choices: bool = False,
+            inexact: bool = False, data_type=str,
+        ) -> "Choices":
+        """A `recline.commands.types.Choices` is a way to assert that an argument
         is one of a predefined list.
 
         Prior to being passed to your command, the argument will be compared to
@@ -39,6 +42,7 @@ class Choices(ClicheType):
                 the "*", "|", or ".." query characters. If these characters are
                 present, then no validation will be done on the value (and validation
                 is assumed to be done on whatever the command is calling)
+            data_type: The type of data that represents this argument
         """
 
         class _Choices(Choices):
@@ -54,10 +58,13 @@ class Choices(ClicheType):
                     return arg
                 current_choices = self.choices(eager=True)
                 if arg not in current_choices:
-                    raise ClicheTypeError(
-                        "\"%s\" must be one of %s." % (arg, ", ".join(current_choices))
+                    raise ReclineTypeError(
+                        '"%s" must be one of %s.' % (arg, ", ".join(current_choices))
                     )
-                return arg
+                try:
+                    return data_type(arg)
+                except Exception:  # pylint: disable=broad-except
+                    raise ReclineTypeError('Unable to convert "%s" to type %s' % (arg, data_type))
 
             def choices(self, eager=False):
                 if hasattr(self.__class__, '_cached_choices'):
@@ -73,6 +80,7 @@ class Choices(ClicheType):
                 except TypeError:
                     pass
 
+                current_choices = [str(c) for c in current_choices]
                 if cache_choices:
                     self.__class__._cached_choices = current_choices  # pylint: disable=protected-access
                 self.__class__.metavar = '<%s>' % '|'.join(current_choices)

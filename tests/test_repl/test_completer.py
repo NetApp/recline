@@ -2,14 +2,14 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.repl.completer module
+A test module for the recline.repl.completer module
 """
 
 import pytest
 
-import cliche
-from cliche.commands.cli_command import command
-from cliche.repl.completer import CommandCompleter, match_command_hook
+import recline
+from recline.commands.cli_command import command
+from recline.repl.completer import CommandCompleter, match_command_hook
 
 
 @pytest.mark.parametrize("prompt, current_input, matches, expected_output", [
@@ -32,7 +32,7 @@ def test_match_command_hook(prompt, current_input, matches, expected_output, mon
     prints out the right output
     """
 
-    monkeypatch.setattr(cliche, "PROMPT", prompt)
+    monkeypatch.setattr(recline, "PROMPT", prompt)
     match_command_hook(current_input, matches)
     captured = capsys.readouterr()
     assert captured.out == expected_output
@@ -74,12 +74,12 @@ def test_command_completer_completer(partial, index, commands, expected_output):
     """
 
     # this is why global state is dangerous folks...
-    cliche.commands.COMMAND_REGISTRY = {}
+    recline.commands.COMMAND_REGISTRY = {}
 
     for app_command in commands:
         @command(name=app_command)
         def ut_command(arg: str):  # pylint: disable=unused-variable,unused-argument
             pass
 
-    completer = CommandCompleter(cliche.commands.COMMAND_REGISTRY)
+    completer = CommandCompleter(recline.commands.COMMAND_REGISTRY)
     assert completer.completer(partial, index) == expected_output

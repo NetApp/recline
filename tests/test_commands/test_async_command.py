@@ -2,15 +2,15 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.commands.async_command module
+A test module for the recline.commands.async_command module
 """
 
 import asyncio
 
 import pytest
 
-import cliche
-from cliche.commands.async_command import AsyncCommand
+import recline
+from recline.commands.async_command import AsyncCommand
 
 
 @pytest.mark.usefixtures("clean_jobs")
@@ -21,17 +21,17 @@ def test_async_command_run():
 
     test_result = "This is the answer"
 
-    @cliche.command(name="test")
+    @recline.command(name="test")
     async def test_coro():  # pylint: disable=unused-variable
         return test_result
 
-    thread = AsyncCommand(cliche.commands.COMMAND_REGISTRY["test"])
+    thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
     job_pid = thread.job_pid
-    assert cliche.JOBS[job_pid] == thread
-    assert cliche.NEXT_JOB_PID == job_pid + 1
+    assert recline.JOBS[job_pid] == thread
+    assert recline.NEXT_JOB_PID == job_pid + 1
     thread.start()
     assert thread.foreground() == test_result
-    assert job_pid not in cliche.JOBS
+    assert job_pid not in recline.JOBS
 
 
 @pytest.mark.usefixtures("clean_jobs")
@@ -42,11 +42,11 @@ def test_async_command_run_background():
 
     test_result = "This is the answer"
 
-    @cliche.command(name="test")
+    @recline.command(name="test")
     async def test_coro():  # pylint: disable=unused-variable
         return test_result
 
-    thread = AsyncCommand(cliche.commands.COMMAND_REGISTRY["test"])
+    thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
     thread.start()
     thread.background()
     # wait until it is complete
@@ -62,7 +62,7 @@ def test_async_command_stop():
     i_was_stopped = False
     i_was_started = False
 
-    @cliche.command(name="test")
+    @recline.command(name="test")
     async def test_coro():  # pylint: disable=unused-variable
         nonlocal i_was_stopped, i_was_started
         try:
@@ -72,7 +72,7 @@ def test_async_command_stop():
         except asyncio.CancelledError:
             i_was_stopped = True
 
-    thread = AsyncCommand(cliche.commands.COMMAND_REGISTRY["test"])
+    thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
     job_pid = thread.job_pid
     thread.start()
     # wait until it is started
@@ -83,7 +83,7 @@ def test_async_command_stop():
     while thread.is_alive():
         pass
     assert i_was_stopped
-    assert job_pid not in cliche.JOBS
+    assert job_pid not in recline.JOBS
 
 
 @pytest.mark.usefixtures("clean_jobs")
@@ -94,15 +94,15 @@ def test_async_command_exception():
 
     test_result = "This is the exception"
 
-    @cliche.command(name="test")
+    @recline.command(name="test")
     async def test_coro():  # pylint: disable=unused-variable
         raise RuntimeError(test_result)
 
-    thread = AsyncCommand(cliche.commands.COMMAND_REGISTRY["test"])
+    thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
     job_pid = thread.job_pid
-    assert cliche.JOBS[job_pid] == thread
-    assert cliche.NEXT_JOB_PID == job_pid + 1
+    assert recline.JOBS[job_pid] == thread
+    assert recline.NEXT_JOB_PID == job_pid + 1
     thread.start()
     with pytest.raises(RuntimeError, match=test_result):
         assert thread.foreground() == test_result
-    assert job_pid not in cliche.JOBS
+    assert job_pid not in recline.JOBS

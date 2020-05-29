@@ -2,14 +2,14 @@
 Copyright (C) 2019 NetApp Inc.
 All rights reserved.
 
-A test module for the cliche.formatters module
+A test module for the recline.formatters module
 """
 
 from collections import OrderedDict
 
 import pytest
 
-from cliche.formatters.table_formatter import TableFormat
+from recline.formatters.table_formatter import TableFormat
 
 
 @pytest.mark.parametrize('command_results,expected_table', [

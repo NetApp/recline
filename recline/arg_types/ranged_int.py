@@ -3,17 +3,17 @@ A RangedInt type allows the CLI command writer to specify an integer that is onl
 valid within a certain range. If the user provides a value outside of that range,
 then the parameter validation will fail and they will receive an error message.
 
-@cliche.command(name="bake cake")
+@recline.command(name="bake cake")
 def bake(minutes: RangedInt.define(min=15, max=60)) -> None:
     # If the user tried to bake the cake for less than 15 minutes or more than
     # 60 minutes, then this body wouldn't be called and they would get an error.
 """
 
-from cliche.arg_types.cliche_type import ClicheType
-from cliche.arg_types.cliche_type_error import ClicheTypeError
+from recline.arg_types.recline_type import ReclineType
+from recline.arg_types.recline_type_error import ReclineTypeError
 
 
-class RangedInt(ClicheType):
+class RangedInt(ReclineType):
     """The RangedInt type allows a parameter which is an into to be constrained
     in which values are in the valid range.
     """
@@ -24,7 +24,7 @@ class RangedInt(ClicheType):
         min: int = None,  # pylint: disable=redefined-builtin
         max: int = None,  # pylint: disable=redefined-builtin
     ) -> "_RangedInt":
-        """A `cliche.commands.types.RangedInt` is a way to annotate an integer with
+        """A `recline.commands.types.RangedInt` is a way to annotate an integer with
         a min and max value.
 
         Prior to being passed to your command, the arguments of this type will
@@ -66,7 +66,7 @@ class RangedInt(ClicheType):
                         raise ValueError()
                     return int_val
                 except ValueError:
-                    raise ClicheTypeError(
+                    raise ReclineTypeError(
                         '"%s" is not an integer in the range %s.' % (arg, _RangedInt.range_str)
                     )
 

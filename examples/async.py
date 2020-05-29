@@ -5,14 +5,14 @@ the foreground only.
 
 import asyncio
 
-import cliche
-from cliche.formatters.table_formatter import TableFormat
+import recline
+from recline.formatters.table_formatter import TableFormat
 
 
 PERCENT_COMPLETE = None
 
 
-@cliche.command
+@recline.command
 async def deploy(duration: int = 30) -> TableFormat:
     """Runs a deployment operation over a period of time
 
@@ -33,7 +33,7 @@ async def deploy(duration: int = 30) -> TableFormat:
         print('I only managed to get %s out of %s seconds of sleep before you interrupted me' % (seconds_slept, duration))
 
 
-@cliche.command(name="deploy status")
+@recline.command(name="deploy status")
 def deploy_status() -> None:
     """Get the current deployment status percentage of an ongoing operation"""
 
@@ -44,4 +44,4 @@ def deploy_status() -> None:
     print("The current deployment is %s%% complete" % PERCENT_COMPLETE)
 
 
-cliche.run()
+recline.relax()

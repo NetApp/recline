@@ -14,17 +14,17 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sys
-import cliche
+import recline
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'cliche'
+project = 'recline'
 copyright = '2020, NetApp'
 author = 'NetApp'
 
 # The full version, including alpha/beta/rc tags
-release = cliche.__version__
+# release = recline.__version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,7 +38,7 @@ extensions = [
     'sphinxcontrib.apidoc',
 ]
 
-apidoc_module_dir = '../cliche'
+apidoc_module_dir = '../recline'
 apidoc_output_dir = 'api_reference'
 apidoc_excluded_paths = ['vendor']
 apidoc_separate_modules = True

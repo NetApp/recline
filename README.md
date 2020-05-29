@@ -1,11 +1,11 @@
-![](https://github.com/NetApp/cliche/workflows/build/badge.svg?branch=master)
-[![codecov](https://codecov.io/gh/NetApp/cliche/branch/master/graph/badge.svg?token=QPHL12QH4N)](https://codecov.io/gh/NetApp/cliche)
-[![Gitter](https://badges.gitter.im/netapp-cliche/community.svg)](https://gitter.im/netapp-cliche/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+![](https://github.com/NetApp/recline/workflows/build/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/NetApp/recline/branch/master/graph/badge.svg?token=QPHL12QH4N)](https://codecov.io/gh/NetApp/recline)
+[![Gitter](https://badges.gitter.im/netapp-recline/community.svg)](https://gitter.im/netapp-recline/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# cliche
+# recline
 
 Writing argparse-based command line applications can become tedious, repetitive,
-and clichéd. Let this library free you from that burden.
+and difficult to do right. Relax and let this library free you from that burden.
 
 This library helps you quickly implement an interactive command-based application in Python.
 
@@ -13,7 +13,7 @@ This library helps you quickly implement an interactive command-based applicatio
 We all know that writing documentation is very important and yet it can easily become
 and afterthought or a nice to have if we're not diligent. This is often because it
 means duplicating a piece of your implementation in words, effectively writing the
-same thing twice. Cliche strives to deduplicate this work by taking a documentation
+same thing twice. Recline strives to deduplicate this work by taking a documentation
 first attitude where your documentation _becomes_ the implementation without additional
 work from you.
 
@@ -57,13 +57,13 @@ Some things to consider and prepare before you can use this library.
 You can install the package using the pip utility:
 
 ```
-pip install cliche
+pip install recline
 ```
 
 You can then import the library into your application:
 
 ```python
-import cliche
+import recline
 ```
 
 # Quick Start
@@ -71,9 +71,9 @@ import cliche
 After installing the package, you can get started with a few lines in `hello.py`:
 
 ```python
-import cliche
+import recline
 
-@cliche.command
+@recline.command
 def hello(name: str = None) -> None:
     """A basic hello world
 
@@ -87,12 +87,12 @@ def hello(name: str = None) -> None:
         response += ", %s" % name
     print(response)
 
-cliche.run()
+recline.relax()
 ```
 
 ## Interactive mode
 
-The default mode when a cliche applciation is run is an interactive style. Running
+The default mode when a recline applciation is run is an interactive style. Running
 our above `hello.py` results in the following output:
 
 ```
@@ -124,7 +124,7 @@ $
 ## Non-interactive mode
 
 If you would like to use the application as part of a larger script, it is much
-easier to do in a non-interactive way. This is also possible using cliche without
+easier to do in a non-interactive way. This is also possible using recline without
 needing to change the application. Here's an example:
 
 ```
@@ -133,8 +133,27 @@ I'm at your command, Dave
 $
 ```
 
-See the [full documentation](https://netapp.github.io/cliche) for more advanced usages and examples
+See the [full documentation](https://netapp.github.io/recline) for more advanced usages and examples
 
 # Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
 You may read about the contribution process including how to build and test your changes [here](CONTRIBUTING.md).
+
+# Why recline?
+
+There are a large number of different command line libraries on PyPi and GitHub.
+And some of them have the same sort of decorator design. Most, however, are missing
+the interactive elements that recline focuses on (tab completion, command chaining,
+background jobs, man pages). If you're still looking for the right fit for your
+application and recline isn't it, you can check out these other fine projects (in no
+particular order):
+
+* https://github.com/kootenpv/cliche
+* https://github.com/gowithfloat/clippy
+* https://github.com/epsy/clize
+* https://github.com/pallets/click
+* https://github.com/micheles/plac
+* https://github.com/google/python-fire
+* https://github.com/kennethreitz-archive/clint
+* https://docs.openstack.org/cliff/latest
+* https://github.com/miguelgrinberg/climax
