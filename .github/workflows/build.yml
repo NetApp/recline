@@ -21,13 +21,19 @@ jobs:
         run: |
           poetry run pytest --cov=recline --cov-report=xml tests
           poetry build
-      # skip this for now
-      # - name: Upload coverage to Codecov
-      #   uses: codecov/codecov-action@v1
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     file: ./coverage.xml
-      #     flags: unittests
-      #     env_vars: OS,PYTHON
-      #     name: codecov-umbrella
-      #     fail_ci_if_error: true
+      skip this for now
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+          env_vars: OS,PYTHON
+          name: codecov-umbrella
+          fail_ci_if_error: true
+      - name: Publish Package
+        if: github.event_name startsWith(github.event.ref, 'refs/tags')
+        uses: pypa/gh-action-pypi-publish@1.1.0
+        with:
+          user: __token__
+          password: ${{ secrets.pypi_password }}
