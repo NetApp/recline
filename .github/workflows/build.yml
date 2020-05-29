@@ -31,7 +31,7 @@ jobs:
           name: codecov-umbrella
           fail_ci_if_error: true
       - name: Publish Package
-        if: github.event_name startsWith(github.event.ref, 'refs/tags')
+        if: startsWith(github.event.ref, 'refs/tags')
         uses: pypa/gh-action-pypi-publish@1.1.0
         with:
           user: __token__
