@@ -54,7 +54,7 @@ Some things to consider and prepare before you can use this library.
 
 ## Installing and importing the library
 
-You can install the package using the pip utility:
+You can install the package [from pypi](https://pypi.org/project/recline) using the pip utility:
 
 ```
 pip install recline
