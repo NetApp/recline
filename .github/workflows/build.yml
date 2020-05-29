@@ -32,7 +32,7 @@ jobs:
           fail_ci_if_error: true
       - name: Publish Package
         if: startsWith(github.event.ref, 'refs/tags')
-        uses: pypa/gh-action-pypi-publish@1.1.0
+        uses: pypa/gh-action-pypi-publish@master
         with:
           user: __token__
           password: ${{ secrets.pypi_password }}
