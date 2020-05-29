@@ -13,18 +13,17 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sys
-import recline
-
+from datetime import datetime
+import importlib_metadata
 
 # -- Project information -----------------------------------------------------
 
 project = 'recline'
-copyright = '2020, NetApp'
 author = 'NetApp'
+copyright = '%s, %s' % (datetime.now().year, author)
 
 # The full version, including alpha/beta/rc tags
-# release = recline.__version__
+release = importlib_metadata.version('recline')
 
 
 # -- General configuration ---------------------------------------------------
