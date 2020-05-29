@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Things To Do &mdash; cliche 2020.6 documentation</title>
+  <title>Things To Do &mdash; recline  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cliche
+            <a href="../index.html" class="icon icon-home"> recline
           
 
           
@@ -117,7 +117,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cliche</a>
+          <a href="../index.html">recline</a>
         
       </nav>
 
@@ -178,11 +178,11 @@ point in the library’s lifetime.</p>
 easier.</p>
 <div class="section" id="multiple-output-choices">
 <h3>Multiple Output Choices<a class="headerlink" href="#multiple-output-choices" title="Permalink to this headline">¶</a></h3>
-<p>cliche supports output formatting, but in the current version, you can only specify
+<p>recline supports output formatting, but in the current version, you can only specify
 a single output format type. It may make sense to support multiple output types
 for a single command and to have the application user select between them at runtime.</p>
 <p>This could look something like this:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake show&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake show&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">show_cake</span><span class="p">()</span> <span class="o">-&gt;</span>  <span class="n">Union</span><span class="p">[</span><span class="n">TableFormat</span><span class="p">,</span> <span class="n">CSVFormat</span><span class="p">,</span> <span class="n">JSONFormat</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">cakes</span>
 </pre></div>
@@ -226,18 +226,18 @@ be taken and it would be up to the next command in the pipe to interpret it.</p>
 </div>
 <div class="section" id="known-issues">
 <h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
-<p>Issues can be filed and tracked via GitHub: <a class="reference external" href="https://github.com/NetApp/cliche/issues">https://github.com/NetApp/cliche/issues</a></p>
+<p>Issues can be filed and tracked via GitHub: <a class="reference external" href="https://github.com/NetApp/recline/issues">https://github.com/NetApp/recline/issues</a></p>
 <div class="section" id="status-codes">
 <h3>Status Codes<a class="headerlink" href="#status-codes" title="Permalink to this headline">¶</a></h3>
 <p>There is some notion of status/exit codes in the shell.py file, but they don’t
 make it all the way out to the external shell when operating in non-interactive
 mode:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(pyenv) cycrh6rtp31:libCliche/$ python examples/cake.py -c &quot;cake make&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python examples/cake.py -c &quot;cake make&quot;
 usage: cake.py -layers &lt;int{2-10}&gt; -flavor &lt;value&gt;
 cake.py: error: the following arguments are required: -layers, -flavor
-(pyenv) cycrh6rtp31:libCliche/$ echo $?
+$ echo $?
 0
-(pyenv) cycrh6rtp31:libCliche/$
+$
 </pre></div>
 </div>
 </div>

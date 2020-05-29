@@ -1,0 +1,7 @@
+recline.arg\_types.flag module
+==============================
+
+.. automodule:: recline.arg_types.flag
+   :members:
+   :undoc-members:
+   :show-inheritance:

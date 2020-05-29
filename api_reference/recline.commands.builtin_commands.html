@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>recline.commands.builtin_commands module &mdash; recline  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="recline.commands.cli_command module" href="recline.commands.cli_command.html" />
+    <link rel="prev" title="recline.commands.async_command module" href="recline.commands.async_command.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> recline
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tab_completion/index.html">Tab Completion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_chaining/index.html">Shell Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="recline.html">recline package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="recline.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.html">recline.arg_types package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="recline.commands.html">recline.commands package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.formatters.html">recline.formatters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.html">recline.repl package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.html#module-recline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">recline</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="recline.html">recline package</a> &raquo;</li>
+        
+          <li><a href="recline.commands.html">recline.commands package</a> &raquo;</li>
+        
+      <li>recline.commands.builtin_commands module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_reference/recline.commands.builtin_commands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-recline.commands.builtin_commands">
+<span id="recline-commands-builtin-commands-module"></span><h1>recline.commands.builtin_commands module<a class="headerlink" href="#module-recline.commands.builtin_commands" title="Permalink to this headline">¶</a></h1>
+<p>The commands defined here are included with every recline application</p>
+<dl class="py exception">
+<dt id="recline.commands.builtin_commands.DebugInterrupt">
+<em class="property">exception </em><code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">DebugInterrupt</code><a class="headerlink" href="#recline.commands.builtin_commands.DebugInterrupt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>An exception class to mark that we were interrupted by a debug request</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="recline.commands.builtin_commands.command_help">
+<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">command_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.command_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a list of available commands and their short description</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="recline.commands.builtin_commands.debug">
+<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">debug</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop into the Python debugger for development purposes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="recline.commands.builtin_commands.exit_command">
+<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">exit_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">abort_jobs</span><span class="p">:</span> <span class="n"><a class="reference internal" href="recline.arg_types.flag.html#recline.arg_types.flag.Flag" title="recline.arg_types.flag.Flag">recline.arg_types.flag.Flag</a></span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.exit_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit the application</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="recline.commands.builtin_commands.fg">
+<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">fg</code><span class="sig-paren">(</span><em class="sig-param">job: recline.arg_types.choices.Choices.define.&lt;locals&gt;._Choices = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.fg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bring a job to the foreground</p>
+<p>If the job has already completed, then its results will be printed to the
+console. If the job has not yet finished, then the application will wait for
+it to finish before printing the results.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>job: The identifier of the job to track. If not provided, then the most</dt><dd><p>recent job will be tracked.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="recline.commands.builtin_commands.man">
+<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">man</code><span class="sig-paren">(</span><em class="sig-param">command_name: recline.arg_types.remainder.Remainder.define.&lt;locals&gt;._Remainder</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.man" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the full man page for a given command</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>command: The name of the command</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="recline.commands.builtin_commands.man_commands">
+<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">man_commands</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">_</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">__</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.builtin_commands.man_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>A completer function for returning a list of commands the user might want
+to see the man page for. Don’t show alias names to reduce clutter and confusion.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recline.commands.cli_command.html" class="btn btn-neutral float-right" title="recline.commands.cli_command module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recline.commands.async_command.html" class="btn btn-neutral float-left" title="recline.commands.async_command module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

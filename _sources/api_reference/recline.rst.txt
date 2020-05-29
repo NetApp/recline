@@ -1,0 +1,21 @@
+recline package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   recline.arg_types
+   recline.commands
+   recline.formatters
+   recline.repl
+
+Module contents
+---------------
+
+.. automodule:: recline
+   :members:
+   :undoc-members:
+   :show-inheritance:

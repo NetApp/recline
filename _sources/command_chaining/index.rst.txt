@@ -1,7 +1,7 @@
 Shell Behavior
 ==============
 
-While using an application built with the cliche library, there is a common set of
+While using an application built with the recline library, there is a common set of
 shell functionality that is provided for you by the library. These will be familiar
 to you if you are used to a unix style shell, like bash.
 
@@ -17,22 +17,22 @@ In the following example outputs, this toy program will be used for illustrative
 
 .. code-block:: Python
 
-    import cliche
-    from cliche.commands import ClicheCommandError
+    import recline
+    from recline.commands import ReclineCommandError
 
-    @cliche.command
+    @recline.command
     def success():
         """This command will always succeed when run"""
 
         print("success!")
 
-    @cliche.command
+    @recline.command
     def failure():
         """This command will always fail when run"""
 
-        raise ClicheCommandError("I'm a bad function")
+        raise ReclineCommandError("I'm a bad function")
 
-    cliche.run(prompt="chaining test> ")
+    recline.relax(prompt="chaining test> ")
 
 .. warning::
     For all of the operators below, if an :ref:`async command <async-commands>` is

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quickstart &mdash; cliche 2020.6 documentation</title>
+  <title>Quickstart &mdash; recline  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cliche
+            <a href="../index.html" class="icon icon-home"> recline
           
 
           
@@ -109,7 +109,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cliche</a>
+          <a href="../index.html">recline</a>
         
       </nav>
 
@@ -162,9 +162,9 @@
   <div class="section" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
 <p>After installing the package, you can get started with a few lines in <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cliche</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">recline</span>
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;A basic hello world</span>
 
@@ -179,12 +179,12 @@
         <span class="n">response</span> <span class="o">+=</span> <span class="s2">&quot;, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">name</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 
-<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">recline</span><span class="o">.</span><span class="n">relax</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="section" id="interactive-mode">
 <h2>Interactive Mode<a class="headerlink" href="#interactive-mode" title="Permalink to this headline">¶</a></h2>
-<p>The default mode when a cliche applciation is run is an interactive style. Running
+<p>The default mode when a recline applciation is run is an interactive style. Running
 our above <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> results in the following output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python hello.py
 &gt; help
@@ -215,7 +215,7 @@ $
 <div class="section" id="non-interactive-mode">
 <h2>Non-interactive mode<a class="headerlink" href="#non-interactive-mode" title="Permalink to this headline">¶</a></h2>
 <p>If you would like to use the application as part of a larger script, it is much
-easier to do in a non-interactive way. This is also possible using cliche without
+easier to do in a non-interactive way. This is also possible using recline without
 needing to change the application. Here’s an example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python hello.py -c &quot;hello -name Dave&quot;
 I&#39;m at your command, Dave

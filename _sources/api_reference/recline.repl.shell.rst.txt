@@ -1,0 +1,7 @@
+recline.repl.shell module
+=========================
+
+.. automodule:: recline.repl.shell
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,7 +1,7 @@
 Command Help and Man Pages
 ==========================
 
-A CLI application is only as good as its documentation. Since cliche is meant to be a
+A CLI application is only as good as its documentation. Since recline is meant to be a
 documentation first library, it only makes sense that it provides good documentation
 to your users as well. And this documentation should come from the same source as the
 implementation so that they stay in sync. Take our ``cake make`` command from before
@@ -9,7 +9,7 @@ and let's add just a bit more to its docstring:
 
 .. code-block:: Python
 
-    @cliche.command(name='cake make')
+    @recline.command(name='cake make')
     def make_cake(
         layers: RangedInt.define(min=2, max=10),
         flavor: Choices.define(['chocolate', 'vanilla', 'marble']),
@@ -83,7 +83,7 @@ Man Pages
 Notice the examples are not shown here and neither is the longer part of the description.
 Usually, when a user wants to be reminded of how a command works, this information
 would be too much and would clutter up their screen. But what if they need more details?
-This is where cliche uses the UNIX style manpage system. If a user types ``man cake make``
+This is where recline uses the UNIX style manpage system. If a user types ``man cake make``
 then they will be shown the following in a full screen display::
 
     cake make                         cake.py                          cake make
@@ -118,8 +118,8 @@ then they will be shown the following in a full screen display::
         Mixing the batter
         Baking the cake
         Made a 1 layer chocolate cake. Sorry, I burned one layer.
-        ::> 
-    
+        ::>
+
     (END)
 
 This gives them access to all the information they will need including a detailed

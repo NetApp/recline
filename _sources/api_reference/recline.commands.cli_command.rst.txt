@@ -1,0 +1,7 @@
+recline.commands.cli\_command module
+====================================
+
+.. automodule:: recline.commands.cli_command
+   :members:
+   :undoc-members:
+   :show-inheritance:

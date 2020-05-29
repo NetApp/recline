@@ -1,0 +1,19 @@
+recline.formatters package
+==========================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   recline.formatters.output_formatter
+   recline.formatters.table_formatter
+
+Module contents
+---------------
+
+.. automodule:: recline.formatters
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,54 @@
+recline.vendor.argcomplete package
+==================================
+
+Submodules
+----------
+
+recline.vendor.argcomplete.compat module
+----------------------------------------
+
+.. automodule:: recline.vendor.argcomplete.compat
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+recline.vendor.argcomplete.completers module
+--------------------------------------------
+
+.. automodule:: recline.vendor.argcomplete.completers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+recline.vendor.argcomplete.my\_argparse module
+----------------------------------------------
+
+.. automodule:: recline.vendor.argcomplete.my_argparse
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+recline.vendor.argcomplete.my\_shlex module
+-------------------------------------------
+
+.. automodule:: recline.vendor.argcomplete.my_shlex
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+recline.vendor.argcomplete.shellintegration module
+--------------------------------------------------
+
+.. automodule:: recline.vendor.argcomplete.shellintegration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: recline.vendor.argcomplete
+   :members:
+   :undoc-members:
+   :show-inheritance:

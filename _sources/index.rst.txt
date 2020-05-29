@@ -1,4 +1,4 @@
-Cliche: A Documentation First CLI Library
+Recline: A Documentation First CLI Library
 =========================================
 
 Writing argparse-based command line applications can become tedious, repetitive,
@@ -8,9 +8,9 @@ This library helps you quickly implement an interactive, command-based applicati
 
 .. code-block:: Python
 
-    import cliche
+    import recline
 
-    @cliche.command
+    @recline.command
     def hello(name: str = None) -> None:
     """A basic hello world
 
@@ -22,7 +22,7 @@ This library helps you quickly implement an interactive, command-based applicati
         response += ", %s" % name
     print(response)
 
-    cliche.run()
+    recline.relax()
 
 Running the above application would produce the following result::
 
@@ -56,7 +56,7 @@ Documentation First
 We all know that writing documentation is very important and yet it can easily become
 and afterthought or a nice to have if we're not diligent. This is often because it
 means duplicating a piece of your implementation in words, effectively writing the
-same thing twice. Cliche strives to deduplicate this work by taking a documentation
+same thing twice. Recline strives to deduplicate this work by taking a documentation
 first attitude where your documentation *becomes* the implementation without additional
 work from you.
 

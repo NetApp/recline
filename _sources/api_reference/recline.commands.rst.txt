@@ -1,0 +1,21 @@
+recline.commands package
+========================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   recline.commands.async_command
+   recline.commands.builtin_commands
+   recline.commands.cli_command
+   recline.commands.man_utils
+
+Module contents
+---------------
+
+.. automodule:: recline.commands
+   :members:
+   :undoc-members:
+   :show-inheritance:

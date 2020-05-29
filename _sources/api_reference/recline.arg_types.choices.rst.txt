@@ -1,0 +1,7 @@
+recline.arg\_types.choices module
+=================================
+
+.. automodule:: recline.arg_types.choices
+   :members:
+   :undoc-members:
+   :show-inheritance:

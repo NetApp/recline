@@ -1,0 +1,7 @@
+recline.repl.completer module
+=============================
+
+.. automodule:: recline.repl.completer
+   :members:
+   :undoc-members:
+   :show-inheritance:

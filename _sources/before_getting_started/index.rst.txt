@@ -16,11 +16,11 @@ Installing and importing the library
 
 You can install the package using the pip utility::
 
-    pip install cliche
+    pip install recline
 
 
 You can then import the library into your application:
 
 .. code-block:: Python
 
-    import cliche
+    import recline

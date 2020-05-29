@@ -1,0 +1,7 @@
+recline.formatters.table\_formatter module
+==========================================
+
+.. automodule:: recline.formatters.table_formatter
+   :members:
+   :undoc-members:
+   :show-inheritance:

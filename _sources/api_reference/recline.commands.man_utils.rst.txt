@@ -1,0 +1,7 @@
+recline.commands.man\_utils module
+==================================
+
+.. automodule:: recline.commands.man_utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

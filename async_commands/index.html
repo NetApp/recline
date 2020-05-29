@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Async Commands &mdash; cliche 2020.6 documentation</title>
+  <title>Async Commands &mdash; recline  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cliche
+            <a href="../index.html" class="icon icon-home"> recline
           
 
           
@@ -111,7 +111,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cliche</a>
+          <a href="../index.html">recline</a>
         
       </nav>
 
@@ -174,14 +174,14 @@ program that we will highlight below:</p>
 
 <span class="kn">import</span> <span class="nn">asyncio</span>
 
-<span class="kn">import</span> <span class="nn">cliche</span>
-<span class="kn">from</span> <span class="nn">cliche.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+<span class="kn">import</span> <span class="nn">recline</span>
+<span class="kn">from</span> <span class="nn">recline.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
 
 
 <span class="n">PERCENT_COMPLETE</span> <span class="o">=</span> <span class="kc">None</span>
 
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Runs a deployment operation over a period of time</span>
 
@@ -202,7 +202,7 @@ program that we will highlight below:</p>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I only managed to get </span><span class="si">%s</span><span class="s1"> out of </span><span class="si">%s</span><span class="s1"> seconds of sleep before you interrupted me&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">seconds_slept</span><span class="p">,</span> <span class="n">duration</span><span class="p">))</span>
 
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;deploy status&quot;</span><span class="p">)</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;deploy status&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">deploy_status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Get the current deployment status percentage of an ongoing operation&quot;&quot;&quot;</span>
 
@@ -213,13 +213,13 @@ program that we will highlight below:</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The current deployment is </span><span class="si">%s%%</span><span class="s2"> complete&quot;</span> <span class="o">%</span> <span class="n">PERCENT_COMPLETE</span><span class="p">)</span>
 
 
-<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">recline</span><span class="o">.</span><span class="n">relax</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="section" id="writing-an-async-command">
 <h2>Writing an Async Command<a class="headerlink" href="#writing-an-async-command" title="Permalink to this headline">¶</a></h2>
 <p>Writing a command that can be put in the background is easy. Simply add the <code class="docutils literal notranslate"><span class="pre">async</span></code>
-keyword while defining the function. This tells cliche that the command may be long
+keyword while defining the function. This tells recline that the command may be long
 running and it allows the user of the application to execute the command and put it
 in the background or foreground as desired.</p>
 <p>In the body of your async command, it is recommended to use <code class="docutils literal notranslate"><span class="pre">await</span></code> with coroutines

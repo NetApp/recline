@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>recline.formatters.output_formatter module &mdash; recline  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="recline.formatters.table_formatter module" href="recline.formatters.table_formatter.html" />
+    <link rel="prev" title="recline.formatters package" href="recline.formatters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> recline
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_output/index.html">Input and Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_text/index.html">Command Help and Man Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tab_completion/index.html">Tab Completion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../command_chaining/index.html">Shell Behavior</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../async_commands/index.html">Async Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo/index.html">Things To Do</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="recline.html">recline package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="recline.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.html">recline.arg_types package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.html">recline.commands package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="recline.formatters.html">recline.formatters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.html">recline.repl package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.html#module-recline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">recline</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="recline.html">recline package</a> &raquo;</li>
+        
+          <li><a href="recline.formatters.html">recline.formatters package</a> &raquo;</li>
+        
+      <li>recline.formatters.output_formatter module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api_reference/recline.formatters.output_formatter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-recline.formatters.output_formatter">
+<span id="recline-formatters-output-formatter-module"></span><h1>recline.formatters.output_formatter module<a class="headerlink" href="#module-recline.formatters.output_formatter" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the abstract class that all other output formatters should
+inherit from</p>
+<dl class="py class">
+<dt id="recline.formatters.output_formatter.OutputFormatter">
+<em class="property">class </em><code class="sig-prename descclassname">recline.formatters.output_formatter.</code><code class="sig-name descname">OutputFormatter</code><a class="headerlink" href="#recline.formatters.output_formatter.OutputFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>All output formatters should inherit from this class</p>
+<dl class="py method">
+<dt id="recline.formatters.output_formatter.OutputFormatter.format_output">
+<em class="property">abstract </em><code class="sig-name descname">format_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.formatters.output_formatter.OutputFormatter.format_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The implementation of this method should expect to receive the results
+of a command ouput and to process them and output them in whatever manner
+is appropriate for the specific formatter.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recline.formatters.table_formatter.html" class="btn btn-neutral float-right" title="recline.formatters.table_formatter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recline.formatters.html" class="btn btn-neutral float-left" title="recline.formatters package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NetApp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Input and Output &mdash; cliche 2020.6 documentation</title>
+  <title>Input and Output &mdash; recline  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cliche
+            <a href="../index.html" class="icon icon-home"> recline
           
 
           
@@ -109,7 +109,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cliche</a>
+          <a href="../index.html">recline</a>
         
       </nav>
 
@@ -164,16 +164,16 @@
 <p>In the following examples, we will be discussing this code:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 
-<span class="kn">import</span> <span class="nn">cliche</span>
-<span class="kn">from</span> <span class="nn">cliche.arg_types.ranged_int</span> <span class="kn">import</span> <span class="n">RangedInt</span>
-<span class="kn">from</span> <span class="nn">cliche.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
-<span class="kn">from</span> <span class="nn">cliche.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+<span class="kn">import</span> <span class="nn">recline</span>
+<span class="kn">from</span> <span class="nn">recline.arg_types.ranged_int</span> <span class="kn">import</span> <span class="n">RangedInt</span>
+<span class="kn">from</span> <span class="nn">recline.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
+<span class="kn">from</span> <span class="nn">recline.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
 
 
 <span class="n">cakes</span> <span class="o">=</span> <span class="p">[]</span>
 
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake make&#39;</span><span class="p">)</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake make&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">make_cake</span><span class="p">(</span>
     <span class="n">layers</span><span class="p">:</span> <span class="n">RangedInt</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
     <span class="n">flavor</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">([</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;marble&#39;</span><span class="p">]),</span>
@@ -195,14 +195,14 @@
     <span class="p">)</span>
 
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake show&#39;</span><span class="p">)</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake show&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">show_cake</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Show all of our completed cake work&quot;&quot;&quot;</span>
 
     <span class="k">return</span> <span class="n">cakes</span>
 
 
-<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">history_file</span><span class="o">=</span><span class="s1">&#39;.cake_history.txt&#39;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s1">&#39;::&gt; &#39;</span><span class="p">)</span>
+<span class="n">recline</span><span class="o">.</span><span class="n">relax</span><span class="p">(</span><span class="n">history_file</span><span class="o">=</span><span class="s1">&#39;.cake_history.txt&#39;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s1">&#39;::&gt; &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Which produces the following commands:</p>
@@ -223,7 +223,7 @@ man - Display the full man page for a given command
 <h2>Input Checking<a class="headerlink" href="#input-checking" title="Permalink to this headline">¶</a></h2>
 <p>In the example above, the <code class="docutils literal notranslate"><span class="pre">cake</span> <span class="pre">make</span></code> command takes two required parameters, number and type.
 The layers parameter must be between 2 and 10 and this is checking is done by the
-cliche library itself and only after the parameter has been verified will the command
+recline library itself and only after the parameter has been verified will the command
 actually be invoked. Here’s an example of what it looks like if the argument passed
 does not match the requirements:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; cake make -flavor chocolate -layers 1
@@ -260,7 +260,7 @@ what the output might look like:</p>
 </div>
 <p>In our implementation code, all we needed to do was to return data that was in a
 tablular sort of format (in this case, an iterable which contains key/value pairs of data).
-The cliche library provides a common TableFormat class which knows how to construct
+The recline library provides a common TableFormat class which knows how to construct
 the table shown above based on the sizes of the headers and values in the output.</p>
 </div>
 </div>

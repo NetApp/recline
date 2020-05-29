@@ -1,0 +1,7 @@
+recline.arg\_types.recline\_type\_error module
+==============================================
+
+.. automodule:: recline.arg_types.recline_type_error
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,19 @@
+recline.repl package
+====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   recline.repl.completer
+   recline.repl.shell
+
+Module contents
+---------------
+
+.. automodule:: recline.repl
+   :members:
+   :undoc-members:
+   :show-inheritance:

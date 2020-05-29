@@ -1,0 +1,19 @@
+recline.vendor package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   recline.vendor.argcomplete
+   recline.vendor.docstring_parser
+
+Module contents
+---------------
+
+.. automodule:: recline.vendor
+   :members:
+   :undoc-members:
+   :show-inheritance:

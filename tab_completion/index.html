@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tab Completion &mdash; cliche 2020.6 documentation</title>
+  <title>Tab Completion &mdash; recline  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cliche
+            <a href="../index.html" class="icon icon-home"> recline
           
 
           
@@ -110,7 +110,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cliche</a>
+          <a href="../index.html">recline</a>
         
       </nav>
 
@@ -165,9 +165,9 @@
 <p>The library provides generic tab completion functionality. This can either be
 automatic (for example, parameters of type <code class="docutils literal notranslate"><span class="pre">bool</span></code>) or provided by the business
 logic of the application. Consider the sample program below:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cliche</span>
-<span class="kn">from</span> <span class="nn">cliche.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
-<span class="kn">from</span> <span class="nn">cliche.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">recline</span>
+<span class="kn">from</span> <span class="nn">recline.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
+<span class="kn">from</span> <span class="nn">recline.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
 
 <span class="c1"># A stand-in for a database or some other form of persistence</span>
 <span class="n">ORDERS</span> <span class="o">=</span> <span class="p">{}</span>
@@ -179,7 +179,7 @@ logic of the application. Consider the sample program below:</p>
 <span class="k">def</span> <span class="nf">get_order_types</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">o</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">ORDERS</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;order burrito&quot;</span><span class="p">)</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;order burrito&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">order_burrito</span><span class="p">(</span>
     <span class="n">customer_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="nb">type</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">available_choices</span><span class="o">=</span><span class="n">MENU</span><span class="p">),</span>
@@ -196,7 +196,7 @@ logic of the application. Consider the sample program below:</p>
     <span class="n">ORDERS</span><span class="p">[</span><span class="n">customer_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;grilled&quot;</span><span class="p">:</span> <span class="n">grilled</span><span class="p">}</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One order for a </span><span class="si">%s</span><span class="s2"> burrito, coming up!&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">)</span>
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;show orders&quot;</span><span class="p">)</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;show orders&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">show_orders</span><span class="p">(</span>
     <span class="n">customer_name</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">available_choices</span><span class="o">=</span><span class="n">get_customers</span><span class="p">)</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="nb">type</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">available_choices</span><span class="o">=</span><span class="n">get_order_types</span><span class="p">)</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -225,7 +225,7 @@ logic of the application. Consider the sample program below:</p>
 
     <span class="k">return</span> <span class="n">matching_orders</span>
 
-<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;tacos galore&gt; &quot;</span><span class="p">)</span>
+<span class="n">recline</span><span class="o">.</span><span class="n">relax</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;tacos galore&gt; &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">

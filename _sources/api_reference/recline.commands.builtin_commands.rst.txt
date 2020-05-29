@@ -1,0 +1,7 @@
+recline.commands.builtin\_commands module
+=========================================
+
+.. automodule:: recline.commands.builtin_commands
+   :members:
+   :undoc-members:
+   :show-inheritance:

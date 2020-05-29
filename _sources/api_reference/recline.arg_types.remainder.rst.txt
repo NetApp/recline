@@ -1,0 +1,7 @@
+recline.arg\_types.remainder module
+===================================
+
+.. automodule:: recline.arg_types.remainder
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,24 @@
+recline.arg\_types package
+==========================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   recline.arg_types.choices
+   recline.arg_types.flag
+   recline.arg_types.positional
+   recline.arg_types.ranged_int
+   recline.arg_types.recline_type
+   recline.arg_types.recline_type_error
+   recline.arg_types.remainder
+
+Module contents
+---------------
+
+.. automodule:: recline.arg_types
+   :members:
+   :undoc-members:
+   :show-inheritance:

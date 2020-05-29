@@ -7,16 +7,16 @@ In the following examples, we will be discussing this code:
 
     from collections import OrderedDict
 
-    import cliche
-    from cliche.arg_types.ranged_int import RangedInt
-    from cliche.arg_types.choices import Choices
-    from cliche.formatters.table_formatter import TableFormat
+    import recline
+    from recline.arg_types.ranged_int import RangedInt
+    from recline.arg_types.choices import Choices
+    from recline.formatters.table_formatter import TableFormat
 
 
     cakes = []
 
 
-    @cliche.command(name='cake make')
+    @recline.command(name='cake make')
     def make_cake(
         layers: RangedInt.define(min=2, max=10),
         flavor: Choices.define(['chocolate', 'vanilla', 'marble']),
@@ -38,14 +38,14 @@ In the following examples, we will be discussing this code:
         )
 
 
-    @cliche.command(name='cake show')
+    @recline.command(name='cake show')
     def show_cake() -> TableFormat:
         """Show all of our completed cake work"""
 
         return cakes
 
 
-    cliche.run(history_file='.cake_history.txt', prompt='::> ')
+    recline.relax(history_file='.cake_history.txt', prompt='::> ')
 
 
 Which produces the following commands::
@@ -67,7 +67,7 @@ Input Checking
 
 In the example above, the ``cake make`` command takes two required parameters, number and type.
 The layers parameter must be between 2 and 10 and this is checking is done by the
-cliche library itself and only after the parameter has been verified will the command
+recline library itself and only after the parameter has been verified will the command
 actually be invoked. Here's an example of what it looks like if the argument passed
 does not match the requirements::
 
@@ -106,5 +106,5 @@ what the output might look like::
 
 In our implementation code, all we needed to do was to return data that was in a
 tablular sort of format (in this case, an iterable which contains key/value pairs of data).
-The cliche library provides a common TableFormat class which knows how to construct
+The recline library provides a common TableFormat class which knows how to construct
 the table shown above based on the sizes of the headers and values in the output.

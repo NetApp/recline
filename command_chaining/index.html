@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Shell Behavior &mdash; cliche 2020.6 documentation</title>
+  <title>Shell Behavior &mdash; recline  documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cliche
+            <a href="../index.html" class="icon icon-home"> recline
           
 
           
@@ -113,7 +113,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cliche</a>
+          <a href="../index.html">recline</a>
         
       </nav>
 
@@ -165,7 +165,7 @@
             
   <div class="section" id="shell-behavior">
 <h1>Shell Behavior<a class="headerlink" href="#shell-behavior" title="Permalink to this headline">¶</a></h1>
-<p>While using an application built with the cliche library, there is a common set of
+<p>While using an application built with the recline library, there is a common set of
 shell functionality that is provided for you by the library. These will be familiar
 to you if you are used to a unix style shell, like bash.</p>
 <div class="section" id="command-chaining">
@@ -175,22 +175,22 @@ All three of these operators allow you to chain multiple commands on the same li
 and then execute them as a group. The operator you choose will affect how the
 commands are processed.</p>
 <p>In the following example outputs, this toy program will be used for illustrative purposes:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cliche</span>
-<span class="kn">from</span> <span class="nn">cliche.commands</span> <span class="kn">import</span> <span class="n">ClicheCommandError</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">recline</span>
+<span class="kn">from</span> <span class="nn">recline.commands</span> <span class="kn">import</span> <span class="n">ReclineCommandError</span>
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
 <span class="k">def</span> <span class="nf">success</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;This command will always succeed when run&quot;&quot;&quot;</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;success!&quot;</span><span class="p">)</span>
 
-<span class="nd">@cliche</span><span class="o">.</span><span class="n">command</span>
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
 <span class="k">def</span> <span class="nf">failure</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;This command will always fail when run&quot;&quot;&quot;</span>
 
-    <span class="k">raise</span> <span class="n">ClicheCommandError</span><span class="p">(</span><span class="s2">&quot;I&#39;m a bad function&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">ReclineCommandError</span><span class="p">(</span><span class="s2">&quot;I&#39;m a bad function&quot;</span><span class="p">)</span>
 
-<span class="n">cliche</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;chaining test&gt; &quot;</span><span class="p">)</span>
+<span class="n">recline</span><span class="o">.</span><span class="n">relax</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;chaining test&gt; &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition warning">
