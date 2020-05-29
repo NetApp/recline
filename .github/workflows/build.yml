@@ -21,7 +21,6 @@ jobs:
         run: |
           poetry run pytest --cov=recline --cov-report=xml tests
           poetry build
-      skip this for now
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
