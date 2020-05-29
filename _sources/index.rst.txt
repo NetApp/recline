@@ -1,5 +1,5 @@
 Recline: A Documentation First CLI Library
-=========================================
+==========================================
 
 Writing argparse-based command line applications can become tedious, repetitive,
 and clichéd. Let this library free you from that burden.
