@@ -137,7 +137,7 @@ See the [full documentation](https://netapp.github.io/recline) for more advanced
 
 # Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/NetApp/recline/issues)
 
-You may read about the contribution process including how to build and test your changes [here](https://github.com/NetApp/recline/CONTRIBUTING.md).
+You may read about the contribution process including how to build and test your changes [here](CONTRIBUTING.md).
 
 # Why recline?
 
