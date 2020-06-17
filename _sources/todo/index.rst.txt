@@ -30,11 +30,9 @@ In this case, TableFormat would be the default if the user didn't choose anythin
 explicitly. There would need to be some mechanism by which arguments were added to
 the command based on the output types it supports.
 
-
 Support gevent
 **************
 We may want to support gevent in addition to asyncio for async commands
-
 
 Pipelines
 *********
@@ -65,6 +63,37 @@ pip_output function which returns a dict. That dict would have data names and
 values and the names would then be matched to the inputs of the next command
 in the pipe. If it didn't implement this, then the raw text of the output would
 be taken and it would be up to the next command in the pipe to interpret it.
+
+Variables
+*********
+
+Sometimes, it might be nice to not have to remember/type so much. For example, you might
+have a value that you want to use in multiple commands and it is either complex
+or long. The library should provide a way to save this value with a meaningful, user-
+choosen name and reuse it later. For example::
+
+    >:: echo hello world
+    hello world
+    >:: foo="this is the song that never ends; yes it goes on and on my friend"
+    >:: echo $foo
+    this is the song that never ends; yes it goes on and on my friend
+    >:: shout $foo
+    THIS IS THE SONG THAT NEVER ENDS; YES IT GOES ON AND ON MY FRIEND!
+    >:: 
+
+Here we saved a simple constant string value so that we could use it multiple times
+without having to retype it. But this feature could also be used to save the result
+of a command and use it again later::
+
+    >:: add 3 5
+    8
+    >:: answer=$(add 3 5)
+    >:: buy donuts -count $answer
+    Here are your 8 donuts
+    >:: 
+
+Here, we ran the add command and saved its output as the value of a variable. Then
+we can use that variable later in the session in other commands as input.
 
 Known Issues
 ------------

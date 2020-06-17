@@ -94,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#multiple-output-choices">Multiple Output Choices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#support-gevent">Support gevent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pipelines">Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#known-issues">Known Issues</a><ul>
@@ -222,6 +223,36 @@ pip_output function which returns a dict. That dict would have data names and
 values and the names would then be matched to the inputs of the next command
 in the pipe. If it didn’t implement this, then the raw text of the output would
 be taken and it would be up to the next command in the pipe to interpret it.</p>
+</div>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, it might be nice to not have to remember/type so much. For example, you might
+have a value that you want to use in multiple commands and it is either complex
+or long. The library should provide a way to save this value with a meaningful, user-
+choosen name and reuse it later. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;:: echo hello world
+hello world
+&gt;:: foo=&quot;this is the song that never ends; yes it goes on and on my friend&quot;
+&gt;:: echo $foo
+this is the song that never ends; yes it goes on and on my friend
+&gt;:: shout $foo
+THIS IS THE SONG THAT NEVER ENDS; YES IT GOES ON AND ON MY FRIEND!
+&gt;::
+</pre></div>
+</div>
+<p>Here we saved a simple constant string value so that we could use it multiple times
+without having to retype it. But this feature could also be used to save the result
+of a command and use it again later:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;:: add 3 5
+8
+&gt;:: answer=$(add 3 5)
+&gt;:: buy donuts -count $answer
+Here are your 8 donuts
+&gt;::
+</pre></div>
+</div>
+<p>Here, we ran the add command and saved its output as the value of a variable. Then
+we can use that variable later in the session in other commands as input.</p>
 </div>
 </div>
 <div class="section" id="known-issues">
