@@ -95,6 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#support-gevent">Support gevent</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pipelines">Pipelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wizards">Wizards</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#known-issues">Known Issues</a><ul>
@@ -253,6 +254,55 @@ Here are your 8 donuts
 </div>
 <p>Here, we ran the add command and saved its output as the value of a variable. Then
 we can use that variable later in the session in other commands as input.</p>
+</div>
+<div class="section" id="wizards">
+<h3>Wizards<a class="headerlink" href="#wizards" title="Permalink to this headline">¶</a></h3>
+<p>Often, a command might have one or more required arguments. Typically, when a user
+doesn’t provide all of the required arguments, the command will fail and show the
+user the brief help for that command with a syntax to highlight which arguments are
+required and which are optional.</p>
+<p>This is fine, but it does give the user a sense of failure. What if we could do better?
+Since recline focuses its efforts on an interactive experience, why shouldn’t it be
+able to prompt the user for those missing inputs before continuing? That way, the
+user can gain familiarity with the command and not receive a failure.</p>
+<p>Here’s an example script that we will use:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">recline</span>
+<span class="kn">from</span> <span class="nn">recline.arg_types.choices</span> <span class="kn">import</span> <span class="n">Choices</span>
+
+<span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pitch baseball&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pitch_baseball</span><span class="p">(</span><span class="n">grip</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">handedness</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">([</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">])</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Thow one right down the plate and strike out the batter if you can!</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        grip: How do you want to hold the ball?</span>
+<span class="sd">        speed: How fast are you going to throw the ball?</span>
+<span class="sd">        handedness: Which hand will you pitch with?</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mi">95</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Strike!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That ball is out of here!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>recline.relax(prompt=”&gt;:: “)</p>
+<p>This is how it would look without this feature:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python wizard_test.py
+&gt;:: pitch baseball
+usage: wizard_test.py -grip &lt;grip&gt; -speed &lt;int&gt; [-handedness &lt;value&gt;]
+wizard_test.py: error: the following arguments are required: -grip, -speed
+&gt;::
+</pre></div>
+</div>
+<p>With the feature, it might look like this instead:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python wizard_test.py
+&gt;:: pitch baseball
+A value is required for grip: two finger
+A value is required for speed: 96
+Strike!
+&gt;::
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="known-issues">

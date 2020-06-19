@@ -95,6 +95,61 @@ of a command and use it again later::
 Here, we ran the add command and saved its output as the value of a variable. Then
 we can use that variable later in the session in other commands as input.
 
+Wizards
+*******
+
+Often, a command might have one or more required arguments. Typically, when a user
+doesn't provide all of the required arguments, the command will fail and show the
+user the brief help for that command with a syntax to highlight which arguments are
+required and which are optional.
+
+This is fine, but it does give the user a sense of failure. What if we could do better?
+Since recline focuses its efforts on an interactive experience, why shouldn't it be
+able to prompt the user for those missing inputs before continuing? That way, the
+user can gain familiarity with the command and not receive a failure.
+
+Here's an example script that we will use:
+
+.. code-block:: Python
+
+    import recline
+    from recline.arg_types.choices import Choices
+
+    @recline.command(name="pitch baseball")
+    def pitch_baseball(grip: str, speed: int, handedness: Choices.define(["right", "left"]) = "right") -> str:
+        """Thow one right down the plate and strike out the batter if you can!
+
+        Arguments:
+            grip: How do you want to hold the ball?
+            speed: How fast are you going to throw the ball?
+            handedness: Which hand will you pitch with?
+        """
+
+        if speed > 95:
+            print("Strike!")
+        else:
+            print("That ball is out of here!")
+
+
+recline.relax(prompt=">:: ")
+
+This is how it would look without this feature::
+
+    $ python wizard_test.py
+    >:: pitch baseball
+    usage: wizard_test.py -grip <grip> -speed <int> [-handedness <value>]
+    wizard_test.py: error: the following arguments are required: -grip, -speed
+    >::
+
+With the feature, it might look like this instead::
+
+    $ python wizard_test.py
+    >:: pitch baseball
+    A value is required for grip: two finger
+    A value is required for speed: 96
+    Strike!
+    >::
+
 Known Issues
 ------------
 
