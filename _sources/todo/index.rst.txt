@@ -30,9 +30,9 @@ In this case, TableFormat would be the default if the user didn't choose anythin
 explicitly. There would need to be some mechanism by which arguments were added to
 the command based on the output types it supports.
 
-Support gevent
-**************
-We may want to support gevent in addition to asyncio for async commands
+Support Other Async Libraries
+*****************************
+We may want to support gevent, trio, tornado, etc. in addition to asyncio for async commands
 
 Pipelines
 *********
