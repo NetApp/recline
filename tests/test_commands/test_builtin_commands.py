@@ -43,6 +43,19 @@ from recline.commands.cli_command import CLICommand
         ["command1", "command2"],
         ["group1", "group2"],
     ),
+    (
+        [
+            {
+                "name": "builtincommand",
+                "group": builtin_commands._GROUPNAME,  # pylint: disable=protected-access
+                "is_alias": False, "hidden": False,
+            },
+            {"name": "othercommand", "group": "group1", "is_alias": False, "hidden": False},
+            {"name": "othercommand2", "group": "group1", "is_alias": False, "hidden": True},
+        ],
+        ["builtincommand", "othercommand"],
+        [builtin_commands._GROUPNAME, "group1"],  # pylint: disable=protected-access
+    ),
 ])
 def test_help_command(commands, expected_commands, expected_groups, capsys):
     """Verify that the help command prints out all of the available commands and

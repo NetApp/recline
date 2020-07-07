@@ -1,10 +1,11 @@
 Recline: A Documentation First CLI Library
 ==========================================
 
-Writing argparse-based command line applications can become tedious, repetitive,
-and clichéd. Let this library free you from that burden.
+We automate so that we can be lazy, but writing argparse-based command line applications
+can become tedious, repetitive, and tired. Let this library free you from that burden.
 
-This library helps you quickly implement an interactive, command-based application in Python.
+This library helps you quickly implement an interactive, command-based application in Python
+without all the work associated with implementing a frieldly and featureful CLI application.
 
 .. code-block:: Python
 
