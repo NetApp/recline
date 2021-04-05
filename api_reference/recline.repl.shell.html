@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>recline.repl.shell module &mdash; recline 2020.5 documentation</title>
+  <title>recline.repl.shell module &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -79,7 +79,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -173,18 +173,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-recline.repl.shell">
+  <section id="module-recline.repl.shell">
 <span id="recline-repl-shell-module"></span><h1>recline.repl.shell module<a class="headerlink" href="#module-recline.repl.shell" title="Permalink to this headline">¶</a></h1>
 <p>This is the main staring point for a recline application</p>
 <dl class="py function">
 <dt id="recline.repl.shell.execute">
-<code class="sig-prename descclassname">recline.repl.shell.</code><code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_input</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#recline.repl.shell.execute" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.repl.shell.</span></code><code class="sig-name descname"><span class="pre">execute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#recline.repl.shell.execute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute the input as a series of commands</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.repl.shell.relax">
-<code class="sig-prename descclassname">recline.repl.shell.</code><code class="sig-name descname">relax</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">argv</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">program_name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">motd</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>Callable<span class="p">[</span>str<span class="p">]</span><span class="p">, </span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">history_file</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prompt</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">repl_mode</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">single_command</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.repl.shell.relax" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.repl.shell.</span></code><code class="sig-name descname"><span class="pre">relax</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motd</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repl_mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_command</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.repl.shell.relax" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the main entry point of a recline-based application. Call this after
 all of your commands have been defined.</p>
 <p>This will start the application in its REPL mode (by default) or in a single
@@ -225,24 +225,24 @@ Python, then this would be a good choice for exposing that command easily.</p>
 
 <dl class="py function">
 <dt id="recline.repl.shell.run_one_command">
-<code class="sig-prename descclassname">recline.repl.shell.</code><code class="sig-name descname">run_one_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_input</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#recline.repl.shell.run_one_command" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.repl.shell.</span></code><code class="sig-name descname"><span class="pre">run_one_command</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_input</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#recline.repl.shell.run_one_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse the current input, search for a matching command and execute it
 with the given parameters.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.repl.shell.setup_tab_complete">
-<code class="sig-prename descclassname">recline.repl.shell.</code><code class="sig-name descname">setup_tab_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.repl.shell.setup_tab_complete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.repl.shell.</span></code><code class="sig-name descname"><span class="pre">setup_tab_complete</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.repl.shell.setup_tab_complete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up the readline library to hook into our command completer</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.repl.shell.track_command_history">
-<code class="sig-prename descclassname">recline.repl.shell.</code><code class="sig-name descname">track_command_history</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.repl.shell.track_command_history" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.repl.shell.</span></code><code class="sig-name descname"><span class="pre">track_command_history</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.repl.shell.track_command_history" title="Permalink to this definition">¶</a></dt>
 <dd><p>load/save command history</p>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
@@ -262,7 +262,7 @@ with the given parameters.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

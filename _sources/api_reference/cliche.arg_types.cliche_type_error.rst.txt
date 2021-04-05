@@ -1,7 +1,0 @@
-cliche.arg\_types.cliche\_type\_error module
-============================================
-
-.. automodule:: cliche.arg_types.cliche_type_error
-   :members:
-   :undoc-members:
-   :show-inheritance:

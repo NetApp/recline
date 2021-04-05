@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>recline.commands.cli_command module &mdash; recline 2020.5 documentation</title>
+  <title>recline.commands.cli_command module &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -174,7 +174,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-recline.commands.cli_command">
+  <section id="module-recline.commands.cli_command">
 <span id="recline-commands-cli-command-module"></span><h1>recline.commands.cli_command module<a class="headerlink" href="#module-recline.commands.cli_command" title="Permalink to this headline">¶</a></h1>
 <p>This module contains the definition of a CLICommand object. This is the main
 driver of the recline library. Essentially, a CLICommand takes as input a wrapped
@@ -182,14 +182,14 @@ function and parses the args and docstring so that when called from the REPL, th
 command can be used as prescribed or the help information can be queried.</p>
 <dl class="py class">
 <dt id="recline.commands.cli_command.CLICommand">
-<em class="property">class </em><code class="sig-prename descclassname">recline.commands.cli_command.</code><code class="sig-name descname">CLICommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_alias</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">hidden</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">is_async</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">recline.commands.cli_command.</span></code><code class="sig-name descname"><span class="pre">CLICommand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_async</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is the implementation of a &#64;recline.command. It sets up all of the
 parameter validation, help text generation, and return output formatting for
 commands defined in the application.</p>
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.get_arg_action">
-<code class="sig-name descname">get_arg_action</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_action" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_arg_action</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_action" title="Permalink to this definition">¶</a></dt>
 <dd><p>By default, arguments will be verified as unique. However, if a custom
 type defines an action that should be taken when parsing the command line,
 that action will be used instead.</p>
@@ -197,21 +197,21 @@ that action will be used instead.</p>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.get_arg_description">
-<code class="sig-name descname">get_arg_description</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em>, <em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_arg_description</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the descrption of the arg from the parsed docstring if we can find
 one. Otherwise, the description will be blank.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.get_arg_help">
-<code class="sig-name descname">get_arg_help</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em>, <em class="sig-param"><span class="n">indent</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_help" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_arg_help</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_help" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a line of help text for an argument including the name, metavar,
 and description of the argument.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.get_arg_metavar">
-<code class="sig-name descname">get_arg_metavar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_metavar" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_arg_metavar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_arg_metavar" title="Permalink to this definition">¶</a></dt>
 <dd><p>By default, the metavar for an argument is the same as the name of that
 argument (and enclosed in &lt;&gt;). But there are many situations with custom
 types where the metavar will be defined by the type and should be taken
@@ -220,27 +220,27 @@ from the type.</p>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.get_command_help">
-<code class="sig-name descname">get_command_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_command_help" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_command_help</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_command_help" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a block of help text for the command including all of its arguments
 as well as a short description of the command.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.get_command_usage">
-<code class="sig-name descname">get_command_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_command_usage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_command_usage</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.get_command_usage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the short usage spec for the command</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.hidden">
-<em class="property">property </em><code class="sig-name descname">hidden</code><a class="headerlink" href="#recline.commands.cli_command.CLICommand.hidden" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">hidden</span></code><a class="headerlink" href="#recline.commands.cli_command.CLICommand.hidden" title="Permalink to this definition">¶</a></dt>
 <dd><p>A command is hidden if it is either statically declared to be or it
 was provided with a fuction to determine if it should currently be hidden</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.cli_command.CLICommand.print_help">
-<code class="sig-name descname">print_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.print_help" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">print_help</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.CLICommand.print_help" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the -help argument is passed to the command, then this method will
 print out the help for that command instead of the builtin argparse help printer.</p>
 </dd></dl>
@@ -249,7 +249,7 @@ print out the help for that command instead of the builtin argparse help printer
 
 <dl class="py function">
 <dt id="recline.commands.cli_command.command">
-<code class="sig-prename descclassname">recline.commands.cli_command.</code><code class="sig-name descname">command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">group</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aliases</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atstart</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">atexit</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">hidden</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>Callable<span class="p">[</span>bool<span class="p">]</span><span class="p">, </span>bool<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.command" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.cli_command.</span></code><code class="sig-name descname"><span class="pre">command</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atstart</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atexit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapping a function with this registers it with the recline library and
 exposes it as a command the user of the application can call.</p>
 <p>The name of the command will match the name of the function that is being
@@ -284,12 +284,12 @@ evaluates to True or False, or just a constant True or False.</p>
 
 <dl class="py function">
 <dt id="recline.commands.cli_command.get_annotation_type">
-<code class="sig-prename descclassname">recline.commands.cli_command.</code><code class="sig-name descname">get_annotation_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.get_annotation_type" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.cli_command.</span></code><code class="sig-name descname"><span class="pre">get_annotation_type</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.cli_command.get_annotation_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Python 3.7 explicitly broke the issubclass checking on the typing module
 <a class="reference external" href="https://bugs.python.org/issue34568">https://bugs.python.org/issue34568</a></p>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
@@ -311,7 +311,7 @@ evaluates to True or False, or just a constant True or False.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

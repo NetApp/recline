@@ -1,7 +1,0 @@
-cliche.commands.builtin\_commands module
-========================================
-
-.. automodule:: cliche.commands.builtin_commands
-   :members:
-   :undoc-members:
-   :show-inheritance:

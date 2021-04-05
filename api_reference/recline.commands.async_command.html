@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>recline.commands.async_command module &mdash; recline 2020.5 documentation</title>
+  <title>recline.commands.async_command module &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -174,26 +174,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-recline.commands.async_command">
+  <section id="module-recline.commands.async_command">
 <span id="recline-commands-async-command-module"></span><h1>recline.commands.async_command module<a class="headerlink" href="#module-recline.commands.async_command" title="Permalink to this headline">¶</a></h1>
 <p>This is the implementation of an async command for the recline library. It allows
 for a command to be run in the foreground or background.</p>
 <dl class="py class">
 <dt id="recline.commands.async_command.AsyncCommand">
-<em class="property">class </em><code class="sig-prename descclassname">recline.commands.async_command.</code><code class="sig-name descname">AsyncCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">command</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">recline.commands.async_command.</span></code><code class="sig-name descname"><span class="pre">AsyncCommand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
 <p>This is a custom Thread class meant to wrap an asynchronous recline command.</p>
 <p>It provides the ability to gather a result as well as put the thread in the
 foreground or the background of the main REPL thread.</p>
 <dl class="py method">
 <dt id="recline.commands.async_command.AsyncCommand.background">
-<code class="sig-name descname">background</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.async_command.AsyncCommand.background" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">background</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand.background" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unblock the calling thread and put this thread into the background</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.async_command.AsyncCommand.foreground">
-<code class="sig-name descname">foreground</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#recline.commands.async_command.AsyncCommand.foreground" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">foreground</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand.foreground" title="Permalink to this definition">¶</a></dt>
 <dd><p>Block the calling thread until this thread is complete and return the result</p>
 <p>Also setup up a signal handler for SIGTSTP so that pressing ctrl+z will
 put this thread in the background</p>
@@ -201,14 +201,14 @@ put this thread in the background</p>
 
 <dl class="py method">
 <dt id="recline.commands.async_command.AsyncCommand.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.async_command.AsyncCommand.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the command in an asyncio loop. When it’s complete, the result
 will be recorded in this thread</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="recline.commands.async_command.AsyncCommand.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dont_delete</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.async_command.AsyncCommand.stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dont_delete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kill the command and return control to the main thread</p>
 </dd></dl>
 
@@ -216,7 +216,7 @@ will be recorded in this thread</p>
 
 <dl class="py exception">
 <dt id="recline.commands.async_command.CommandBackgrounded">
-<em class="property">exception </em><code class="sig-prename descclassname">recline.commands.async_command.</code><code class="sig-name descname">CommandBackgrounded</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_pid</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.CommandBackgrounded" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">recline.commands.async_command.</span></code><code class="sig-name descname"><span class="pre">CommandBackgrounded</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job_pid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.CommandBackgrounded" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>When a command is moved from the foreground to the background, this exception
 is raised to signal the shell.</p>
@@ -224,18 +224,18 @@ is raised to signal the shell.</p>
 
 <dl class="py exception">
 <dt id="recline.commands.async_command.CommandCancelled">
-<em class="property">exception </em><code class="sig-prename descclassname">recline.commands.async_command.</code><code class="sig-name descname">CommandCancelled</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_pid</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.CommandCancelled" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">recline.commands.async_command.</span></code><code class="sig-name descname"><span class="pre">CommandCancelled</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job_pid</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.CommandCancelled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>When a command is cancelled, this is exception is raised to signal the shell</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.commands.async_command.set_terminal_echo">
-<code class="sig-prename descclassname">recline.commands.async_command.</code><code class="sig-name descname">set_terminal_echo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">enabled</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.set_terminal_echo" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.async_command.</span></code><code class="sig-name descname"><span class="pre">set_terminal_echo</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.set_terminal_echo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Code from <a class="reference external" href="https://docs.python.org/2/library/termios.html">https://docs.python.org/2/library/termios.html</a></p>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
@@ -257,7 +257,7 @@ is raised to signal the shell.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

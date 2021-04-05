@@ -1,7 +1,0 @@
-cliche.arg\_types.choices module
-================================
-
-.. automodule:: cliche.arg_types.choices
-   :members:
-   :undoc-members:
-   :show-inheritance:

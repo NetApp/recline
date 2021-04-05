@@ -1,6 +1,0 @@
-[run]
-branch = true
-omit =
-    # don't measure our vendored packages
-    */vendor/*
-

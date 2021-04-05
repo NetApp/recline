@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>recline.commands.builtin_commands module &mdash; recline 2020.5 documentation</title>
+  <title>recline.commands.builtin_commands module &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -174,37 +174,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-recline.commands.builtin_commands">
+  <section id="module-recline.commands.builtin_commands">
 <span id="recline-commands-builtin-commands-module"></span><h1>recline.commands.builtin_commands module<a class="headerlink" href="#module-recline.commands.builtin_commands" title="Permalink to this headline">¶</a></h1>
 <p>The commands defined here are included with every recline application</p>
 <dl class="py exception">
 <dt id="recline.commands.builtin_commands.DebugInterrupt">
-<em class="property">exception </em><code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">DebugInterrupt</code><a class="headerlink" href="#recline.commands.builtin_commands.DebugInterrupt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">DebugInterrupt</span></code><a class="headerlink" href="#recline.commands.builtin_commands.DebugInterrupt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>An exception class to mark that we were interrupted by a debug request</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.commands.builtin_commands.command_help">
-<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">command_help</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.command_help" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">command_help</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.builtin_commands.command_help" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a list of available commands and their short description</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.commands.builtin_commands.debug">
-<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">debug</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.debug" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">debug</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.builtin_commands.debug" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drop into the Python debugger for development purposes</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.commands.builtin_commands.exit_command">
-<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">exit_command</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.exit_command" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">exit_command</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abort_jobs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="recline.arg_types.flag.html#recline.arg_types.flag.Flag" title="recline.arg_types.flag.Flag"><span class="pre">recline.arg_types.flag.Flag</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.builtin_commands.exit_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exit the application</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="recline.commands.builtin_commands.fg">
-<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">fg</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.fg" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">fg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">job:</span> <span class="pre">recline.arg_types.choices.Choices.define.&lt;locals&gt;._Choices</span> <span class="pre">=</span> <span class="pre">None</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.builtin_commands.fg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bring a job to the foreground</p>
 <p>If the job has already completed, then its results will be printed to the
 console. If the job has not yet finished, then the application will wait for
@@ -220,7 +220,7 @@ it to finish before printing the results.</p>
 
 <dl class="py function">
 <dt id="recline.commands.builtin_commands.man">
-<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">man</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#recline.commands.builtin_commands.man" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">man</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">command_name:</span> <span class="pre">recline.arg_types.remainder.Remainder.define.&lt;locals&gt;._Remainder</span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#recline.commands.builtin_commands.man" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the full man page for a given command</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>command: The name of the command</p>
@@ -230,12 +230,12 @@ it to finish before printing the results.</p>
 
 <dl class="py function">
 <dt id="recline.commands.builtin_commands.man_commands">
-<code class="sig-prename descclassname">recline.commands.builtin_commands.</code><code class="sig-name descname">man_commands</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">_</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">__</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.builtin_commands.man_commands" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">recline.commands.builtin_commands.</span></code><code class="sig-name descname"><span class="pre">man_commands</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.builtin_commands.man_commands" title="Permalink to this definition">¶</a></dt>
 <dd><p>A completer function for returning a list of commands the user might want
 to see the man page for. Don’t show alias names to reduce clutter and confusion.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
@@ -257,7 +257,7 @@ to see the man page for. Don’t show alias names to reduce clutter and confusio
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

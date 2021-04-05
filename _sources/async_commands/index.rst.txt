@@ -109,6 +109,10 @@ when starting the command::
 Send an Async Command to the Background
 ---------------------------------------
 
+.. warning::
+    This section only works on Unix-like systems. It does not apply to Windows
+    as the handling of SIGTSTP is not possible there.
+
 If the command was started in the foreground and the users wishes to run other commands
 while the first is executing, they can press ``ctrl+z`` to send it to the background.
 When doing this, the command continues to execute, but the user is free to run other

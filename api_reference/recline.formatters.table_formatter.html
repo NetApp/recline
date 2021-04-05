@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>recline.formatters.table_formatter module &mdash; recline 2020.5 documentation</title>
+  <title>recline.formatters.table_formatter module &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -174,7 +174,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-recline.formatters.table_formatter">
+  <section id="module-recline.formatters.table_formatter">
 <span id="recline-formatters-table-formatter-module"></span><h1>recline.formatters.table_formatter module<a class="headerlink" href="#module-recline.formatters.table_formatter" title="Permalink to this headline">¶</a></h1>
 <p>This module contains a table formatter for CLI output. The table formatter expects
 output to be an iterable of dictionary-like objects. For example, if a CLI command
@@ -199,7 +199,7 @@ baz</p></td>
 </table>
 <dl class="py class">
 <dt id="recline.formatters.table_formatter.TableFormat">
-<em class="property">class </em><code class="sig-prename descclassname">recline.formatters.table_formatter.</code><code class="sig-name descname">TableFormat</code><a class="headerlink" href="#recline.formatters.table_formatter.TableFormat" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">recline.formatters.table_formatter.</span></code><code class="sig-name descname"><span class="pre">TableFormat</span></code><a class="headerlink" href="#recline.formatters.table_formatter.TableFormat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="recline.formatters.output_formatter.html#recline.formatters.output_formatter.OutputFormatter" title="recline.formatters.output_formatter.OutputFormatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.formatters.output_formatter.OutputFormatter</span></code></a></p>
 <p>A TableFormat object can be used as the return type for a CLI command. When
 specified, the returned value from the CLI command is assumed to be an interable
@@ -207,14 +207,14 @@ of dictionary-like objects. All of the objects are assumed to be homogenous
 with respsect to their keys. It will print out a table representing the data.</p>
 <dl class="py method">
 <dt id="recline.formatters.table_formatter.TableFormat.format_output">
-<code class="sig-name descname">format_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.formatters.table_formatter.TableFormat.format_output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">format_output</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.formatters.table_formatter.TableFormat.format_output" title="Permalink to this definition">¶</a></dt>
 <dd><p>If there are no results given to us, print a message, otherwise print
 a table with a row for each record in the results.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
@@ -236,7 +236,7 @@ a table with a row for each record in the results.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

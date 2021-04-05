@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Things To Do &mdash; recline 2020.5 documentation</title>
+  <title>Things To Do &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -169,16 +169,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="things-to-do">
+  <section id="things-to-do">
 <h1>Things To Do<a class="headerlink" href="#things-to-do" title="Permalink to this headline">¶</a></h1>
 <p>This page is not part of the general documentation of the library. Rather it is
 meant as a placeholder to add features or bugs that should be worked on at some
 point in the library’s lifetime.</p>
-<div class="section" id="feature-enhancements">
+<section id="feature-enhancements">
 <h2>Feature Enhancements<a class="headerlink" href="#feature-enhancements" title="Permalink to this headline">¶</a></h2>
 <p>This is a list of potential feature enhancements that could make the user’s life
 easier.</p>
-<div class="section" id="multiple-output-choices">
+<section id="multiple-output-choices">
 <h3>Multiple Output Choices<a class="headerlink" href="#multiple-output-choices" title="Permalink to this headline">¶</a></h3>
 <p>recline supports output formatting, but in the current version, you can only specify
 a single output format type. It may make sense to support multiple output types
@@ -192,12 +192,12 @@ for a single command and to have the application user select between them at run
 <p>In this case, TableFormat would be the default if the user didn’t choose anything
 explicitly. There would need to be some mechanism by which arguments were added to
 the command based on the output types it supports.</p>
-</div>
-<div class="section" id="support-other-async-libraries">
+</section>
+<section id="support-other-async-libraries">
 <h3>Support Other Async Libraries<a class="headerlink" href="#support-other-async-libraries" title="Permalink to this headline">¶</a></h3>
 <p>We may want to support gevent, trio, tornado, etc. in addition to asyncio for async commands</p>
-</div>
-<div class="section" id="pipelines">
+</section>
+<section id="pipelines">
 <h3>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">¶</a></h3>
 <p>Something I was thinking would be useful is to implement pipes. For instance:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>::&gt; cake show -flavor chocolate
@@ -224,8 +224,8 @@ pip_output function which returns a dict. That dict would have data names and
 values and the names would then be matched to the inputs of the next command
 in the pipe. If it didn’t implement this, then the raw text of the output would
 be taken and it would be up to the next command in the pipe to interpret it.</p>
-</div>
-<div class="section" id="variables">
+</section>
+<section id="variables">
 <h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, it might be nice to not have to remember/type so much. For example, you might
 have a value that you want to use in multiple commands and it is either complex
@@ -254,8 +254,8 @@ Here are your 8 donuts
 </div>
 <p>Here, we ran the add command and saved its output as the value of a variable. Then
 we can use that variable later in the session in other commands as input.</p>
-</div>
-<div class="section" id="wizards">
+</section>
+<section id="wizards">
 <h3>Wizards<a class="headerlink" href="#wizards" title="Permalink to this headline">¶</a></h3>
 <p>Often, a command might have one or more required arguments. Typically, when a user
 doesn’t provide all of the required arguments, the command will fail and show the
@@ -303,12 +303,12 @@ Strike!
 &gt;::
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="known-issues">
+</section>
+</section>
+<section id="known-issues">
 <h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h2>
 <p>Issues can be filed and tracked via GitHub: <a class="reference external" href="https://github.com/NetApp/recline/issues">https://github.com/NetApp/recline/issues</a></p>
-<div class="section" id="status-codes">
+<section id="status-codes">
 <h3>Status Codes<a class="headerlink" href="#status-codes" title="Permalink to this headline">¶</a></h3>
 <p>There is some notion of status/exit codes in the shell.py file, but they don’t
 make it all the way out to the external shell when operating in non-interactive
@@ -321,9 +321,9 @@ $ echo $?
 $
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
@@ -345,7 +345,7 @@ $
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

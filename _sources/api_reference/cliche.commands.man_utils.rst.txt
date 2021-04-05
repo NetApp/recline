@@ -1,7 +1,0 @@
-cliche.commands.man\_utils module
-=================================
-
-.. automodule:: cliche.commands.man_utils
-   :members:
-   :undoc-members:
-   :show-inheritance:

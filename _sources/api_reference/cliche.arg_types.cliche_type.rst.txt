@@ -1,7 +1,0 @@
-cliche.arg\_types.cliche\_type module
-=====================================
-
-.. automodule:: cliche.arg_types.cliche_type
-   :members:
-   :undoc-members:
-   :show-inheritance:

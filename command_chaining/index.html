@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Shell Behavior &mdash; recline 2020.5 documentation</title>
+  <title>Shell Behavior &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -163,12 +163,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="shell-behavior">
+  <section id="shell-behavior">
 <h1>Shell Behavior<a class="headerlink" href="#shell-behavior" title="Permalink to this headline">¶</a></h1>
 <p>While using an application built with the recline library, there is a common set of
 shell functionality that is provided for you by the library. These will be familiar
 to you if you are used to a unix style shell, like bash.</p>
-<div class="section" id="command-chaining">
+<section id="command-chaining">
 <h2>Command Chaining<a class="headerlink" href="#command-chaining" title="Permalink to this headline">¶</a></h2>
 <p>There are three different command chaining operators, <code class="docutils literal notranslate"><span class="pre">;</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, and <code class="docutils literal notranslate"><span class="pre">||</span></code>.
 All three of these operators allow you to chain multiple commands on the same line
@@ -201,7 +201,7 @@ considered as a success for the purposes of the operators. If the command is
 run in the foreground (the default), then its success or failure will be
 considered just like a synchronous command.</p>
 </div>
-<div class="section" id="operator">
+<section id="operator">
 <h3>; Operator<a class="headerlink" href="#operator" title="Permalink to this headline">¶</a></h3>
 <p>When the <code class="docutils literal notranslate"><span class="pre">;</span></code> operator is used, all chained commands will be run regardless of
 the success or failure of the previous command in the chain. For example:</p>
@@ -218,8 +218,8 @@ success!
 chaining test&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h3>&amp;&amp; Operator<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>When the <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> operator is used, the chain of commands will halted whenever a
 command in the chain fails and no commands after that point will be run. It is
@@ -235,8 +235,8 @@ I&#39;m a bad function
 chaining test&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>|| Operator<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>When the <code class="docutils literal notranslate"><span class="pre">||</span></code> operator is used, the chain of commands will halted whenever a
 successful command is executed. Commands after that point will not be run. It is
@@ -252,9 +252,9 @@ success!
 chaining test&gt;
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
@@ -276,7 +276,7 @@ chaining test&gt;
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

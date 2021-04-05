@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Async Commands &mdash; recline 2020.5 documentation</title>
+  <title>Async Commands &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -161,7 +161,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
+  <section id="id1">
 <h1>Async Commands<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>In a REPL environment, there are often many commands the user may be able to run.
 Some commands may take a long time to complete and maybe there are other commands
@@ -216,7 +216,7 @@ program that we will highlight below:</p>
 <span class="n">recline</span><span class="o">.</span><span class="n">relax</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="section" id="writing-an-async-command">
+<section id="writing-an-async-command">
 <h2>Writing an Async Command<a class="headerlink" href="#writing-an-async-command" title="Permalink to this headline">¶</a></h2>
 <p>Writing a command that can be put in the background is easy. Simply add the <code class="docutils literal notranslate"><span class="pre">async</span></code>
 keyword while defining the function. This tells recline that the command may be long
@@ -235,8 +235,8 @@ is optional, but it allows our command to have special behavior in the case the 
 cancels the command. We get one more opportunity to run and clean up if needed. In
 this case, we elected to show the user a short message saying that we didn’t get to
 complete.</p>
-</div>
-<div class="section" id="executing-an-async-command">
+</section>
+<section id="executing-an-async-command">
 <h2>Executing an Async Command<a class="headerlink" href="#executing-an-async-command" title="Permalink to this headline">¶</a></h2>
 <p>From the user’s perspective, there isn’t too much that is different about an async
 command. Commands are executed the same way as non-async commands:</p>
@@ -260,9 +260,14 @@ Job 2 is running in the background
 &gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="send-an-async-command-to-the-background">
+</section>
+<section id="send-an-async-command-to-the-background">
 <h2>Send an Async Command to the Background<a class="headerlink" href="#send-an-async-command-to-the-background" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section only works on Unix-like systems. It does not apply to Windows
+as the handling of SIGTSTP is not possible there.</p>
+</div>
 <p>If the command was started in the foreground and the users wishes to run other commands
 while the first is executing, they can press <code class="docutils literal notranslate"><span class="pre">ctrl+z</span></code> to send it to the background.
 When doing this, the command continues to execute, but the user is free to run other
@@ -276,8 +281,8 @@ The current deployment is 20.0% complete
 &gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="bring-a-backgrounded-command-back-to-the-foreground">
+</section>
+<section id="bring-a-backgrounded-command-back-to-the-foreground">
 <h2>Bring a Backgrounded Command Back to the Foreground<a class="headerlink" href="#bring-a-backgrounded-command-back-to-the-foreground" title="Permalink to this headline">¶</a></h2>
 <p>After a command was sent to the background, the shell prints a message indicating
 the job number associated with the command. The user may re-attach to the command
@@ -317,8 +322,8 @@ Could not find a running job for 3
 &gt;
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -340,7 +345,7 @@ Could not find a running job for 3
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

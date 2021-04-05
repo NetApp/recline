@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>recline.arg_types.ranged_int module &mdash; recline 2020.5 documentation</title>
+  <title>recline.arg_types.ranged_int module &mdash; recline 2021.4 documentation</title>
   
 
   
@@ -24,7 +25,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -80,7 +80,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../before_getting_started/index.html">Before getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Quickstart</a></li>
@@ -174,7 +174,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-recline.arg_types.ranged_int">
+  <section id="module-recline.arg_types.ranged_int">
 <span id="recline-arg-types-ranged-int-module"></span><h1>recline.arg_types.ranged_int module<a class="headerlink" href="#module-recline.arg_types.ranged_int" title="Permalink to this headline">¶</a></h1>
 <p>A RangedInt type allows the CLI command writer to specify an integer that is only
 valid within a certain range. If the user provides a value outside of that range,
@@ -187,13 +187,13 @@ def bake(minutes: RangedInt.define(min=15, max=60)) -&gt; None:</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="recline.arg_types.ranged_int.RangedInt">
-<em class="property">class </em><code class="sig-prename descclassname">recline.arg_types.ranged_int.</code><code class="sig-name descname">RangedInt</code><a class="headerlink" href="#recline.arg_types.ranged_int.RangedInt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">recline.arg_types.ranged_int.</span></code><code class="sig-name descname"><span class="pre">RangedInt</span></code><a class="headerlink" href="#recline.arg_types.ranged_int.RangedInt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.arg_types.recline_type.ReclineType</span></code></a></p>
 <p>The RangedInt type allows a parameter which is an into to be constrained
 in which values are in the valid range.</p>
 <dl class="py method">
 <dt id="recline.arg_types.ranged_int.RangedInt.define">
-<em class="property">static </em><code class="sig-name descname">define</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">min</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; _RangedInt<a class="headerlink" href="#recline.arg_types.ranged_int.RangedInt.define" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">define</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">_RangedInt</span><a class="headerlink" href="#recline.arg_types.ranged_int.RangedInt.define" title="Permalink to this definition">¶</a></dt>
 <dd><p>A <cite>recline.commands.types.RangedInt</cite> is a way to annotate an integer with
 a min and max value.</p>
 <p>Prior to being passed to your command, the arguments of this type will
@@ -216,7 +216,7 @@ argument will be enforced.</p>
 
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
@@ -238,7 +238,7 @@ argument will be enforced.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NetApp
+        &copy; Copyright 2021, NetApp
 
     </p>
   </div>

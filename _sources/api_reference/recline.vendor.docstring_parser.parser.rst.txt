@@ -28,7 +28,6 @@ recline.vendor.docstring\_parser.parser.rest module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 
