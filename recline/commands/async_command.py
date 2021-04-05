@@ -9,7 +9,6 @@ import io
 import os
 import signal
 import sys
-import termios
 from threading import Thread
 import time
 from typing import Any
@@ -67,7 +66,8 @@ class AsyncCommand(Thread):
         will be recorded in this thread
         """
 
-        self._orig_sigstp_handler = signal.getsignal(signal.SIGTSTP)
+        if sys.platform != "win32":
+            self._orig_sigstp_handler = signal.getsignal(signal.SIGTSTP)
         self._orig_sigint_handler = signal.getsignal(signal.SIGINT)
         asyncio.set_event_loop(self._loop)
         self._task = asyncio.ensure_future(self.command.func(*self._args, **self._kwargs))
@@ -90,7 +90,8 @@ class AsyncCommand(Thread):
         """Unblock the calling thread and put this thread into the background"""
 
         self._wait = False
-        signal.signal(signal.SIGTSTP, self._orig_sigstp_handler)
+        if sys.platform != "win32":
+            signal.signal(signal.SIGTSTP, self._orig_sigstp_handler)
 
     def foreground(self) -> Any:
         """Block the calling thread until this thread is complete and return the result
@@ -114,22 +115,32 @@ class AsyncCommand(Thread):
 
     @contextmanager
     def _manipulate_signals(self):
-        signal.signal(
-            signal.SIGTSTP,
-            lambda signum, frame: self.background(),
-        )
+        if sys.platform != "win32":
+            signal.signal(
+                signal.SIGTSTP,
+                lambda signum, frame: self.background(),
+            )
         signal.signal(
             signal.SIGINT,
             lambda signum, frame: self.stop(),
         )
         yield
-        signal.signal(signal.SIGTSTP, self._orig_sigstp_handler)
+        if sys.platform != "win32":
+            signal.signal(signal.SIGTSTP, self._orig_sigstp_handler)
         signal.signal(signal.SIGINT, self._orig_sigint_handler)
 
 
 @contextmanager
 def set_terminal_echo(enabled=True):
     """ Code from https://docs.python.org/2/library/termios.html """
+
+    try:
+        import termios
+    except ImportError:
+        # must be a Windows system. There's no terios module there, so there's
+        # nothing we can do here
+        yield
+        return
 
     # in something like pytest, stdin might not have a fileno
     try:

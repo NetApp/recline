@@ -191,10 +191,11 @@ def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[st
         track_command_history(history_file)
     setup_tab_complete()
 
-    # set up a handler for ctrl-\
-    def signal_handler(signum, frame):
-        raise builtin_commands.DebugInterrupt()
-    signal.signal(signal.SIGQUIT, signal_handler)
+    if sys.platform != "win32":
+        # set up a handler for ctrl-\
+        def signal_handler(signum, frame):
+            raise builtin_commands.DebugInterrupt()
+        signal.signal(signal.SIGQUIT, signal_handler)
 
     if commands.EXIT_COMMAND:
         atexit.register(_run_command, commands.EXIT_COMMAND, [])
@@ -240,9 +241,10 @@ def track_command_history(filename: str) -> None:
 
 def setup_tab_complete() -> None:
     """Set up the readline library to hook into our command completer"""
-
-    readline.set_completer_delims('')
-    readline.set_completion_display_matches_hook(completer.match_command_hook)
+        
+    readline.set_completer_delims("")
+    if sys.platform != "win32":
+        readline.set_completion_display_matches_hook(completer.match_command_hook)
     readline.set_completer(completer.CommandCompleter(commands.COMMAND_REGISTRY).completer)
     readline.parse_and_bind("tab: complete")
     readline.parse_and_bind("set show-all-if-ambiguous on")
