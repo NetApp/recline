@@ -22,7 +22,7 @@ def wrapped_string(text, screen_width, prefix=0):
     If a prefix is given, the line(s) will be prefixed with that many ' '
     characters, including any wrapped lines.
 
-    If the given string includes embeded newline characters, then each line
+    If the given string includes embedded newline characters, then each line
     will be evaluated according to the rules above including breaking on word
     boundaries and injecting a prefix.
     """

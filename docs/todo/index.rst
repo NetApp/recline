@@ -70,7 +70,7 @@ Variables
 Sometimes, it might be nice to not have to remember/type so much. For example, you might
 have a value that you want to use in multiple commands and it is either complex
 or long. The library should provide a way to save this value with a meaningful, user-
-choosen name and reuse it later. For example::
+chosen name and reuse it later. For example::
 
     >:: echo hello world
     hello world
@@ -117,7 +117,7 @@ Here's an example script that we will use:
 
     @recline.command(name="pitch baseball")
     def pitch_baseball(grip: str, speed: int, handedness: Choices.define(["right", "left"]) = "right") -> str:
-        """Thow one right down the plate and strike out the batter if you can!
+        """Throw one right down the plate and strike out the batter if you can!
 
         Arguments:
             grip: How do you want to hold the ball?

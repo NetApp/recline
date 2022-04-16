@@ -37,7 +37,7 @@ def test_async_command_run():
 @pytest.mark.usefixtures("clean_jobs")
 def test_async_command_run_background():
     """Verify that if given a coroutine, the AsyncCommand will register and then
-    run the coroutine when in the background and we can retrive the result.
+    run the coroutine when in the background and we can retrieve the result.
     """
 
     test_result = "This is the answer"

@@ -45,7 +45,7 @@ def relax(
         motd: If provided, this will be displayed to the user before the prompt.
             If it is a string, it will be displayed as given. If it is a callable,
             then the result will be displayed to the user.
-        history_file: If peristent command history is desired, a file name may
+        history_file: If persistent command history is desired, a file name may
             be passed where a list of the most recent commands will be kept and
             loaded from.
         prompt: This is the prompt to display to the user to let them know that
@@ -171,7 +171,7 @@ def run_one_command(current_input: str) -> int:
         if exc.code == builtin_commands.EXIT_COMMAND_CODE:
             raise
 
-        # if a command fails to pase, that's OK. The user probably just didn't
+        # if a command fails to parse, that's OK. The user probably just didn't
         # type one of the required parameters yet. We might also get here if they
         # printed the help output with -help
         return exc.code
