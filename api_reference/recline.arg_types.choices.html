@@ -177,12 +177,12 @@
   <section id="module-recline.arg_types.choices">
 <span id="recline-arg-types-choices-module"></span><h1>recline.arg_types.choices module<a class="headerlink" href="#module-recline.arg_types.choices" title="Permalink to this headline">¶</a></h1>
 <p>A Choices type allows the CLI command writer to specify a static list of choices
-for a parameter. Once the body of the function is invoked, it is guarenteed that
+for a parameter. Once the body of the function is invoked, it is guaranteed that
 the validation was done on the parameter to make sure it matched one.</p>
 <p>&#64;recline.command(name=”cake make”)
 def make_cake(flavor: Choices.define([“chocolate”, “vanilla”, “marble”])) -&gt; None:</p>
 <blockquote>
-<div><p># We can assume flavor is one of the choices in the body of the fuction</p>
+<div><p># We can assume flavor is one of the choices in the body of the function</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="recline.arg_types.choices.Choices">
@@ -241,7 +241,7 @@ is assumed to be done on whatever the command is calling)</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2021, NetApp
+        &copy; Copyright 2022, NetApp
 
     </p>
   </div>

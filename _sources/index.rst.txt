@@ -75,7 +75,7 @@ Command-based
 -------------
 
 The application will be command based. Each command will have one or more words
-that identify the command. It may also have one or more arugments that augment or
+that identify the command. It may also have one or more arguments that augment or
 vary the action that command will take.
 
 Batteries included
