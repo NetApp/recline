@@ -89,7 +89,7 @@ class Docstring:
     """Docstring object representation."""
 
     def __init__(self) -> None:
-        """Intializes self."""
+        """Initializes self."""
         self.short_description = None  # type: T.Optional[str]
         self.long_description = None  # type: T.Optional[str]
         self.blank_after_short_description = False

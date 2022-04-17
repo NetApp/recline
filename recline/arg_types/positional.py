@@ -14,7 +14,7 @@ from recline.arg_types.recline_type_error import ReclineTypeError
 
 
 class Positional(ReclineType):
-    """The Positional type allows the user to not have to specify the arugment name"""
+    """The Positional type allows the user to not have to specify the argument name"""
 
     @staticmethod
     def define(completer=None, data_type=str):

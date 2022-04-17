@@ -23,7 +23,7 @@ from recline.formatters.output_formatter import OutputFormatter
 class TableFormat(OutputFormatter):  # pylint: disable=too-few-public-methods
     """A TableFormat object can be used as the return type for a CLI command. When
     specified, the returned value from the CLI command is assumed to be an interable
-    of dictionary-like objects. All of the objects are assumed to be homogenous
+    of dictionary-like objects. All of the objects are assumed to be homogeneous
     with respsect to their keys. It will print out a table representing the data.
     """
 

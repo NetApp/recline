@@ -114,7 +114,7 @@ def parse(text: str) -> Docstring:
             raise ParseError('Can\'t infer indent from "%s"' % chunk)
         indent = indent_match.group()
 
-        # Check for returns/yeilds (only one element)
+        # Check for returns/yields (only one element)
         if _sections[title] in ("returns", "yields"):
             part = inspect.cleandoc(chunk)
             ret.meta.append(_build_meta(part, title))

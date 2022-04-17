@@ -8,7 +8,7 @@ START_COMMAND = None
 EXIT_COMMAND = None
 
 class ReclineCommandError(Exception):
-    """If there is an error while executing a command, this excetpion should be
+    """If there is an error while executing a command, this exception should be
     raised an an error will be printed to the console.
     """
 

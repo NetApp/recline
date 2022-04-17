@@ -147,7 +147,7 @@ and once again block user input until the command has completed::
     +----------+
     >
 
-If the command completed executing while in the background, it remains avaialable
+If the command completed executing while in the background, it remains available
 for the user to foreground it in order to retrieve its result. In this case, the
 user can expect to execute the ``fg`` command and the result would be printed immediately.
 

@@ -1,11 +1,11 @@
 """
 A Choices type allows the CLI command writer to specify a static list of choices
-for a parameter. Once the body of the function is invoked, it is guarenteed that
+for a parameter. Once the body of the function is invoked, it is guaranteed that
 the validation was done on the parameter to make sure it matched one.
 
 @recline.command(name="cake make")
 def make_cake(flavor: Choices.define(["chocolate", "vanilla", "marble"])) -> None:
-    # We can assume flavor is one of the choices in the body of the fuction
+    # We can assume flavor is one of the choices in the body of the function
 """
 
 from typing import Callable, List, Union

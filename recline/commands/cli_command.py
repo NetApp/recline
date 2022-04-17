@@ -79,7 +79,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
     @property
     def hidden(self):
         """A command is hidden if it is either statically declared to be or it
-        was provided with a fuction to determine if it should currently be hidden
+        was provided with a function to determine if it should currently be hidden
         """
 
         if isinstance(self._hidden, bool):
@@ -221,7 +221,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         return basic
 
     def get_arg_description(self, arg, indent=0):
-        """Get the descrption of the arg from the parsed docstring if we can find
+        """Get the description of the arg from the parsed docstring if we can find
         one. Otherwise, the description will be blank.
         """
 
@@ -329,7 +329,7 @@ def command(
 
     The name of the command will match the name of the function that is being
     wrapped. The arguments of the command will match the arguments that the
-    function accepts. Any arugments that are required by the function will be
+    function accepts. Any arguments that are required by the function will be
     required arguments for the command. Any arguments that are optional (listed
     as keyword arguments) will be optional for the command.
 

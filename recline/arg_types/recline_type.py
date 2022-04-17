@@ -39,7 +39,7 @@ class ReclineType(ABC):
 
     def completer(self, *args, **kwargs) -> List[Any]:  # pylint: disable=unused-argument,no-self-use
         """The completer function should return a list of values that are valid
-        for the argument. This function will ususally be implemented such that it
+        for the argument. This function will usually be implemented such that it
         is dynamic based on some API call or some current application state. If
         it is a static set of choices, it would be easier to use the choices
         method instead.
