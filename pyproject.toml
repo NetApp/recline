@@ -21,12 +21,11 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.6"
+python = ">=3.6,<4"
 pyreadline = {version = "^2.1", markers = "sys_platform == 'win32'"}
 windows-curses = {version = "^2.3.0", markers = "sys_platform == 'win32'"}
 
 [tool.poetry.dev-dependencies]
-pudb = "^2019.2"
 pylint = "^2.5.2"
 pytest = "^7.0.1"
 pytest-cov = "^3.0.0"
