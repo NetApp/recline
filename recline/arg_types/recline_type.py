@@ -14,7 +14,7 @@ class UniqueParam(argparse.Action):  # pylint: disable=too-few-public-methods
         current_value = getattr(namespace, self.dest)
         # If the corresponding namespace attribute is not the default value or None raise error
         if current_value != self.default and current_value is not None:
-            parser.error("Duplicate parameter \"%s\"" % option_string)
+            parser.error(f"Duplicate parameter \"{option_string}\"")
         # Update the namespace attribute with the given value
         setattr(namespace, self.dest, values)
 

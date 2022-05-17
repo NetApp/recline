@@ -52,8 +52,8 @@ def wrapped_string(text, screen_width, prefix=0):
             space_left = screen_width - (prefix + len(current_line))
             if space_left < 3 or len(word) - space_left < 3:
                 # if not much room, move whole word to the next line
-                new_text += '%s\n' % current_line.rstrip()
-                current_line = '%s%s ' % (' ' * prefix, word)
+                new_text += f'{current_line.rstrip()}\n'
+                current_line = f"{' ' * prefix}{word} "
             else:
                 # split the word across lines with a hyphen
                 current_line += word[:space_left - 1] + '-'
@@ -83,7 +83,7 @@ def generate_help_text(screen_width, command_class):
         prefix=(len(command_class.name) + len(indent) + 4),
     )
     for line in description.split('\n'):
-        help_text.append(('%s\n' % line,))
+        help_text.append((f'{line}\n',))
     help_text.append(('\n',))
 
     # command usage details
@@ -93,7 +93,7 @@ def generate_help_text(screen_width, command_class):
         command_class.get_command_usage(), screen_width, prefix=len(indent),
     )
     for line in description.split('\n'):
-        help_text.append(('%s\n' % line,))
+        help_text.append((f'{line}\n',))
     help_text.append(('\n',))
 
     # command detailed description
@@ -105,7 +105,7 @@ def generate_help_text(screen_width, command_class):
             prefix=len(indent),
         )
         for line in description.split('\n'):
-            help_text.append(('%s\n' % line,))
+            help_text.append((f'{line}\n',))
         help_text.append(('\n',))
 
     # each command parameter with description, constraints, and defaults
@@ -115,14 +115,14 @@ def generate_help_text(screen_width, command_class):
             description = command_class.get_arg_description(arg, indent=None)
             annotation_type = get_annotation_type(arg)
             positional = '' if issubclass(annotation_type, (Remainder, Positional)) else '-'
-            arg_name = '' if issubclass(annotation_type, Positional) else '%s ' % arg.name
-            prefix = '%s  %s%s%s ' % (indent, positional, arg_name, meta)
+            arg_name = '' if issubclass(annotation_type, Positional) else f'{arg.name} '
+            prefix = f'{indent}  {positional}{arg_name}{meta} '
             help_text.append((prefix,))
             description = wrapped_string(
                 description, screen_width, prefix=len(prefix)
             )
             for line in description.split('\n'):
-                help_text.append(('%s\n' % line,))
+                help_text.append((f'{line}\n',))
             help_text.append(('\n'),)
         help_text.append(('OPTIONS\n', curses.A_BOLD))
         if command_class.required_args:
@@ -142,12 +142,12 @@ def generate_help_text(screen_width, command_class):
         for example in command_class.docstring.examples:
             prefix = indent + '  '
             help_text.append((indent,))
-            help_text.append(('%s:' % (example.name), curses.A_UNDERLINE))
-            help_text.append(('\n%s' % prefix,))
+            help_text.append((f'{example.name}:', curses.A_UNDERLINE))
+            help_text.append((f'\n{prefix}',))
             description = wrapped_string(
                 example.description, screen_width, prefix=len(prefix),
             )
             for line in description.split('\n'):
-                help_text.append(('%s\n' % line,))
+                help_text.append((f'{line}\n',))
 
     return help_text

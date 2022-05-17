@@ -11,7 +11,8 @@ If you are making and testing changes to recline itself, the following commands
 will be useful to know. This repository makes use of [poetry](https://github.com/python-poetry/poetry)
 for configuring a virtual environment and so the commands below will reference
 it so that they are run inside of that environment. If you want more information
-about Poetry, then you can view the documentation [here](https://python-poetry.org/docs/basic-usage/)
+about Poetry, then you can view the documentation (along with installation instructions
+for poetry itself) [here](https://python-poetry.org/docs/basic-usage/)
 
 ### Setting up your environment
 
@@ -20,6 +21,11 @@ in it.
 
 ```
 $ poetry install
+```
+
+### Running an example script
+```
+$ poetry run python examples/cake.py
 ```
 
 ### Testing changes

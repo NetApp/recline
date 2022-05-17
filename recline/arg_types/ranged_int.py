@@ -55,7 +55,7 @@ class RangedInt(ReclineType):
                 range_str = '{%s-inf}' % min_val
             elif max_val is not None:
                 range_str = '{-inf-%s}' % max_val
-            metavar = '<int%s>' % range_str
+            metavar = f'<int{range_str}>'
 
             def validate(self, arg):
                 try:
@@ -67,7 +67,7 @@ class RangedInt(ReclineType):
                     return int_val
                 except ValueError:
                     raise ReclineTypeError(
-                        '"%s" is not an integer in the range %s.' % (arg, _RangedInt.range_str)
+                        f'"{arg}" is not an integer in the range {_RangedInt.range_str}.'
                     )
 
         return _RangedInt

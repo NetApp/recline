@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "recline"
-version = "2021.4"
+version = "2022.5"
 description = "Writing argparse-based command line applications can become tedious, repetitive, and difficult to do right. Relax and let this library free you from that burden."
 license = "BSD-3-Clause"
 authors = ["NetApp <ng-netapp-oss@netapp.com>"]
@@ -21,15 +21,15 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.5"
+python = ">=3.6"
 pyreadline = {version = "^2.1", markers = "sys_platform == 'win32'"}
-windows-curses = {version = "^2.0", markers = "sys_platform == 'win32'"}
+windows-curses = {version = "^2.3.0", markers = "sys_platform == 'win32'"}
 
 [tool.poetry.dev-dependencies]
 pudb = "^2019.2"
 pylint = "^2.5.2"
-pytest = "^5.4.2"
-pytest-cov = "^2.8.1"
-sphinx = "^3.0.3"
-sphinx-rtd-theme = "^0.4.3"
+pytest = "^7.0.1"
+pytest-cov = "^3.0.0"
+sphinx = "^4.5.0"
+sphinx-rtd-theme = "^1.0.0"
 sphinxcontrib-apidoc = "^0.3.0"

@@ -34,7 +34,7 @@ class Positional(ReclineType):
                     return self.data_type(arg)
                 except Exception:
                     raise ReclineTypeError(
-                        "Cannot parse %s as a valid %s" % (arg, data_type.__name__)
+                        f"Cannot parse {arg} as a valid {data_type.__name__}"
                     )
 
         return _Positional

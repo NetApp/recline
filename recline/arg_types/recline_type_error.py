@@ -20,6 +20,6 @@ class ReclineTypeError(Exception):
         try:
             type_instance = inspect.currentframe().f_back.f_locals.get("self")
             if isinstance(type_instance, ReclineType) and type_instance.arg_name is not None:
-                super().__init__("%s: %s" % (type_instance.arg_name, message))
+                super().__init__(f"{type_instance.arg_name}: {message}")
         except Exception:  # pylint: disable=broad-except
             super().__init__(message)

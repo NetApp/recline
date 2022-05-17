@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.5"
+          python-version: "3.6"
       - name: Install Python Requirements
         env:
           POETRY_VIRTUALENVS_CREATE: "false"
@@ -21,15 +21,6 @@ jobs:
         run: |
           poetry run pytest --cov=recline --cov-report=xml tests
           poetry build
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-          flags: unittests
-          env_vars: OS,PYTHON
-          name: codecov-umbrella
-          fail_ci_if_error: true
       - name: Publish Package
         if: startsWith(github.event.ref, 'refs/tags')
         uses: pypa/gh-action-pypi-publish@master

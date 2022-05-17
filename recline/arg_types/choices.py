@@ -50,7 +50,7 @@ class Choices(ReclineType):
                 instance = super().__new__(cls)
                 cls.available_choices = available_choices
                 if isinstance(available_choices, list):
-                    cls.metavar = '<%s>' % '|'.join(available_choices)
+                    cls.metavar = f"<{'|'.join(available_choices)}>"
                 return instance
 
             def validate(self, arg):
@@ -59,12 +59,12 @@ class Choices(ReclineType):
                 current_choices = self.choices(eager=True)
                 if arg not in current_choices:
                     raise ReclineTypeError(
-                        '"%s" must be one of %s.' % (arg, ", ".join(current_choices))
+                        f"\"{arg}\" must be one of {', '.join(current_choices)}."
                     )
                 try:
                     return data_type(arg)
                 except Exception:  # pylint: disable=broad-except
-                    raise ReclineTypeError('Unable to convert "%s" to type %s' % (arg, data_type))
+                    raise ReclineTypeError(f'Unable to convert "{arg}" to type {data_type}')
 
             def choices(self, eager=False):
                 if hasattr(self.__class__, '_cached_choices'):
@@ -83,7 +83,7 @@ class Choices(ReclineType):
                 current_choices = [str(c) for c in current_choices]
                 if cache_choices:
                     self.__class__._cached_choices = current_choices  # pylint: disable=protected-access
-                self.__class__.metavar = '<%s>' % '|'.join(current_choices)
+                self.__class__.metavar = f"<{'|'.join(current_choices)}>"
                 return current_choices
 
             def completer(self, *args, **kwargs):

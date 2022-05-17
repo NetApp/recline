@@ -45,16 +45,16 @@ def command_help() -> None:
 
     for group in sorted(groups.keys()):
         if group:
-            print('%s\n%s' % (group, '-' * len(group)))
+            print(f"{group}\n{'-' * len(group)}")
         for command_entry in sorted(groups[group], key=attrgetter('name')):
-            print('%s - %s' % (command_entry.name, command_entry.docstring.short_description))
+            print(f'{command_entry.name} - {command_entry.docstring.short_description}')
 
     print()
-    print('%s\n%s' % (_GROUPNAME, '-' * len(_GROUPNAME)))
+    print(f"{_GROUPNAME}\n{'-' * len(_GROUPNAME)}")
     for command_entry in sorted(builtins, key=attrgetter('name')):
         if command_entry.is_alias or command_entry.hidden:
             continue
-        print('%s - %s' % (command_entry.name, command_entry.docstring.short_description))
+        print(f'{command_entry.name} - {command_entry.docstring.short_description}')
 
 
 def man_commands(*_, **__):
@@ -79,7 +79,7 @@ def man(command_name: Remainder.define(completer=man_commands)) -> None:
     command_name = ' '.join(command_name)
     command_class = recline.commands.COMMAND_REGISTRY.get(command_name, None)
     if not command_class:
-        print('No manual entry for %s' % command_name)
+        print(f'No manual entry for {command_name}')
         return
 
     def display_man(window):
@@ -222,7 +222,7 @@ def fg(job: Choices.define(  # pylint: disable=invalid-name
         except IndexError:
             raise ReclineCommandError("No running jobs found")
     elif job not in recline.JOBS:
-        raise ReclineCommandError("Could not find a running job for %s" % job)
+        raise ReclineCommandError(f"Could not find a running job for {job}")
 
     thread = recline.JOBS[job]
     result = thread.foreground()

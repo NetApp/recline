@@ -124,7 +124,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         return parser
 
     def _get_arg_spec(self, arg, required):
-        spec_args = ['-%s' % arg.name]
+        spec_args = [f'-{arg.name}']
         spec_kwargs = {
             'action': self.get_arg_action(arg),
             'help': self.get_arg_description(arg),
@@ -202,7 +202,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         from the type.
         """
 
-        basic = '<%s>' % arg.name
+        basic = f'<{arg.name}>'
         if not arg.annotation:
             return basic
 
@@ -213,7 +213,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         if issubclass(annotation_type, ReclineType):
             return arg.annotation.metavar
         if issubclass(annotation_type, List):
-            return '<%s> [%s ...]' % (arg.name, arg.name)
+            return f'<{arg.name}> [{arg.name} ...]'
         if issubclass(annotation_type, bool):
             return '<true|false>'
         if issubclass(annotation_type, int):
@@ -239,11 +239,11 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
 
         annotation_type = get_annotation_type(arg)
         positional = '' if issubclass(annotation_type, (Positional, Remainder)) else '-'
-        name_meta = '  %s%s %s ' % (positional, arg.name, self.get_arg_metavar(arg))
+        name_meta = f'  {positional}{arg.name} {self.get_arg_metavar(arg)} '
         if issubclass(annotation_type, Positional):
-            name_meta = '  %s ' % self.get_arg_metavar(arg)
+            name_meta = f'  {self.get_arg_metavar(arg)} '
         if issubclass(annotation_type, Flag):
-            name_meta = '  %s%s ' % (positional, arg.name)
+            name_meta = f'  {positional}{arg.name} '
         indent = len(name_meta) if indent else None
         arg_help = name_meta
         arg_description = self.get_arg_description(arg, indent=indent)
@@ -253,7 +253,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
             default_val = arg.default
             if isinstance(arg.default, bool):
                 default_val = str(arg.default).lower()
-            arg_help += '\n    Default: %s' % default_val
+            arg_help += f'\n    Default: {default_val}'
         return arg_help
 
     def get_command_help(self):
@@ -375,12 +375,12 @@ def command(
 def _register(func, name, group, aliases, atstart, atexit, hidden, is_async):
     if atstart:
         if commands.START_COMMAND:
-            raise RuntimeError('A start command is already defined: %s' % func)
+            raise RuntimeError(f'A start command is already defined: {func}')
         commands.START_COMMAND = CLICommand(func)
         return
     if atexit:
         if commands.EXIT_COMMAND:
-            raise RuntimeError('An exit command is already defined: %s' % func)
+            raise RuntimeError(f'An exit command is already defined: {func}')
         commands.EXIT_COMMAND = CLICommand(func)
         return
 

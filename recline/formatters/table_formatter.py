@@ -93,6 +93,6 @@ def _print_data_line(col_data, headers=False):
     for _, (data, width) in col_data.items():
         if headers:
             data = str(data).title().replace('_', ' ')
-        print('| %s' % data, end='')
+        print(f'| {data}', end='')
         print(' ' * (width - len(str(data)) + 1), end='')
     print('|')

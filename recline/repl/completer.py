@@ -210,7 +210,7 @@ def _already_added_match(parser, match, text):
             continue
 
         action_is_unique = action._orig_class in unique_classes
-        action_is_present = re.search(' %s' % match, text)
+        action_is_present = re.search(f' {match}', text)
 
         if action_is_unique and action_is_present:
             match_already_added = True

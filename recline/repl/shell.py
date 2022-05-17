@@ -78,7 +78,7 @@ def relax(
             command = argv[1:]
         if single_command:
             command = [single_command] + argv[1:]
-        return run_one_command("%s" % " ".join(command))
+        return run_one_command(f"{' '.join(command)}")
 
     if isinstance(motd, str):
         print(motd)
@@ -143,7 +143,7 @@ def run_one_command(current_input: str) -> int:
         current_input, list(commands.COMMAND_REGISTRY.keys()),
     )
     if command_name not in commands.COMMAND_REGISTRY:
-        print("Unknown command: %s" % current_input)
+        print(f"Unknown command: {current_input}")
         return 1
     command = commands.COMMAND_REGISTRY[command_name]
     cmd_args = [f for f in shlex.split(current_input.replace(command_name, "", 1)) if f]
@@ -158,14 +158,14 @@ def run_one_command(current_input: str) -> int:
             return 0
         return result
     except CommandBackgrounded as err:
-        print('^Z\nJob %s is running in the background' % err.job_pid)
+        print(f'^Z\nJob {err.job_pid} is running in the background')
         return 0
     except CommandCancelled:
         pass
     except (ReclineTypeError, ReclineCommandError) as exc:
         print(str(exc))
     except Exception as exc:  # pylint: disable=broad-except
-        print("Command execution error: %s" % exc)
+        print(f"Command execution error: {exc}")
         traceback.print_exc()
     except SystemExit as exc:
         if exc.code == builtin_commands.EXIT_COMMAND_CODE:

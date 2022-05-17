@@ -1,5 +1,4 @@
 ![](https://github.com/NetApp/recline/workflows/build/badge.svg?branch=main)
-[![codecov](https://codecov.io/gh/NetApp/recline/branch/main/graph/badge.svg?token=QPHL12QH4N)](https://codecov.io/gh/NetApp/recline)
 [![Gitter](https://badges.gitter.im/netapp-recline/community.svg)](https://gitter.im/netapp-recline/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # recline
