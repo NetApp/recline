@@ -201,7 +201,10 @@ def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[st
         atexit.register(_run_command, commands.EXIT_COMMAND, [])
 
     if commands.START_COMMAND:
-        _run_command(commands.START_COMMAND, argv[1:])
+        try:
+            _run_command(commands.START_COMMAND, argv[1:])
+        except CommandBackgrounded:
+            pass
 
 
 def _run_command(command: str, cmd_args: List[str]) -> int:
@@ -217,7 +220,7 @@ def _run_command(command: str, cmd_args: List[str]) -> int:
     if command.is_async:
         command_thread = AsyncCommand(command, *args, **kwargs)
         command_thread.start()
-        if namespace.background:
+        if namespace.background or command.is_background:
             raise CommandBackgrounded(command_thread.job_pid)
         result = command_thread.foreground()
     else:

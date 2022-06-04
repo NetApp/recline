@@ -40,6 +40,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         is_alias=False,
         hidden=False,
         is_async=False,
+        is_background=False,
     ):
         self.func = func
         self.name = name if name else func.__name__
@@ -47,6 +48,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         self.group = group
         self.is_async = is_async
         self._hidden = hidden
+        self.is_background = is_background
 
         signature = inspect.signature(func)
         parameters = signature.parameters
@@ -322,7 +324,8 @@ def command(
     aliases: List[str] = None,
     atstart: bool = False,
     atexit: bool = False,
-    hidden: Union[Callable[[], bool], bool] = False
+    hidden: Union[Callable[[], bool], bool] = False,
+    background: bool = False
 ):
     """Wrapping a function with this registers it with the recline library and
     exposes it as a command the user of the application can call.
@@ -352,13 +355,16 @@ def command(
             output or available for autocompletion. It will still be executable
             by the user if they type it out. This can be either a function which
             evaluates to True or False, or just a constant True or False.
+        background: If the command is async and long running, then setting
+            background to True may be advisable so that other commands can be
+            run in the foreground in the meantime.
     """
 
 
     if func is None:
         return partial(
             command, name=name, group=group, aliases=aliases, atstart=atstart,
-            atexit=atexit, hidden=hidden,
+            atexit=atexit, hidden=hidden, background=background,
         )
 
     is_async = inspect.iscoroutinefunction(func)
@@ -367,16 +373,16 @@ def command(
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
 
-    _register(wrapper, name, group, aliases, atstart, atexit, hidden, is_async)
+    _register(wrapper, name, group, aliases, atstart, atexit, hidden, is_async, background)
     return wrapper
 
 
 # pylint: disable=too-many-arguments
-def _register(func, name, group, aliases, atstart, atexit, hidden, is_async):
+def _register(func, name, group, aliases, atstart, atexit, hidden, is_async, is_background):
     if atstart:
         if commands.START_COMMAND:
             raise RuntimeError(f'A start command is already defined: {func}')
-        commands.START_COMMAND = CLICommand(func)
+        commands.START_COMMAND = CLICommand(func, is_async=is_async, is_background=is_background)
         return
     if atexit:
         if commands.EXIT_COMMAND:
