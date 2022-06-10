@@ -175,6 +175,8 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
                 spec_kwargs['type'] = lambda val: val.lower() == 'true'
             if issubclass(annotation_type, int) and not issubclass(annotation_type, bool):
                 spec_kwargs['type'] = int
+            if issubclass(annotation_type, float):
+                spec_kwargs['type'] = float
             if issubclass(annotation_type, dict):
                 spec_kwargs['type'] = json.loads
             if issubclass(annotation_type, ReclineType):
