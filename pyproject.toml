@@ -22,8 +22,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.6,<4"
-pyreadline = {version = "^2.1", markers = "sys_platform == 'win32'"}
 windows-curses = {version = "^2.3.0", markers = "sys_platform == 'win32'"}
+pyreadline3 = {version = "^3.4.1", platform = "win32"}
 
 [tool.poetry.dev-dependencies]
 pudb = "^2022.1.1"
