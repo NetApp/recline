@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -61,8 +63,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>recline.vendor.docstring_parser package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">recline.vendor.docstring_parser package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.vendor.docstring_parser.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,24 +75,68 @@
            <div itemprop="articleBody">
              
   <section id="recline-vendor-docstring-parser-package">
-<h1>recline.vendor.docstring_parser package<a class="headerlink" href="#recline-vendor-docstring-parser-package" title="Permalink to this headline"></a></h1>
+<h1>recline.vendor.docstring_parser package<a class="headerlink" href="#recline-vendor-docstring-parser-package" title="Permalink to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html">recline.vendor.docstring_parser.parser package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser.common">recline.vendor.docstring_parser.parser.common module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser.google">recline.vendor.docstring_parser.parser.google module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser.rest">recline.vendor.docstring_parser.parser.rest module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser.common">recline.vendor.docstring_parser.parser.common module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.Docstring"><code class="docutils literal notranslate"><span class="pre">Docstring</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.Docstring.examples"><code class="docutils literal notranslate"><span class="pre">Docstring.examples</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.Docstring.params"><code class="docutils literal notranslate"><span class="pre">Docstring.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.Docstring.raises"><code class="docutils literal notranslate"><span class="pre">Docstring.raises</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.Docstring.returns"><code class="docutils literal notranslate"><span class="pre">Docstring.returns</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringExamples"><code class="docutils literal notranslate"><span class="pre">DocstringExamples</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringExamples.name"><code class="docutils literal notranslate"><span class="pre">DocstringExamples.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringMeta"><code class="docutils literal notranslate"><span class="pre">DocstringMeta</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringMeta.from_meta"><code class="docutils literal notranslate"><span class="pre">DocstringMeta.from_meta()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringParam"><code class="docutils literal notranslate"><span class="pre">DocstringParam</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringParam.arg_name"><code class="docutils literal notranslate"><span class="pre">DocstringParam.arg_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringParam.type_name"><code class="docutils literal notranslate"><span class="pre">DocstringParam.type_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringRaises"><code class="docutils literal notranslate"><span class="pre">DocstringRaises</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringReturns"><code class="docutils literal notranslate"><span class="pre">DocstringReturns</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="docutils literal notranslate"><span class="pre">DocstringTypeMeta</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta.type_name"><code class="docutils literal notranslate"><span class="pre">DocstringTypeMeta.type_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.common.ParseError"><code class="docutils literal notranslate"><span class="pre">ParseError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser.google">recline.vendor.docstring_parser.parser.google module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.google.parse"><code class="docutils literal notranslate"><span class="pre">parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser.rest">recline.vendor.docstring_parser.parser.rest module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.rest.parse"><code class="docutils literal notranslate"><span class="pre">parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#module-recline.vendor.docstring_parser.parser">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.Style"><code class="docutils literal notranslate"><span class="pre">Style</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.Style.auto"><code class="docutils literal notranslate"><span class="pre">Style.auto</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.Style.google"><code class="docutils literal notranslate"><span class="pre">Style.google</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.Style.rest"><code class="docutils literal notranslate"><span class="pre">Style.rest</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.docstring_parser.parser.html#recline.vendor.docstring_parser.parser.parse"><code class="docutils literal notranslate"><span class="pre">parse()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="module-recline.vendor.docstring_parser">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.vendor.docstring_parser" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.vendor.docstring_parser" title="Permalink to this heading"></a></h2>
 <p>Parse docstrings as per Sphinx notation.</p>
 </section>
 </section>

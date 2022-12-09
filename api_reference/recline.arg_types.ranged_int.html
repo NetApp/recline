@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,11 +78,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-          <li><a href="recline.html">recline package</a> &raquo;</li>
-          <li><a href="recline.arg_types.html">recline.arg_types package</a> &raquo;</li>
-      <li>recline.arg_types.ranged_int module</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="recline.html">recline package</a></li>
+          <li class="breadcrumb-item"><a href="recline.arg_types.html">recline.arg_types package</a></li>
+      <li class="breadcrumb-item active">recline.arg_types.ranged_int module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.arg_types.ranged_int.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,7 +93,7 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.arg_types.ranged_int">
-<span id="recline-arg-types-ranged-int-module"></span><h1>recline.arg_types.ranged_int module<a class="headerlink" href="#module-recline.arg_types.ranged_int" title="Permalink to this headline"></a></h1>
+<span id="recline-arg-types-ranged-int-module"></span><h1>recline.arg_types.ranged_int module<a class="headerlink" href="#module-recline.arg_types.ranged_int" title="Permalink to this heading"></a></h1>
 <p>A RangedInt type allows the CLI command writer to specify an integer that is only
 valid within a certain range. If the user provides a value outside of that range,
 then the parameter validation will fail and they will receive an error message.</p>
@@ -104,7 +106,7 @@ def bake(minutes: RangedInt.define(min=15, max=60)) -&gt; None:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.arg_types.ranged_int.RangedInt">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.arg_types.ranged_int.</span></span><span class="sig-name descname"><span class="pre">RangedInt</span></span><a class="headerlink" href="#recline.arg_types.ranged_int.RangedInt" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.arg_types.recline_type.ReclineType</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReclineType</span></code></a></p>
 <p>The RangedInt type allows a parameter which is an into to be constrained
 in which values are in the valid range.</p>
 <dl class="py method">

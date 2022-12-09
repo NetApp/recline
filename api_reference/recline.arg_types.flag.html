@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,11 +78,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-          <li><a href="recline.html">recline package</a> &raquo;</li>
-          <li><a href="recline.arg_types.html">recline.arg_types package</a> &raquo;</li>
-      <li>recline.arg_types.flag module</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="recline.html">recline package</a></li>
+          <li class="breadcrumb-item"><a href="recline.arg_types.html">recline.arg_types package</a></li>
+      <li class="breadcrumb-item active">recline.arg_types.flag module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.arg_types.flag.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,7 +93,7 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.arg_types.flag">
-<span id="recline-arg-types-flag-module"></span><h1>recline.arg_types.flag module<a class="headerlink" href="#module-recline.arg_types.flag" title="Permalink to this headline"></a></h1>
+<span id="recline-arg-types-flag-module"></span><h1>recline.arg_types.flag module<a class="headerlink" href="#module-recline.arg_types.flag" title="Permalink to this heading"></a></h1>
 <p>A Flag type allows the CLI command writer to specify an argument that behaves
 like a boolean flag. The difference between this and declaring an argument as a
 bool is that no “true” or “false” input is expected of the user if the argument
@@ -105,7 +107,7 @@ def ls(l: Flag = None) -&gt; None:</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.arg_types.flag.Flag">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.arg_types.flag.</span></span><span class="sig-name descname"><span class="pre">Flag</span></span><a class="headerlink" href="#recline.arg_types.flag.Flag" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.arg_types.recline_type.ReclineType</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReclineType</span></code></a></p>
 <p>A simple flag argument which will be set to true if provided</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="recline.arg_types.flag.Flag.action">

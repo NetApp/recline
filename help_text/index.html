@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -67,8 +69,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Command Help and Man Pages</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Command Help and Man Pages</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/help_text/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -79,7 +81,7 @@
            <div itemprop="articleBody">
              
   <section id="command-help-and-man-pages">
-<h1>Command Help and Man Pages<a class="headerlink" href="#command-help-and-man-pages" title="Permalink to this headline"></a></h1>
+<h1>Command Help and Man Pages<a class="headerlink" href="#command-help-and-man-pages" title="Permalink to this heading"></a></h1>
 <p>A CLI application is only as good as its documentation. Since recline is meant to be a
 documentation first library, it only makes sense that it provides good documentation
 to your users as well. And this documentation should come from the same source as the
@@ -137,7 +139,7 @@ and let’s add just a bit more to its docstring:</p>
 and some examples of the command being run along with its output. This should give
 your users all the information they need in order to know how to use the command.</p>
 <section id="command-help">
-<h2>Command Help<a class="headerlink" href="#command-help" title="Permalink to this headline"></a></h2>
+<h2>Command Help<a class="headerlink" href="#command-help" title="Permalink to this heading"></a></h2>
 <p>If the user wants to list the help for the command, they can use the <code class="docutils literal notranslate"><span class="pre">-help</span></code> argument
 and get most of the details from our declaration and description printed right in
 line with the command prompt:</p>
@@ -153,7 +155,7 @@ Required arguments:
 </div>
 </section>
 <section id="man-pages">
-<h2>Man Pages<a class="headerlink" href="#man-pages" title="Permalink to this headline"></a></h2>
+<h2>Man Pages<a class="headerlink" href="#man-pages" title="Permalink to this heading"></a></h2>
 <p>Notice the examples are not shown here and neither is the longer part of the description.
 Usually, when a user wants to be reminded of how a command works, this information
 would be too much and would clutter up their screen. But what if they need more details?

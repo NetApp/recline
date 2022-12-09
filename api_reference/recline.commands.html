@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,10 +78,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-          <li><a href="recline.html">recline package</a> &raquo;</li>
-      <li>recline.commands package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="recline.html">recline package</a></li>
+      <li class="breadcrumb-item active">recline.commands package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.commands.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,20 +92,60 @@
            <div itemprop="articleBody">
              
   <section id="recline-commands-package">
-<h1>recline.commands package<a class="headerlink" href="#recline-commands-package" title="Permalink to this headline"></a></h1>
+<h1>recline.commands package<a class="headerlink" href="#recline-commands-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="recline.commands.async_command.html">recline.commands.async_command module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recline.commands.builtin_commands.html">recline.commands.builtin_commands module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recline.commands.cli_command.html">recline.commands.cli_command module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recline.commands.man_utils.html">recline.commands.man_utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recline.commands.async_command.html">recline.commands.async_command module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.AsyncCommand"><code class="docutils literal notranslate"><span class="pre">AsyncCommand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.AsyncCommand.background"><code class="docutils literal notranslate"><span class="pre">AsyncCommand.background()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.AsyncCommand.foreground"><code class="docutils literal notranslate"><span class="pre">AsyncCommand.foreground()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.AsyncCommand.run"><code class="docutils literal notranslate"><span class="pre">AsyncCommand.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.AsyncCommand.stop"><code class="docutils literal notranslate"><span class="pre">AsyncCommand.stop()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.CommandBackgrounded"><code class="docutils literal notranslate"><span class="pre">CommandBackgrounded</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.CommandCancelled"><code class="docutils literal notranslate"><span class="pre">CommandCancelled</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.set_terminal_echo"><code class="docutils literal notranslate"><span class="pre">set_terminal_echo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recline.commands.builtin_commands.html">recline.commands.builtin_commands module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.DebugInterrupt"><code class="docutils literal notranslate"><span class="pre">DebugInterrupt</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.command_help"><code class="docutils literal notranslate"><span class="pre">command_help()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.debug"><code class="docutils literal notranslate"><span class="pre">debug()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.exit_command"><code class="docutils literal notranslate"><span class="pre">exit_command()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.fg"><code class="docutils literal notranslate"><span class="pre">fg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.man"><code class="docutils literal notranslate"><span class="pre">man()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.man_commands"><code class="docutils literal notranslate"><span class="pre">man_commands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recline.commands.cli_command.html">recline.commands.cli_command module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand"><code class="docutils literal notranslate"><span class="pre">CLICommand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.get_arg_action"><code class="docutils literal notranslate"><span class="pre">CLICommand.get_arg_action()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.get_arg_description"><code class="docutils literal notranslate"><span class="pre">CLICommand.get_arg_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.get_arg_help"><code class="docutils literal notranslate"><span class="pre">CLICommand.get_arg_help()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.get_arg_metavar"><code class="docutils literal notranslate"><span class="pre">CLICommand.get_arg_metavar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.get_command_help"><code class="docutils literal notranslate"><span class="pre">CLICommand.get_command_help()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.get_command_usage"><code class="docutils literal notranslate"><span class="pre">CLICommand.get_command_usage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.hidden"><code class="docutils literal notranslate"><span class="pre">CLICommand.hidden</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand.print_help"><code class="docutils literal notranslate"><span class="pre">CLICommand.print_help()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.command"><code class="docutils literal notranslate"><span class="pre">command()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.get_annotation_type"><code class="docutils literal notranslate"><span class="pre">get_annotation_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recline.commands.man_utils.html">recline.commands.man_utils module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.man_utils.html#recline.commands.man_utils.generate_help_text"><code class="docutils literal notranslate"><span class="pre">generate_help_text()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.man_utils.html#recline.commands.man_utils.wrapped_string"><code class="docutils literal notranslate"><span class="pre">wrapped_string()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
 <section id="module-recline.commands">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.commands" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.commands" title="Permalink to this heading"></a></h2>
 <p>This package contains the base command class and the builtin command for all
 recline-based applications to use.</p>
 <dl class="py exception">

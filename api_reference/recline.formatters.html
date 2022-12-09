@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,10 +78,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-          <li><a href="recline.html">recline package</a> &raquo;</li>
-      <li>recline.formatters package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="recline.html">recline package</a></li>
+      <li class="breadcrumb-item active">recline.formatters package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.formatters.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,18 +92,30 @@
            <div itemprop="articleBody">
              
   <section id="recline-formatters-package">
-<h1>recline.formatters package<a class="headerlink" href="#recline-formatters-package" title="Permalink to this headline"></a></h1>
+<h1>recline.formatters package<a class="headerlink" href="#recline-formatters-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="recline.formatters.output_formatter.html">recline.formatters.output_formatter module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="recline.formatters.table_formatter.html">recline.formatters.table_formatter module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recline.formatters.output_formatter.html">recline.formatters.output_formatter module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recline.formatters.output_formatter.html#recline.formatters.output_formatter.OutputFormatter"><code class="docutils literal notranslate"><span class="pre">OutputFormatter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.formatters.output_formatter.html#recline.formatters.output_formatter.OutputFormatter.format_output"><code class="docutils literal notranslate"><span class="pre">OutputFormatter.format_output()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recline.formatters.table_formatter.html">recline.formatters.table_formatter module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recline.formatters.table_formatter.html#recline.formatters.table_formatter.TableFormat"><code class="docutils literal notranslate"><span class="pre">TableFormat</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.formatters.table_formatter.html#recline.formatters.table_formatter.TableFormat.format_output"><code class="docutils literal notranslate"><span class="pre">TableFormat.format_output()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
 <section id="module-recline.formatters">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.formatters" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.formatters" title="Permalink to this heading"></a></h2>
 <p>This package contains useful output formatters. An output formatter can be defined
 as the return type of a CLI command (using a type annotation). If one is defined,
 then the result of running the command will be passed to the output formatter

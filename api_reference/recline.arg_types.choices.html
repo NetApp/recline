@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,11 +78,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-          <li><a href="recline.html">recline package</a> &raquo;</li>
-          <li><a href="recline.arg_types.html">recline.arg_types package</a> &raquo;</li>
-      <li>recline.arg_types.choices module</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="recline.html">recline package</a></li>
+          <li class="breadcrumb-item"><a href="recline.arg_types.html">recline.arg_types package</a></li>
+      <li class="breadcrumb-item active">recline.arg_types.choices module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.arg_types.choices.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,7 +93,7 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.arg_types.choices">
-<span id="recline-arg-types-choices-module"></span><h1>recline.arg_types.choices module<a class="headerlink" href="#module-recline.arg_types.choices" title="Permalink to this headline"></a></h1>
+<span id="recline-arg-types-choices-module"></span><h1>recline.arg_types.choices module<a class="headerlink" href="#module-recline.arg_types.choices" title="Permalink to this heading"></a></h1>
 <p>A Choices type allows the CLI command writer to specify a static list of choices
 for a parameter. Once the body of the function is invoked, it is guaranteed that
 the validation was done on the parameter to make sure it matched one.</p>
@@ -103,11 +105,11 @@ def make_cake(flavor: Choices.define([“chocolate”, “vanilla”, “marble�
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.arg_types.choices.Choices">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.arg_types.choices.</span></span><span class="sig-name descname"><span class="pre">Choices</span></span><a class="headerlink" href="#recline.arg_types.choices.Choices" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.arg_types.recline_type.ReclineType</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType" title="recline.arg_types.recline_type.ReclineType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReclineType</span></code></a></p>
 <p>The Choices type validates the user input according to a list of possible choices</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="recline.arg_types.choices.Choices.define">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">define</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">available_choices:</span> <span class="pre">typing.Union[typing.List,</span> <span class="pre">typing.Callable],</span> <span class="pre">cache_choices:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">inexact:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">data_type=&lt;class</span> <span class="pre">'str'&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.arg_types.choices.Choices" title="recline.arg_types.choices.Choices"><span class="pre">recline.arg_types.choices.Choices</span></a></span></span><a class="headerlink" href="#recline.arg_types.choices.Choices.define" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">define</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">available_choices:</span> <span class="pre">~typing.Union[~typing.List,</span> <span class="pre">~typing.Callable],</span> <span class="pre">cache_choices:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">inexact:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">data_type=&lt;class</span> <span class="pre">'str'&gt;</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.arg_types.choices.Choices" title="recline.arg_types.choices.Choices"><span class="pre">Choices</span></a></span></span><a class="headerlink" href="#recline.arg_types.choices.Choices.define" title="Permalink to this definition"></a></dt>
 <dd><p>A <cite>recline.commands.types.Choices</cite> is a way to assert that an argument
 is one of a predefined list.</p>
 <p>Prior to being passed to your command, the argument will be compared to

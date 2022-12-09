@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,8 +70,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tab Completion</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Tab Completion</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tab_completion/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -80,7 +82,7 @@
            <div itemprop="articleBody">
              
   <section id="tab-completion">
-<h1>Tab Completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline"></a></h1>
+<h1>Tab Completion<a class="headerlink" href="#tab-completion" title="Permalink to this heading"></a></h1>
 <p>The library provides generic tab completion functionality. This can either be
 automatic (for example, parameters of type <code class="docutils literal notranslate"><span class="pre">bool</span></code>) or provided by the business
 logic of the application. Consider the sample program below:</p>
@@ -154,7 +156,7 @@ where the <code class="docutils literal notranslate"><span class="pre">[Tab]</sp
 when running the program.</p>
 </div>
 <section id="command-completion">
-<h2>Command Completion<a class="headerlink" href="#command-completion" title="Permalink to this headline"></a></h2>
+<h2>Command Completion<a class="headerlink" href="#command-completion" title="Permalink to this heading"></a></h2>
 <p>The first level of tab completion is command completion. This means that the user
 can press the <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> key in order to show the list of commands the matches the
 current input on the command line. For example, if there was nothing typed yet, the
@@ -179,7 +181,7 @@ knows that the only command that matches the prefix <code class="docutils litera
 and completes the rest of the words.</p>
 </section>
 <section id="argument-completion">
-<h2>Argument Completion<a class="headerlink" href="#argument-completion" title="Permalink to this headline"></a></h2>
+<h2>Argument Completion<a class="headerlink" href="#argument-completion" title="Permalink to this heading"></a></h2>
 <p>Continuing from the last section, if the user presses <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> immediately,
 they will be shown a list of available arguments:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; order burrito [Tab]
@@ -200,7 +202,7 @@ tacos galore&gt; order burrito -type
 <p>Again, this would not appear on two lines on the display.</p>
 </section>
 <section id="value-completion">
-<h2>Value Completion<a class="headerlink" href="#value-completion" title="Permalink to this headline"></a></h2>
+<h2>Value Completion<a class="headerlink" href="#value-completion" title="Permalink to this heading"></a></h2>
 <p>Continuing from the last section, the user wants to complete an order so they
 press <code class="docutils literal notranslate"><span class="pre">[Tab]</span></code> once more to determine which types are available:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tacos galore&gt; order burrito -type [Tab]

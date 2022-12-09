@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -61,8 +63,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>recline.vendor package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">recline.vendor package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.vendor.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,19 +75,72 @@
            <div itemprop="articleBody">
              
   <section id="recline-vendor-package">
-<h1>recline.vendor package<a class="headerlink" href="#recline-vendor-package" title="Permalink to this headline"></a></h1>
+<h1>recline.vendor package<a class="headerlink" href="#recline-vendor-package" title="Permalink to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="recline.vendor.argcomplete.html">recline.vendor.argcomplete package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.compat">recline.vendor.argcomplete.compat module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.completers">recline.vendor.argcomplete.completers module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.my_argparse">recline.vendor.argcomplete.my_argparse module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.my_shlex">recline.vendor.argcomplete.my_shlex module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.shellintegration">recline.vendor.argcomplete.shellintegration module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.compat">recline.vendor.argcomplete.compat module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.compat.ensure_bytes"><code class="docutils literal notranslate"><span class="pre">ensure_bytes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.compat.ensure_str"><code class="docutils literal notranslate"><span class="pre">ensure_str()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.completers">recline.vendor.argcomplete.completers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.completers.ChoicesCompleter"><code class="docutils literal notranslate"><span class="pre">ChoicesCompleter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.completers.DirectoriesCompleter"><code class="docutils literal notranslate"><span class="pre">DirectoriesCompleter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.completers.FilesCompleter"><code class="docutils literal notranslate"><span class="pre">FilesCompleter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.completers.SuppressCompleter"><code class="docutils literal notranslate"><span class="pre">SuppressCompleter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.completers.SuppressCompleter.suppress"><code class="docutils literal notranslate"><span class="pre">SuppressCompleter.suppress()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.my_argparse">recline.vendor.argcomplete.my_argparse module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_argparse.IntrospectiveArgumentParser"><code class="docutils literal notranslate"><span class="pre">IntrospectiveArgumentParser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_argparse.action_is_greedy"><code class="docutils literal notranslate"><span class="pre">action_is_greedy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_argparse.action_is_open"><code class="docutils literal notranslate"><span class="pre">action_is_open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_argparse.action_is_satisfied"><code class="docutils literal notranslate"><span class="pre">action_is_satisfied()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.my_shlex">recline.vendor.argcomplete.my_shlex module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex"><code class="docutils literal notranslate"><span class="pre">shlex</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.error_leader"><code class="docutils literal notranslate"><span class="pre">shlex.error_leader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.get_token"><code class="docutils literal notranslate"><span class="pre">shlex.get_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.next"><code class="docutils literal notranslate"><span class="pre">shlex.next()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.pop_source"><code class="docutils literal notranslate"><span class="pre">shlex.pop_source()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.push_source"><code class="docutils literal notranslate"><span class="pre">shlex.push_source()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.push_token"><code class="docutils literal notranslate"><span class="pre">shlex.push_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.read_token"><code class="docutils literal notranslate"><span class="pre">shlex.read_token()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.my_shlex.shlex.sourcehook"><code class="docutils literal notranslate"><span class="pre">shlex.sourcehook()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete.shellintegration">recline.vendor.argcomplete.shellintegration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.shellintegration.shellcode"><code class="docutils literal notranslate"><span class="pre">shellcode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.vendor.argcomplete.html#module-recline.vendor.argcomplete">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.ArgcompleteException"><code class="docutils literal notranslate"><span class="pre">ArgcompleteException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.CompletionFinder"><code class="docutils literal notranslate"><span class="pre">CompletionFinder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.CompletionFinder.collect_completions"><code class="docutils literal notranslate"><span class="pre">CompletionFinder.collect_completions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.CompletionFinder.filter_completions"><code class="docutils literal notranslate"><span class="pre">CompletionFinder.filter_completions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.CompletionFinder.get_display_completions"><code class="docutils literal notranslate"><span class="pre">CompletionFinder.get_display_completions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.CompletionFinder.quote_completions"><code class="docutils literal notranslate"><span class="pre">CompletionFinder.quote_completions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.CompletionFinder.rl_complete"><code class="docutils literal notranslate"><span class="pre">CompletionFinder.rl_complete()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.ExclusiveCompletionFinder"><code class="docutils literal notranslate"><span class="pre">ExclusiveCompletionFinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.debug"><code class="docutils literal notranslate"><span class="pre">debug()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.default_validator"><code class="docutils literal notranslate"><span class="pre">default_validator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.mute_stderr"><code class="docutils literal notranslate"><span class="pre">mute_stderr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.mute_stdout"><code class="docutils literal notranslate"><span class="pre">mute_stdout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.split_line"><code class="docutils literal notranslate"><span class="pre">split_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.vendor.argcomplete.html#recline.vendor.argcomplete.warn"><code class="docutils literal notranslate"><span class="pre">warn()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recline.vendor.docstring_parser.html">recline.vendor.docstring_parser package</a><ul>
@@ -107,7 +162,7 @@
 </div>
 </section>
 <section id="module-recline.vendor">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.vendor" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.vendor" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

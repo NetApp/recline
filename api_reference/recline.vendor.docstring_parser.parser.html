@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -61,8 +63,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>recline.vendor.docstring_parser.parser package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">recline.vendor.docstring_parser.parser package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.vendor.docstring_parser.parser.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,12 +75,12 @@
            <div itemprop="articleBody">
              
   <section id="recline-vendor-docstring-parser-parser-package">
-<h1>recline.vendor.docstring_parser.parser package<a class="headerlink" href="#recline-vendor-docstring-parser-parser-package" title="Permalink to this headline"></a></h1>
+<h1>recline.vendor.docstring_parser.parser package<a class="headerlink" href="#recline-vendor-docstring-parser-parser-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-recline.vendor.docstring_parser.parser.common">
-<span id="recline-vendor-docstring-parser-parser-common-module"></span><h2>recline.vendor.docstring_parser.parser.common module<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser.common" title="Permalink to this headline"></a></h2>
+<span id="recline-vendor-docstring-parser-parser-common-module"></span><h2>recline.vendor.docstring_parser.parser.common module<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser.common" title="Permalink to this heading"></a></h2>
 <p>Common methods for parsing.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.Docstring">
@@ -87,25 +89,25 @@
 <p>Docstring object representation.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.Docstring.examples">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">examples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringExamples" title="recline.vendor.docstring_parser.parser.common.DocstringExamples"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringExamples</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.examples" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">examples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringExamples" title="recline.vendor.docstring_parser.parser.common.DocstringExamples"><span class="pre">DocstringExamples</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.examples" title="Permalink to this definition"></a></dt>
 <dd><p>Return example information indicated in docstring.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.Docstring.params">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringParam" title="recline.vendor.docstring_parser.parser.common.DocstringParam"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringParam</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.params" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringParam" title="recline.vendor.docstring_parser.parser.common.DocstringParam"><span class="pre">DocstringParam</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.params" title="Permalink to this definition"></a></dt>
 <dd><p>Return parameters indicated in docstring.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.Docstring.raises">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raises</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringRaises" title="recline.vendor.docstring_parser.parser.common.DocstringRaises"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringRaises</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.raises" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raises</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringRaises" title="recline.vendor.docstring_parser.parser.common.DocstringRaises"><span class="pre">DocstringRaises</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.raises" title="Permalink to this definition"></a></dt>
 <dd><p>Return exceptions indicated in docstring.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.Docstring.returns">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">returns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringReturns" title="recline.vendor.docstring_parser.parser.common.DocstringReturns"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringReturns</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.returns" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">returns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringReturns" title="recline.vendor.docstring_parser.parser.common.DocstringReturns"><span class="pre">DocstringReturns</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.Docstring.returns" title="Permalink to this definition"></a></dt>
 <dd><p>Return return information indicated in docstring.</p>
 </dd></dl>
 
@@ -114,7 +116,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringExamples">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.common.</span></span><span class="sig-name descname"><span class="pre">DocstringExamples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringExamples" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringTypeMeta</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocstringTypeMeta</span></code></a></p>
 <p>DocstringMeta symbolizing :examples metadata.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringExamples.name">
@@ -142,7 +144,7 @@
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringMeta.from_meta">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta" title="recline.vendor.docstring_parser.parser.common.DocstringMeta"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringMeta</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta.from_meta" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta" title="recline.vendor.docstring_parser.parser.common.DocstringMeta"><span class="pre">DocstringMeta</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta.from_meta" title="Permalink to this definition"></a></dt>
 <dd><p>Copy DocstringMeta from another instance.</p>
 </dd></dl>
 
@@ -151,7 +153,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringParam">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.common.</span></span><span class="sig-name descname"><span class="pre">DocstringParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringParam" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta" title="recline.vendor.docstring_parser.parser.common.DocstringMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringMeta</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta" title="recline.vendor.docstring_parser.parser.common.DocstringMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocstringMeta</span></code></a></p>
 <p>DocstringMeta symbolizing :param metadata.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringParam.arg_name">
@@ -170,21 +172,21 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringRaises">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.common.</span></span><span class="sig-name descname"><span class="pre">DocstringRaises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringRaises" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringTypeMeta</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocstringTypeMeta</span></code></a></p>
 <p>DocstringMeta symbolizing :raises metadata.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringReturns">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.common.</span></span><span class="sig-name descname"><span class="pre">DocstringReturns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringReturns" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringTypeMeta</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocstringTypeMeta</span></code></a></p>
 <p>DocstringMeta symbolizing :returns metadata.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.common.</span></span><span class="sig-name descname"><span class="pre">DocstringTypeMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.common.DocstringTypeMeta" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta" title="recline.vendor.docstring_parser.parser.common.DocstringMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">recline.vendor.docstring_parser.parser.common.DocstringMeta</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.DocstringMeta" title="recline.vendor.docstring_parser.parser.common.DocstringMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocstringMeta</span></code></a></p>
 <p>Docstring meta whose only optional arg contains type information.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.common.DocstringTypeMeta.type_name">
@@ -203,11 +205,11 @@
 
 </section>
 <section id="module-recline.vendor.docstring_parser.parser.google">
-<span id="recline-vendor-docstring-parser-parser-google-module"></span><h2>recline.vendor.docstring_parser.parser.google module<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser.google" title="Permalink to this headline"></a></h2>
+<span id="recline-vendor-docstring-parser-parser-google-module"></span><h2>recline.vendor.docstring_parser.parser.google module<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser.google" title="Permalink to this heading"></a></h2>
 <p>Google-style docstring parsing.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.google.parse">
-<span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.google.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">recline.vendor.docstring_parser.parser.common.Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.google.parse" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.google.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.google.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Parse the Google-style docstring into its components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -218,11 +220,11 @@
 
 </section>
 <section id="module-recline.vendor.docstring_parser.parser.rest">
-<span id="recline-vendor-docstring-parser-parser-rest-module"></span><h2>recline.vendor.docstring_parser.parser.rest module<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser.rest" title="Permalink to this headline"></a></h2>
+<span id="recline-vendor-docstring-parser-parser-rest-module"></span><h2>recline.vendor.docstring_parser.parser.rest module<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser.rest" title="Permalink to this heading"></a></h2>
 <p>ReST-style docstring parsing.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.rest.parse">
-<span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.rest.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">recline.vendor.docstring_parser.parser.common.Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.rest.parse" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.rest.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.rest.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Parse the ReST-style docstring into its components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -233,12 +235,12 @@
 
 </section>
 <section id="module-recline.vendor.docstring_parser.parser">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline.vendor.docstring_parser.parser" title="Permalink to this heading"></a></h2>
 <p>Docstring parsing.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.Style">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.</span></span><span class="sig-name descname"><span class="pre">Style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.Style" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.Style.auto">
@@ -259,7 +261,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.vendor.docstring_parser.parser.parse">
-<span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.Style" title="recline.vendor.docstring_parser.parser.Style"><span class="pre">recline.vendor.docstring_parser.parser.Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Style.auto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">recline.vendor.docstring_parser.parser.common.Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.parse" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.Style" title="recline.vendor.docstring_parser.parser.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Style.auto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Parse the docstring into its components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

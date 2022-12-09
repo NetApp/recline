@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -76,11 +78,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-          <li><a href="recline.html">recline package</a> &raquo;</li>
-          <li><a href="recline.commands.html">recline.commands package</a> &raquo;</li>
-      <li>recline.commands.async_command module</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="recline.html">recline package</a></li>
+          <li class="breadcrumb-item"><a href="recline.commands.html">recline.commands package</a></li>
+      <li class="breadcrumb-item active">recline.commands.async_command module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.commands.async_command.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,13 +93,13 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.commands.async_command">
-<span id="recline-commands-async-command-module"></span><h1>recline.commands.async_command module<a class="headerlink" href="#module-recline.commands.async_command" title="Permalink to this headline"></a></h1>
+<span id="recline-commands-async-command-module"></span><h1>recline.commands.async_command module<a class="headerlink" href="#module-recline.commands.async_command" title="Permalink to this heading"></a></h1>
 <p>This is the implementation of an async command for the recline library. It allows
 for a command to be run in the foreground or background.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.commands.async_command.AsyncCommand">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.commands.async_command.</span></span><span class="sig-name descname"><span class="pre">AsyncCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.async_command.AsyncCommand" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Thread</span></code></p>
 <p>This is a custom Thread class meant to wrap an asynchronous recline command.</p>
 <p>It provides the ability to gather a result as well as put the thread in the
 foreground or the background of the main REPL thread.</p>

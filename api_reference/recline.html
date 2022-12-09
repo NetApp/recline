@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,7 +58,11 @@
 <li class="toctree-l4"><a class="reference internal" href="recline.repl.html">recline.repl package</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#module-recline">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-recline">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#recline.command"><code class="docutils literal notranslate"><span class="pre">command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recline.relax"><code class="docutils literal notranslate"><span class="pre">relax()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -76,9 +82,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-      <li>recline package</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+      <li class="breadcrumb-item active">recline package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,20 +95,42 @@
            <div itemprop="articleBody">
              
   <section id="recline-package">
-<h1>recline package<a class="headerlink" href="#recline-package" title="Permalink to this headline"></a></h1>
+<h1>recline package<a class="headerlink" href="#recline-package" title="Permalink to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="recline.arg_types.html">recline.arg_types package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="recline.arg_types.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.choices.html">recline.arg_types.choices module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.flag.html">recline.arg_types.flag module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.positional.html">recline.arg_types.positional module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.ranged_int.html">recline.arg_types.ranged_int module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.recline_type.html">recline.arg_types.recline_type module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.recline_type_error.html">recline.arg_types.recline_type_error module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.remainder.html">recline.arg_types.remainder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.choices.html">recline.arg_types.choices module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.choices.html#recline.arg_types.choices.Choices"><code class="docutils literal notranslate"><span class="pre">Choices</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.flag.html">recline.arg_types.flag module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.flag.html#recline.arg_types.flag.Flag"><code class="docutils literal notranslate"><span class="pre">Flag</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.positional.html">recline.arg_types.positional module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.positional.html#recline.arg_types.positional.Positional"><code class="docutils literal notranslate"><span class="pre">Positional</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.ranged_int.html">recline.arg_types.ranged_int module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.ranged_int.html#recline.arg_types.ranged_int.RangedInt"><code class="docutils literal notranslate"><span class="pre">RangedInt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.recline_type.html">recline.arg_types.recline_type module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.ReclineType"><code class="docutils literal notranslate"><span class="pre">ReclineType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.recline_type.html#recline.arg_types.recline_type.UniqueParam"><code class="docutils literal notranslate"><span class="pre">UniqueParam</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.recline_type_error.html">recline.arg_types.recline_type_error module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.recline_type_error.html#recline.arg_types.recline_type_error.ReclineTypeError"><code class="docutils literal notranslate"><span class="pre">ReclineTypeError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.arg_types.remainder.html">recline.arg_types.remainder module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.arg_types.remainder.html#recline.arg_types.remainder.Remainder"><code class="docutils literal notranslate"><span class="pre">Remainder</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="recline.arg_types.html#module-recline.arg_types">Module contents</a></li>
@@ -110,19 +138,52 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recline.commands.html">recline.commands package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="recline.commands.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="recline.commands.async_command.html">recline.commands.async_command module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.commands.builtin_commands.html">recline.commands.builtin_commands module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html">recline.commands.cli_command module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.commands.man_utils.html">recline.commands.man_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.async_command.html">recline.commands.async_command module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.AsyncCommand"><code class="docutils literal notranslate"><span class="pre">AsyncCommand</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.CommandBackgrounded"><code class="docutils literal notranslate"><span class="pre">CommandBackgrounded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.CommandCancelled"><code class="docutils literal notranslate"><span class="pre">CommandCancelled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.async_command.html#recline.commands.async_command.set_terminal_echo"><code class="docutils literal notranslate"><span class="pre">set_terminal_echo()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="recline.commands.html#module-recline.commands">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.builtin_commands.html">recline.commands.builtin_commands module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.DebugInterrupt"><code class="docutils literal notranslate"><span class="pre">DebugInterrupt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.command_help"><code class="docutils literal notranslate"><span class="pre">command_help()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.debug"><code class="docutils literal notranslate"><span class="pre">debug()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.exit_command"><code class="docutils literal notranslate"><span class="pre">exit_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.fg"><code class="docutils literal notranslate"><span class="pre">fg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.man"><code class="docutils literal notranslate"><span class="pre">man()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.builtin_commands.html#recline.commands.builtin_commands.man_commands"><code class="docutils literal notranslate"><span class="pre">man_commands()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.cli_command.html">recline.commands.cli_command module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.CLICommand"><code class="docutils literal notranslate"><span class="pre">CLICommand</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.command"><code class="docutils literal notranslate"><span class="pre">command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.cli_command.html#recline.commands.cli_command.get_annotation_type"><code class="docutils literal notranslate"><span class="pre">get_annotation_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.man_utils.html">recline.commands.man_utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.man_utils.html#recline.commands.man_utils.generate_help_text"><code class="docutils literal notranslate"><span class="pre">generate_help_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.commands.man_utils.html#recline.commands.man_utils.wrapped_string"><code class="docutils literal notranslate"><span class="pre">wrapped_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="recline.commands.html#module-recline.commands">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recline.commands.html#recline.commands.ReclineCommandError"><code class="docutils literal notranslate"><span class="pre">ReclineCommandError</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recline.formatters.html">recline.formatters package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="recline.formatters.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="recline.formatters.output_formatter.html">recline.formatters.output_formatter module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.formatters.table_formatter.html">recline.formatters.table_formatter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.formatters.output_formatter.html">recline.formatters.output_formatter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.formatters.output_formatter.html#recline.formatters.output_formatter.OutputFormatter"><code class="docutils literal notranslate"><span class="pre">OutputFormatter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.formatters.table_formatter.html">recline.formatters.table_formatter module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.formatters.table_formatter.html#recline.formatters.table_formatter.TableFormat"><code class="docutils literal notranslate"><span class="pre">TableFormat</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="recline.formatters.html#module-recline.formatters">Module contents</a></li>
@@ -130,8 +191,20 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="recline.repl.html">recline.repl package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="recline.repl.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="recline.repl.completer.html">recline.repl.completer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recline.repl.shell.html">recline.repl.shell module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recline.repl.completer.html">recline.repl.completer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.completer.html#recline.repl.completer.CommandCompleter"><code class="docutils literal notranslate"><span class="pre">CommandCompleter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.completer.html#recline.repl.completer.match_command_hook"><code class="docutils literal notranslate"><span class="pre">match_command_hook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.completer.html#recline.repl.completer.print_columns"><code class="docutils literal notranslate"><span class="pre">print_columns()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recline.repl.shell.html">recline.repl.shell module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.shell.html#recline.repl.shell.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.shell.html#recline.repl.shell.relax"><code class="docutils literal notranslate"><span class="pre">relax()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.shell.html#recline.repl.shell.run_one_command"><code class="docutils literal notranslate"><span class="pre">run_one_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.shell.html#recline.repl.shell.setup_tab_complete"><code class="docutils literal notranslate"><span class="pre">setup_tab_complete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="recline.repl.shell.html#recline.repl.shell.track_command_history"><code class="docutils literal notranslate"><span class="pre">track_command_history()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="recline.repl.html#module-recline.repl">Module contents</a></li>
@@ -141,12 +214,12 @@
 </div>
 </section>
 <section id="module-recline">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-recline" title="Permalink to this heading"></a></h2>
 <p>Copyright (C) 2020 NetApp Inc.
 All rights reserved.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.command">
-<span class="sig-prename descclassname"><span class="pre">recline.</span></span><span class="sig-name descname"><span class="pre">command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atstart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atexit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.command" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.</span></span><span class="sig-name descname"><span class="pre">command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atstart</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atexit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.command" title="Permalink to this definition"></a></dt>
 <dd><p>Wrapping a function with this registers it with the recline library and
 exposes it as a command the user of the application can call.</p>
 <p>The name of the command will match the name of the function that is being
@@ -184,7 +257,7 @@ run in the foreground in the meantime.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.relax">
-<span class="sig-prename descclassname"><span class="pre">recline.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repl_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#recline.relax" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.</span></span><span class="sig-name descname"><span class="pre">relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repl_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#recline.relax" title="Permalink to this definition"></a></dt>
 <dd><p>This is the main entry point of a recline-based application. Call this after
 all of your commands have been defined.</p>
 <p>This will start the application in its REPL mode (by default) or in a single
