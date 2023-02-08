@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "recline"
-version = "2022.6"
+version = "2023.2"
 description = "Writing argparse-based command line applications can become tedious, repetitive, and difficult to do right. Relax and let this library free you from that burden."
 license = "BSD-3-Clause"
 authors = ["NetApp <ng-netapp-oss@netapp.com>"]
