@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>recline.vendor.docstring_parser.parser package &mdash; recline 2023.2 documentation</title>
+  <title>recline.vendor.docstring_parser.parser package &mdash; recline 2023.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -27,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> recline
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            recline
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,7 +67,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">recline.vendor.docstring_parser.parser package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api_reference/recline.vendor.docstring_parser.parser.rst.txt" rel="nofollow"> View page source</a>
@@ -134,10 +138,10 @@
 <p>Symbolizes lines in form of</p>
 <blockquote>
 <div><dl class="field-list simple">
-<dt class="field-odd">param arg</dt>
+<dt class="field-odd">param arg<span class="colon">:</span></dt>
 <dd class="field-odd"><p>description</p>
 </dd>
-<dt class="field-even">raises ValueError</dt>
+<dt class="field-even">raises ValueError<span class="colon">:</span></dt>
 <dd class="field-even"><p>if something happens</p>
 </dd>
 </dl>
@@ -212,7 +216,7 @@
 <span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.google.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.google.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Parse the Google-style docstring into its components.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>parsed docstring</p>
 </dd>
 </dl>
@@ -227,7 +231,7 @@
 <span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.rest.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.rest.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Parse the ReST-style docstring into its components.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>parsed docstring</p>
 </dd>
 </dl>
@@ -264,13 +268,13 @@
 <span class="sig-prename descclassname"><span class="pre">recline.vendor.docstring_parser.parser.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.Style" title="recline.vendor.docstring_parser.parser.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Style.auto</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#recline.vendor.docstring_parser.parser.common.Docstring" title="recline.vendor.docstring_parser.parser.common.Docstring"><span class="pre">Docstring</span></a></span></span><a class="headerlink" href="#recline.vendor.docstring_parser.parser.parse" title="Permalink to this definition"></a></dt>
 <dd><p>Parse the docstring into its components.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> – docstring text to parse</p></li>
 <li><p><strong>style</strong> – docstring style</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>parsed docstring representation</p>
 </dd>
 </dl>

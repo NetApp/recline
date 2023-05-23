@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Async Commands &mdash; recline 2023.2 documentation</title>
+  <title>Async Commands &mdash; recline 2023.5 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> recline
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            recline
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,7 +75,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Async Commands</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/async_commands/index.rst.txt" rel="nofollow"> View page source</a>
@@ -82,8 +86,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="id1">
-<h1>Async Commands<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+  <section id="async-commands">
+<span id="id1"></span><h1>Async Commands<a class="headerlink" href="#async-commands" title="Permalink to this heading"></a></h1>
 <p>In a REPL environment, there are often many commands the user may be able to run.
 Some commands may take a long time to complete and maybe there are other commands
 that even give status about what the first command is doing. Here’s an example
@@ -104,7 +108,7 @@ program that we will highlight below:</p>
 
 <span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Runs a deployment operation over a period of time</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Runs a deployment operation over a period of time</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        duration: The amount of time to run for</span>
@@ -125,7 +129,7 @@ program that we will highlight below:</p>
 
 <span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;deploy status&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">deploy_status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Get the current deployment status percentage of an ongoing operation&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the current deployment status percentage of an ongoing operation&quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">PERCENT_COMPLETE</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No deployment has been started yet&quot;</span><span class="p">)</span>
