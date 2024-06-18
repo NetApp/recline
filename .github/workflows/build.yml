@@ -21,7 +21,7 @@ jobs:
           poetry build
       - name: Publish Package
         if: startsWith(github.event.ref, 'refs/tags')
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1.9
         with:
           user: __token__
           password: ${{ secrets.pypi_password }}
