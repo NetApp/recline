@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 A Remainder type allows the CLI command writer to specify that an argument should
 consume all of the rest of the input from the CLI and that it will be interpreted
 inside of the command handler function.

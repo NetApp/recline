@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 A Choices type allows the CLI command writer to specify a static list of choices
 for a parameter. Once the body of the function is invoked, it is guaranteed that
 the validation was done on the parameter to make sure it matched one.

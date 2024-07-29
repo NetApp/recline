@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module holds some utility functions used as part of the man command to format
 text from CLI commands into consistent man pages that respond to the terminal
 width.

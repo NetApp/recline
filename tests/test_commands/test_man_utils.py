@@ -1,6 +1,5 @@
 """
-Copyright (C) 2019 NetApp Inc.
-All rights reserved.
+Original © NetApp 2024
 
 A test module for the recline.commands.man_utils module
 """

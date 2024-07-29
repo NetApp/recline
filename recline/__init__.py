@@ -1,6 +1,5 @@
 """
-Copyright (C) 2020 NetApp Inc.
-All rights reserved.
+Original © NetApp 2024
 """
 
 import os

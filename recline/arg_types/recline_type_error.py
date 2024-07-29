@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module contains the error class that is raised when there is a type error
 when validating user input.
 """

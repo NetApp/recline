@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This package contains the various custom type definitions for CLI command parameters.
 If you are defining a CLI command function that takes input with restrictions,
 you may want to use a type annotation to allow recline to do the checking for you

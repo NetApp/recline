@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module contains a table formatter for CLI output. The table formatter expects
 output to be an iterable of dictionary-like objects. For example, if a CLI command
 returned something like:

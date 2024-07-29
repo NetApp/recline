@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module contains the definition of a CLICommand object. This is the main
 driver of the recline library. Essentially, a CLICommand takes as input a wrapped
 function and parses the args and docstring so that when called from the REPL, the

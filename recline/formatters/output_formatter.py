@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module contains the abstract class that all other output formatters should
 inherit from
 """

@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module implements a readline completer for completing command names as well
 as argument names and values.
 """

@@ -1,4 +1,6 @@
 """
+Original © NetApp 2024
+
 This module contains the abstract base class for all recline custom types
 """
 
