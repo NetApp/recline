@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>recline.arg_types.recline_type_error module &mdash; recline 2024.6 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>recline.arg_types.recline_type_error module &mdash; recline 2024.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b4795bba"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -97,13 +98,13 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.arg_types.recline_type_error">
-<span id="recline-arg-types-recline-type-error-module"></span><h1>recline.arg_types.recline_type_error module<a class="headerlink" href="#module-recline.arg_types.recline_type_error" title="Permalink to this heading"></a></h1>
+<span id="recline-arg-types-recline-type-error-module"></span><h1>recline.arg_types.recline_type_error module<a class="headerlink" href="#module-recline.arg_types.recline_type_error" title="Link to this heading"></a></h1>
 <p>Original © NetApp 2024</p>
 <p>This module contains the error class that is raised when there is a type error
 when validating user input.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="recline.arg_types.recline_type_error.ReclineTypeError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.arg_types.recline_type_error.</span></span><span class="sig-name descname"><span class="pre">ReclineTypeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.arg_types.recline_type_error.ReclineTypeError" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.arg_types.recline_type_error.</span></span><span class="sig-name descname"><span class="pre">ReclineTypeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.arg_types.recline_type_error.ReclineTypeError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>This is a custom exception type that tries to reach into the previous frame
 and get some information if it is present in order to make its error message

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shell Behavior &mdash; recline 2024.6 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Shell Behavior &mdash; recline 2024.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b4795bba"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -89,12 +90,12 @@
            <div itemprop="articleBody">
              
   <section id="shell-behavior">
-<h1>Shell Behavior<a class="headerlink" href="#shell-behavior" title="Permalink to this heading"></a></h1>
+<h1>Shell Behavior<a class="headerlink" href="#shell-behavior" title="Link to this heading"></a></h1>
 <p>While using an application built with the recline library, there is a common set of
 shell functionality that is provided for you by the library. These will be familiar
 to you if you are used to a unix style shell, like bash.</p>
 <section id="command-chaining">
-<h2>Command Chaining<a class="headerlink" href="#command-chaining" title="Permalink to this heading"></a></h2>
+<h2>Command Chaining<a class="headerlink" href="#command-chaining" title="Link to this heading"></a></h2>
 <p>There are three different command chaining operators, <code class="docutils literal notranslate"><span class="pre">;</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, and <code class="docutils literal notranslate"><span class="pre">||</span></code>.
 All three of these operators allow you to chain multiple commands on the same line
 and then execute them as a group. The operator you choose will affect how the
@@ -127,7 +128,7 @@ run in the foreground (the default), then its success or failure will be
 considered just like a synchronous command.</p>
 </div>
 <section id="operator">
-<h3>; Operator<a class="headerlink" href="#operator" title="Permalink to this heading"></a></h3>
+<h3>; Operator<a class="headerlink" href="#operator" title="Link to this heading"></a></h3>
 <p>When the <code class="docutils literal notranslate"><span class="pre">;</span></code> operator is used, all chained commands will be run regardless of
 the success or failure of the previous command in the chain. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>chaining test&gt; success; failure
@@ -145,7 +146,7 @@ chaining test&gt;
 </div>
 </section>
 <section id="id1">
-<h3>&amp;&amp; Operator<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>&amp;&amp; Operator<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>When the <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> operator is used, the chain of commands will halted whenever a
 command in the chain fails and no commands after that point will be run. It is
 meant to be used when one command depends on another succeeding. For example:</p>
@@ -162,7 +163,7 @@ chaining test&gt;
 </div>
 </section>
 <section id="id2">
-<h3>|| Operator<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>|| Operator<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>When the <code class="docutils literal notranslate"><span class="pre">||</span></code> operator is used, the chain of commands will halted whenever a
 successful command is executed. Commands after that point will not be run. It is
 meant to provide alternatives in case something fails. For example:</p>

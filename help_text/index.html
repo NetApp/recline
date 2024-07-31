@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Command Help and Man Pages &mdash; recline 2024.6 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Command Help and Man Pages &mdash; recline 2024.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b4795bba"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -85,7 +86,7 @@
            <div itemprop="articleBody">
              
   <section id="command-help-and-man-pages">
-<h1>Command Help and Man Pages<a class="headerlink" href="#command-help-and-man-pages" title="Permalink to this heading"></a></h1>
+<h1>Command Help and Man Pages<a class="headerlink" href="#command-help-and-man-pages" title="Link to this heading"></a></h1>
 <p>A CLI application is only as good as its documentation. Since recline is meant to be a
 documentation first library, it only makes sense that it provides good documentation
 to your users as well. And this documentation should come from the same source as the
@@ -143,7 +144,7 @@ and let’s add just a bit more to its docstring:</p>
 and some examples of the command being run along with its output. This should give
 your users all the information they need in order to know how to use the command.</p>
 <section id="command-help">
-<h2>Command Help<a class="headerlink" href="#command-help" title="Permalink to this heading"></a></h2>
+<h2>Command Help<a class="headerlink" href="#command-help" title="Link to this heading"></a></h2>
 <p>If the user wants to list the help for the command, they can use the <code class="docutils literal notranslate"><span class="pre">-help</span></code> argument
 and get most of the details from our declaration and description printed right in
 line with the command prompt:</p>
@@ -159,7 +160,7 @@ Required arguments:
 </div>
 </section>
 <section id="man-pages">
-<h2>Man Pages<a class="headerlink" href="#man-pages" title="Permalink to this heading"></a></h2>
+<h2>Man Pages<a class="headerlink" href="#man-pages" title="Link to this heading"></a></h2>
 <p>Notice the examples are not shown here and neither is the longer part of the description.
 Usually, when a user wants to be reminded of how a command works, this information
 would be too much and would clutter up their screen. But what if they need more details?

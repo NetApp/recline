@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>recline.commands.man_utils module &mdash; recline 2024.6 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>recline.commands.man_utils module &mdash; recline 2024.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b4795bba"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -97,14 +98,14 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.commands.man_utils">
-<span id="recline-commands-man-utils-module"></span><h1>recline.commands.man_utils module<a class="headerlink" href="#module-recline.commands.man_utils" title="Permalink to this heading"></a></h1>
+<span id="recline-commands-man-utils-module"></span><h1>recline.commands.man_utils module<a class="headerlink" href="#module-recline.commands.man_utils" title="Link to this heading"></a></h1>
 <p>Original © NetApp 2024</p>
 <p>This module holds some utility functions used as part of the man command to format
 text from CLI commands into consistent man pages that respond to the terminal
 width.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.commands.man_utils.generate_help_text">
-<span class="sig-prename descclassname"><span class="pre">recline.commands.man_utils.</span></span><span class="sig-name descname"><span class="pre">generate_help_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.man_utils.generate_help_text" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.commands.man_utils.</span></span><span class="sig-name descname"><span class="pre">generate_help_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_class</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.man_utils.generate_help_text" title="Link to this definition"></a></dt>
 <dd><p>Generates lines of help text which are formatted using the curses library.
 The final document resembles a typical Linux-style manpage. See here:
 <a class="reference external" href="https://www.tldp.org/HOWTO/Man-Page/q3.html">https://www.tldp.org/HOWTO/Man-Page/q3.html</a></p>
@@ -112,7 +113,7 @@ The final document resembles a typical Linux-style manpage. See here:
 
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.commands.man_utils.wrapped_string">
-<span class="sig-prename descclassname"><span class="pre">recline.commands.man_utils.</span></span><span class="sig-name descname"><span class="pre">wrapped_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.man_utils.wrapped_string" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.commands.man_utils.</span></span><span class="sig-name descname"><span class="pre">wrapped_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.commands.man_utils.wrapped_string" title="Link to this definition"></a></dt>
 <dd><p>This function will take a string and make sure it can fit within the
 given screen_width.</p>
 <p>If the string is too long to fit, it will be broken on word boundaries

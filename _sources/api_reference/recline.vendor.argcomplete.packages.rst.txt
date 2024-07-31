@@ -1,0 +1,10 @@
+recline.vendor.argcomplete.packages package
+===========================================
+
+Module contents
+---------------
+
+.. automodule:: recline.vendor.argcomplete.packages
+   :members:
+   :undoc-members:
+   :show-inheritance:

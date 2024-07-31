@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Async Commands &mdash; recline 2024.6 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>Async Commands &mdash; recline 2024.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b4795bba"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -87,7 +88,7 @@
            <div itemprop="articleBody">
              
   <section id="async-commands">
-<span id="id1"></span><h1>Async Commands<a class="headerlink" href="#async-commands" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>Async Commands<a class="headerlink" href="#async-commands" title="Link to this heading"></a></h1>
 <p>In a REPL environment, there are often many commands the user may be able to run.
 Some commands may take a long time to complete and maybe there are other commands
 that even give status about what the first command is doing. Here’s an example
@@ -142,7 +143,7 @@ program that we will highlight below:</p>
 </pre></div>
 </div>
 <section id="writing-an-async-command">
-<h2>Writing an Async Command<a class="headerlink" href="#writing-an-async-command" title="Permalink to this heading"></a></h2>
+<h2>Writing an Async Command<a class="headerlink" href="#writing-an-async-command" title="Link to this heading"></a></h2>
 <p>Writing a command that can be put in the background is easy. Simply add the <code class="docutils literal notranslate"><span class="pre">async</span></code>
 keyword while defining the function. This tells recline that the command may be long
 running and it allows the user of the application to execute the command and put it
@@ -162,7 +163,7 @@ this case, we elected to show the user a short message saying that we didn’t g
 complete.</p>
 </section>
 <section id="executing-an-async-command">
-<h2>Executing an Async Command<a class="headerlink" href="#executing-an-async-command" title="Permalink to this heading"></a></h2>
+<h2>Executing an Async Command<a class="headerlink" href="#executing-an-async-command" title="Link to this heading"></a></h2>
 <p>From the user’s perspective, there isn’t too much that is different about an async
 command. Commands are executed the same way as non-async commands:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python examples/async.py
@@ -187,7 +188,7 @@ Job 2 is running in the background
 </div>
 </section>
 <section id="send-an-async-command-to-the-background">
-<h2>Send an Async Command to the Background<a class="headerlink" href="#send-an-async-command-to-the-background" title="Permalink to this heading"></a></h2>
+<h2>Send an Async Command to the Background<a class="headerlink" href="#send-an-async-command-to-the-background" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This section only works on Unix-like systems. It does not apply to Windows
@@ -208,7 +209,7 @@ The current deployment is 20.0% complete
 </div>
 </section>
 <section id="bring-a-backgrounded-command-back-to-the-foreground">
-<h2>Bring a Backgrounded Command Back to the Foreground<a class="headerlink" href="#bring-a-backgrounded-command-back-to-the-foreground" title="Permalink to this heading"></a></h2>
+<h2>Bring a Backgrounded Command Back to the Foreground<a class="headerlink" href="#bring-a-backgrounded-command-back-to-the-foreground" title="Link to this heading"></a></h2>
 <p>After a command was sent to the background, the shell prints a message indicating
 the job number associated with the command. The user may re-attach to the command
 by using the <code class="docutils literal notranslate"><span class="pre">fg</span></code> builtin. This will bring the command back to the foreground

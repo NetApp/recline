@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>recline.repl.completer module &mdash; recline 2024.6 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <title>recline.repl.completer module &mdash; recline 2024.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b4795bba"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -97,25 +98,25 @@
            <div itemprop="articleBody">
              
   <section id="module-recline.repl.completer">
-<span id="recline-repl-completer-module"></span><h1>recline.repl.completer module<a class="headerlink" href="#module-recline.repl.completer" title="Permalink to this heading"></a></h1>
+<span id="recline-repl-completer-module"></span><h1>recline.repl.completer module<a class="headerlink" href="#module-recline.repl.completer" title="Link to this heading"></a></h1>
 <p>Original © NetApp 2024</p>
 <p>This module implements a readline completer for completing command names as well
 as argument names and values.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="recline.repl.completer.CommandCompleter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.repl.completer.</span></span><span class="sig-name descname"><span class="pre">CommandCompleter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.CommandCompleter" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">recline.repl.completer.</span></span><span class="sig-name descname"><span class="pre">CommandCompleter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.CommandCompleter" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A completer object that can be used to get the possible next choices for
 the user’s current input. Used with readline’s set_completer() function.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="recline.repl.completer.CommandCompleter.completer">
-<span class="sig-name descname"><span class="pre">completer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.CommandCompleter.completer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">completer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.CommandCompleter.completer" title="Link to this definition"></a></dt>
 <dd><p>To be used with readline’s set_completer() function</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="recline.repl.completer.CommandCompleter.get_command_name">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_command_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.CommandCompleter.get_command_name" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_command_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.CommandCompleter.get_command_name" title="Link to this definition"></a></dt>
 <dd><p>The text contains a complete command if there is 1 and only 1 command
 which contains the text’s prefix</p>
 </dd></dl>
@@ -124,13 +125,13 @@ which contains the text’s prefix</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.repl.completer.match_command_hook">
-<span class="sig-prename descclassname"><span class="pre">recline.repl.completer.</span></span><span class="sig-name descname"><span class="pre">match_command_hook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matches</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.match_command_hook" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.repl.completer.</span></span><span class="sig-name descname"><span class="pre">match_command_hook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substitution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matches</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.match_command_hook" title="Link to this definition"></a></dt>
 <dd><p>Print a list of completion choices in columns and reprint the prompt</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="recline.repl.completer.print_columns">
-<span class="sig-prename descclassname"><span class="pre">recline.repl.completer.</span></span><span class="sig-name descname"><span class="pre">print_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.print_columns" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">recline.repl.completer.</span></span><span class="sig-name descname"><span class="pre">print_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#recline.repl.completer.print_columns" title="Link to this definition"></a></dt>
 <dd><p>Print a list of items in rows and columns</p>
 </dd></dl>
 
