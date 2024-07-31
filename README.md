@@ -48,7 +48,7 @@ Some things to consider and prepare before you can use this library.
 ## Software requirements
 
 ```
-1. Python 3.5 or later
+1. Python 3.9 or later
 ```
 
 ## Installing and importing the library
