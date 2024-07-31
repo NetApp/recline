@@ -246,11 +246,18 @@ def track_command_history(filename: str) -> None:
 
 def setup_tab_complete() -> None:
     """Set up the readline library to hook into our command completer"""
-        
+
     readline.set_completer_delims("")
-    if sys.platform != "win32":
+    if sys.platform == "linux":
+        # pyreadline3 (used for windows) doesn't implement this
+        # libedit (default for macos) implements this but never calls it (broken)
         readline.set_completion_display_matches_hook(completer.match_command_hook)
     readline.set_completer(completer.CommandCompleter(commands.COMMAND_REGISTRY).completer)
-    readline.parse_and_bind("tab: complete")
+    if readline.__doc__ and "libedit" in readline.__doc__:
+        # macos doesn't use GNU readline, but BSD libedit instead
+        readline.parse_and_bind("bind '\t' rl_complete")
+        readline.parse_and_bind("bind '^R' em-inc-search-prev")
+    else:
+        readline.parse_and_bind("tab: complete")
     readline.parse_and_bind("set show-all-if-ambiguous on")
     readline.parse_and_bind("set bell-style none")
