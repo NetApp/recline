@@ -21,6 +21,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
+argcomplete = "*"
 python = ">=3.9.0,<4"
 windows-curses = {version = "^2.3.3", markers = "sys_platform == 'win32'"}
 pyreadline3 = {version = "^3.4.1", markers = "sys_platform == 'win32'"}

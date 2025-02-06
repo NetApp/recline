@@ -5,6 +5,7 @@ This module implements a readline completer for completing command names as well
 as argument names and values.
 """
 
+import argcomplete
 import argparse
 import re
 import readline
@@ -12,7 +13,6 @@ import sys
 
 import recline
 from recline.arg_types.recline_type import UniqueParam
-from recline.vendor import argcomplete
 
 
 def match_command_hook(substitution, matches, *_):
