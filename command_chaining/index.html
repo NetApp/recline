@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shell Behavior &mdash; recline 2024.7.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -101,17 +101,17 @@ All three of these operators allow you to chain multiple commands on the same li
 and then execute them as a group. The operator you choose will affect how the
 commands are processed.</p>
 <p>In the following example outputs, this toy program will be used for illustrative purposes:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">recline</span>
-<span class="kn">from</span> <span class="nn">recline.commands</span> <span class="kn">import</span> <span class="n">ReclineCommandError</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">recline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">recline.commands</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReclineCommandError</span>
 
 <span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
-<span class="k">def</span> <span class="nf">success</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">success</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This command will always succeed when run&quot;&quot;&quot;</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;success!&quot;</span><span class="p">)</span>
 
 <span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
-<span class="k">def</span> <span class="nf">failure</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">failure</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This command will always fail when run&quot;&quot;&quot;</span>
 
     <span class="k">raise</span> <span class="n">ReclineCommandError</span><span class="p">(</span><span class="s2">&quot;I&#39;m a bad function&quot;</span><span class="p">)</span>

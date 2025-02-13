@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Async Commands &mdash; recline 2024.7.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -98,17 +98,17 @@ program that we will highlight below:</p>
 <span class="sd">the foreground only.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="kn">import</span> <span class="nn">recline</span>
-<span class="kn">from</span> <span class="nn">recline.formatters.table_formatter</span> <span class="kn">import</span> <span class="n">TableFormat</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">recline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">recline.formatters.table_formatter</span><span class="w"> </span><span class="kn">import</span> <span class="n">TableFormat</span>
 
 
 <span class="n">PERCENT_COMPLETE</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="nd">@recline</span><span class="o">.</span><span class="n">command</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">deploy</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Runs a deployment operation over a period of time</span>
 
 <span class="sd">    Args:</span>
@@ -129,7 +129,7 @@ program that we will highlight below:</p>
 
 
 <span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;deploy status&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">deploy_status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">deploy_status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the current deployment status percentage of an ongoing operation&quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">PERCENT_COMPLETE</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

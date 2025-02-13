@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Command Help and Man Pages &mdash; recline 2024.7.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -93,7 +93,7 @@ to your users as well. And this documentation should come from the same source a
 implementation so that they stay in sync. Take our <code class="docutils literal notranslate"><span class="pre">cake</span> <span class="pre">make</span></code> command from before
 and let’s add just a bit more to its docstring:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake make&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">make_cake</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_cake</span><span class="p">(</span>
     <span class="n">layers</span><span class="p">:</span> <span class="n">RangedInt</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
     <span class="n">flavor</span><span class="p">:</span> <span class="n">Choices</span><span class="o">.</span><span class="n">define</span><span class="p">([</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;marble&#39;</span><span class="p">]),</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
