@@ -1,5 +1,4 @@
-![](https://github.com/NetApp/recline/workflows/build/badge.svg?branch=main)
-[![Gitter](https://badges.gitter.im/netapp-recline/community.svg)](https://gitter.im/netapp-recline/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+![](https://github.com/NetApp/recline/actions/workflows/build.yml/badge.svg?branch=main)
 
 # recline
 
