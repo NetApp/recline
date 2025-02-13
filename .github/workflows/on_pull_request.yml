@@ -5,6 +5,8 @@ on:
 jobs:
   reviewdog:
     runs-on: ubuntu-latest
+    permissions:
+        contents: read
     steps:
       - name: Install Build Tools
         run: |
