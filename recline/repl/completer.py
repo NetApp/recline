@@ -131,7 +131,7 @@ class CommandCompleter:
     def _get_command_matches(self, command_str, text):
         """ Get the possible matches from a command by calling its completer """
 
-        parser = self.commands[command_str].parser
+        parser = self.commands[command_str].completer_parser
         completer = argcomplete.CompletionFinder(
             parser, always_complete_options='long'
         )

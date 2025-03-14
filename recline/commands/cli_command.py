@@ -71,6 +71,11 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
             self.output_formatter = None
         self.parser = self._create_parser()
 
+        # Using a separate parser object to pass to argcomplete prevents an issue
+        # with custom types and custom validate methods. Haven't been able to nail
+        # down the exact cause though.
+        self.completer_parser = self._create_parser()
+
     def __str__(self):
         return (
             '%s(%s, *, %s)' %
