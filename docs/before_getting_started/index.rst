@@ -8,7 +8,7 @@ Software requirements
 
 ::
 
-    1. Python 3.5 or later
+    1. Python 3.10 or later
 
 
 Installing and importing the library

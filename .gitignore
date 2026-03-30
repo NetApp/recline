@@ -116,6 +116,8 @@ dmypy.json
 
 # End of https://www.gitignore.io/api/python,visualstudiocode
 
+.DS_Store
+
 # api_reference is an auto-generated part of the docs that is based on the source
 # code docstrings, so don't have git track these files
 docs/api_reference
