@@ -112,41 +112,41 @@ def _split_unquoted(current_input: str, separator: str) -> List[str]:
     """Split `current_input` on `separator` only when outside quoted strings."""
     parts: List[str] = []
     start = 0
-    i = 0
+    position = 0
     in_single = False
     in_double = False
     escaped = False
 
-    while i < len(current_input):
-        char = current_input[i]
+    while position < len(current_input):
+        char = current_input[position]
 
         if escaped:
             escaped = False
-            i += 1
+            position += 1
             continue
 
         if char == "\\":
             escaped = True
-            i += 1
+            position += 1
             continue
 
         if char == "'" and not in_double:
             in_single = not in_single
-            i += 1
+            position += 1
             continue
 
         if char == '"' and not in_single:
             in_double = not in_double
-            i += 1
+            position += 1
             continue
 
-        if not in_single and not in_double and current_input.startswith(separator, i):
-            parts.append(current_input[start:i])
-            i += len(separator)
-            start = i
+        if not in_single and not in_double and current_input.startswith(separator, position):
+            parts.append(current_input[start:position])
+            position += len(separator)
+            start = position
             continue
 
-        i += 1
+        position += 1
 
     parts.append(current_input[start:])
     return parts
@@ -213,9 +213,6 @@ def run_one_command(current_input: str) -> int:
         pass
     except (ReclineTypeError, ReclineCommandError) as exc:
         print(str(exc))
-    except Exception as exc:  # pylint: disable=broad-except
-        print(f"Command execution error: {exc}")
-        traceback.print_exc()
     except SystemExit as exc:
         if exc.code == builtin_commands.EXIT_COMMAND_CODE:
             raise
@@ -224,6 +221,9 @@ def run_one_command(current_input: str) -> int:
         # type one of the required parameters yet. We might also get here if they
         # printed the help output with -help
         return exc.code
+    except Exception as exc:  # pylint: disable=broad-except
+        print(f"Command execution error: {exc}")
+        traceback.print_exc()
     return 1
 
 
@@ -242,7 +242,7 @@ def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[st
 
     if sys.platform != "win32":
         # set up a handler for ctrl-\
-        def signal_handler(signum, frame):
+        def signal_handler(_signum, _frame):
             raise builtin_commands.DebugInterrupt()
         signal.signal(signal.SIGQUIT, signal_handler)
 
