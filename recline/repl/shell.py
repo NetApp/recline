@@ -72,7 +72,8 @@ def relax(
 
     _setup_repl(program_name, prompt, history_file, argv)
 
-    if single_command or not repl_mode or argv and len(argv) >= 2 and argv[1] == "-c":
+    has_dash_c = (argv and len(argv) >= 2 and argv[1] == "-c")
+    if single_command or not repl_mode or has_dash_c:
         # Some external process sent us a command to run (like scp or ssh or
         # so run it and exit
         command = argv[2:]
@@ -297,12 +298,16 @@ def setup_tab_complete() -> None:
     """Set up the readline library to hook into our command completer"""
 
     readline.set_completer_delims("")
-    if sys.platform == "linux":
+    if sys.platform.startswith("linux"):
         # pyreadline3 (used for windows) doesn't implement this
         # libedit (default for macos) implements this but never calls it (broken)
         readline.set_completion_display_matches_hook(completer.match_command_hook)
     readline.set_completer(completer.CommandCompleter(commands.COMMAND_REGISTRY).completer)
-    if readline.__doc__ and "libedit" in readline.__doc__:
+    # Heuristic backend detection: libedit is typically advertised in the module docstring.
+    # Keep this centralized and defensive to avoid direct fragile checks.
+    readline_doc = getattr(readline, "__doc__", "") or ""
+    is_libedit = "libedit" in readline_doc.lower()
+    if is_libedit:
         # macos doesn't use GNU readline, but BSD libedit instead
         readline.parse_and_bind("bind '\t' rl_complete")
         readline.parse_and_bind("bind '^R' em-inc-search-prev")
