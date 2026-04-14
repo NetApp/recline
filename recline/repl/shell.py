@@ -297,7 +297,7 @@ def setup_tab_complete() -> None:
     """Set up the readline library to hook into our command completer"""
 
     readline.set_completer_delims("")
-    if sys.platform == "linux":
+    if sys.platform.startswith("linux"):
         # pyreadline3 (used for windows) doesn't implement this
         # libedit (default for macos) implements this but never calls it (broken)
         readline.set_completion_display_matches_hook(completer.match_command_hook)
