@@ -48,8 +48,6 @@ class RangedInt(ReclineType):
         max_val = max
 
         class _RangedInt(RangedInt):
-            metavar = '<int>'
-
             range_str = ''
             if min_val is not None and max_val is not None:
                 range_str = '{%s-%s}' % (min_val, max_val)
