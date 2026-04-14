@@ -213,9 +213,6 @@ def run_one_command(current_input: str) -> int:
         pass
     except (ReclineTypeError, ReclineCommandError) as exc:
         print(str(exc))
-    except Exception as exc:  # pylint: disable=broad-except
-        print(f"Command execution error: {exc}")
-        traceback.print_exc()
     except SystemExit as exc:
         if exc.code == builtin_commands.EXIT_COMMAND_CODE:
             raise
@@ -224,6 +221,9 @@ def run_one_command(current_input: str) -> int:
         # type one of the required parameters yet. We might also get here if they
         # printed the help output with -help
         return exc.code
+    except Exception as exc:  # pylint: disable=broad-except
+        print(f"Command execution error: {exc}")
+        traceback.print_exc()
     return 1
 
 
