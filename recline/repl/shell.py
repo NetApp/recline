@@ -242,7 +242,7 @@ def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[st
 
     if sys.platform != "win32":
         # set up a handler for ctrl-\
-        def signal_handler(signum, frame):
+        def signal_handler(_signum, _frame):
             raise builtin_commands.DebugInterrupt()
         signal.signal(signal.SIGQUIT, signal_handler)
 
