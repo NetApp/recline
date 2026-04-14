@@ -207,6 +207,7 @@ def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[st
             _run_command(commands.START_COMMAND, argv[1:])
         except CommandBackgrounded:
             # START_COMMAND may intentionally run in background; no foreground follow-up needed here.
+            # START_COMMAND may intentionally run in background; no foreground follow-up needed here.
             pass
 
 
