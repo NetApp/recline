@@ -240,6 +240,7 @@ def track_command_history(filename: str) -> None:
         # default history len is -1 (infinite), which may grow unruly
         readline.set_history_length(1000)
     except IOError:
+        # Missing/unreadable history file is non-fatal (e.g., first run); continue.
         pass
     atexit.register(readline.write_history_file, filename)
 
