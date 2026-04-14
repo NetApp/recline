@@ -1,7 +1,7 @@
 """
 Original © NetApp 2024
 
-This is the main staring point for a recline application
+This is the main starting point for a recline application
 """
 
 import atexit
@@ -56,8 +56,8 @@ def relax(
         repl_mode: By default, applications using recline expect to act as a REPL
             environment where the user will run many commands. These applications
             can still run a single command if the user passes a -c. But, it is
-            convienent for some applications to act more like a traditional CLI
-            command without needing to pass -c. For those applicatinos, repl_mode
+            convenient for some applications to act more like a traditional CLI
+            command without needing to pass -c. For those applications, repl_mode
             can be set to False.
         single_command: This acts a bit like non-repl mode, except in this case
             the user doesn't have to pass any command name as an argument to the
@@ -108,25 +108,72 @@ def relax(
             sys.exit(0)
 
 
+def _split_unquoted(current_input: str, separator: str) -> List[str]:
+    """Split `current_input` on `separator` only when outside quoted strings."""
+    parts: List[str] = []
+    start = 0
+    i = 0
+    in_single = False
+    in_double = False
+    escaped = False
+
+    while i < len(current_input):
+        char = current_input[i]
+
+        if escaped:
+            escaped = False
+            i += 1
+            continue
+
+        if char == "\\":
+            escaped = True
+            i += 1
+            continue
+
+        if char == "'" and not in_double:
+            in_single = not in_single
+            i += 1
+            continue
+
+        if char == '"' and not in_single:
+            in_double = not in_double
+            i += 1
+            continue
+
+        if not in_single and not in_double and current_input.startswith(separator, i):
+            parts.append(current_input[start:i])
+            i += len(separator)
+            start = i
+            continue
+
+        i += 1
+
+    parts.append(current_input[start:])
+    return parts
+
+
 def execute(current_input: str) -> int:
     """Execute the input as a series of commands"""
 
     result = 0
 
-    if ';' in current_input:
-        for command in current_input.split(';'):
+    semicolon_commands = _split_unquoted(current_input, ';')
+    if len(semicolon_commands) > 1:
+        for command in semicolon_commands:
             result = execute(command)
         return result
 
-    if '&&' in current_input:
-        for command in current_input.split('&&'):
+    and_commands = _split_unquoted(current_input, '&&')
+    if len(and_commands) > 1:
+        for command in and_commands:
             result = execute(command)
             if result > 0:
                 break
         return result
 
-    if "||" in current_input:
-        for command in current_input.split('||'):
+    or_commands = _split_unquoted(current_input, '||')
+    if len(or_commands) > 1:
+        for command in or_commands:
             result = execute(command)
             if result == 0:
                 break

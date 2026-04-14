@@ -48,21 +48,13 @@ class Choices(ReclineType):
         """
 
         class _Choices(Choices):
-            def __new__(cls):
-                instance = super().__new__(cls)
-                cls.available_choices = available_choices
-                if isinstance(available_choices, list):
-                    cls.metavar = f"<{'|'.join(available_choices)}>"
-                return instance
-
             def validate(self, arg):
-                if inexact:
-                    return arg
-                current_choices = self.choices(eager=True)
-                if arg not in current_choices:
-                    raise ReclineTypeError(
-                        f"\"{arg}\" must be one of {', '.join(current_choices)}."
-                    )
+                if not inexact:
+                    current_choices = self.choices(eager=True)
+                    if arg not in current_choices:
+                        raise ReclineTypeError(
+                            f"\"{arg}\" must be one of {', '.join(current_choices)}."
+                        )
                 try:
                     return data_type(arg)
                 except Exception:  # pylint: disable=broad-except
@@ -88,5 +80,9 @@ class Choices(ReclineType):
 
             def completer(self, *args, **kwargs):
                 return self.choices(eager=True)
+
+        _Choices.available_choices = available_choices
+        if isinstance(available_choices, list):
+            _Choices.metavar = f"<{'|'.join(available_choices)}>"
 
         return _Choices
