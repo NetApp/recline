@@ -72,7 +72,8 @@ def relax(
 
     _setup_repl(program_name, prompt, history_file, argv)
 
-    if single_command or not repl_mode or argv and len(argv) >= 2 and argv[1] == "-c":
+    has_dash_c = (argv and len(argv) >= 2 and argv[1] == "-c")
+    if single_command or not repl_mode or has_dash_c:
         # Some external process sent us a command to run (like scp or ssh or
         # so run it and exit
         command = argv[2:]
