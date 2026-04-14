@@ -77,10 +77,8 @@ class Choices(ReclineType):
                     return None
 
                 current_choices = self.__class__.available_choices
-                try:
-                    current_choices = self.__class__.available_choices()
-                except TypeError:
-                    pass
+                if callable(current_choices):
+                    current_choices = current_choices()
 
                 current_choices = [str(c) for c in current_choices]
                 if cache_choices:
