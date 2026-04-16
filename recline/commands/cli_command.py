@@ -13,7 +13,7 @@ import inspect
 import io
 import json
 import logging
-from typing import Callable, List, Union
+from typing import Annotated, Callable, get_args, get_origin
 
 from recline import commands
 from recline.arg_types.recline_type import ReclineType, UniqueParam
@@ -65,10 +65,15 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         self.docstring = docstring_parser.parse(self.func.__doc__)
 
         return_type = signature.return_annotation
-        if return_type and issubclass(return_type, OutputFormatter):
-            self.output_formatter = return_type()
-        else:
-            self.output_formatter = None
+        formatter_type = None
+        if get_origin(return_type) is Annotated:
+            for arg in get_args(return_type)[1:]:
+                if isinstance(arg, type) and issubclass(arg, OutputFormatter):
+                    formatter_type = arg
+                    break
+        elif return_type and isinstance(return_type, type) and issubclass(return_type, OutputFormatter):
+            formatter_type = return_type
+        self.output_formatter = formatter_type() if formatter_type else None
         self.parser = self._create_parser()
 
         # Using a separate parser object to pass to argcomplete prevents an issue
@@ -172,7 +177,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
 
         if arg.annotation:
             annotation_type = get_annotation_type(arg)
-            if issubclass(annotation_type, List):
+            if issubclass(annotation_type, list):
                 if issubclass(arg.annotation.__args__[0], ReclineType):
                     _recline_type_annotation_handler(arg.annotation.__args__[0], '+')
                 else:
@@ -223,7 +228,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
             return basic
         if issubclass(annotation_type, ReclineType):
             return arg.annotation.metavar
-        if issubclass(annotation_type, List):
+        if issubclass(annotation_type, list):
             return f'<{arg.name}> [{arg.name} ...]'
         if issubclass(annotation_type, bool):
             return '<true|false>'
@@ -330,10 +335,10 @@ def command(
     func=None,
     name: str = None,
     group: str = None,
-    aliases: List[str] = None,
+    aliases: list[str] | None = None,
     atstart: bool = False,
     atexit: bool = False,
-    hidden: Union[Callable[[], bool], bool] = False,
+    hidden: Callable[[], bool] | bool = False,
     background: bool = False
 ):
     """Wrapping a function with this registers it with the recline library and

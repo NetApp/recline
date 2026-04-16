@@ -4,7 +4,7 @@ Original © NetApp 2024
 A test module for the recline.commands.cli_command module
 """
 
-from typing import List
+from typing import Annotated
 
 import pytest
 
@@ -18,11 +18,11 @@ from recline.formatters.table_formatter import TableFormat
 # pylint: disable=bad-continuation,unused-argument
 def unit_test_command(
     types: Choices.define(["type1", "type2", "type3"]),
-    names: List[str],
+    names: list[str],
     optional: str = "foo",
     optional2: bool = False,
     optional3: Flag = False,
-) -> TableFormat:
+) -> Annotated[list[dict[str, str]], TableFormat]:
     """This is a test command short description
 
     This is a test command long description
@@ -34,6 +34,8 @@ def unit_test_command(
         optional2: This is the optional2 parameter
         optional3: This is the optional3 parameter
     """
+
+    return []
 
 
 def test_command_init():

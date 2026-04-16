@@ -7,6 +7,7 @@ A simple application for making and listing the cakes we have
 
 from collections import OrderedDict
 from time import sleep
+from typing import Annotated
 
 import recline
 from recline.arg_types.choices import Choices
@@ -61,7 +62,7 @@ def make_cake(
 
 
 @recline.command(name="cake show")
-def show_cake() -> TableFormat:
+def show_cake() -> Annotated[list[dict[str, int]], TableFormat]:
     """Show all of our completed cake work"""
 
     return CAKES

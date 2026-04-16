@@ -4,8 +4,6 @@ Original © NetApp 2024
 A "hello world" application for CLI commands
 """
 
-from typing import List
-
 import recline
 
 
@@ -25,7 +23,7 @@ def hello(name: str = None) -> None:
 
 
 @recline.command(name="group hello")
-def group_hello(names: List[str], formal: bool = False) -> None:
+def group_hello(names: list[str], formal: bool = False) -> None:
     """A less-basic hello world
 
     You can greet several people with this command if they give you their names!

@@ -11,7 +11,7 @@ import shlex
 import signal
 import sys
 import traceback
-from typing import Callable, List, Union
+from typing import Callable
 
 import recline
 from recline import commands
@@ -25,7 +25,7 @@ from recline.repl import completer
 def relax(
     argv: str = None,
     program_name: str = None,
-    motd: Union[Callable[[], str], str] = None,
+    motd: Callable[[], str] | str | None = None,
     history_file: str = None,
     prompt: str = None,
     repl_mode: bool = True,
@@ -109,9 +109,9 @@ def relax(
             sys.exit(0)
 
 
-def _split_unquoted(current_input: str, separator: str) -> List[str]:
+def _split_unquoted(current_input: str, separator: str) -> list[str]:
     """Split `current_input` on `separator` only when outside quoted strings."""
-    parts: List[str] = []
+    parts: list[str] = []
     start = 0
     position = 0
     in_single = False
@@ -228,7 +228,7 @@ def run_one_command(current_input: str) -> int:
     return 1
 
 
-def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[str]) -> None:
+def _setup_repl(program_name: str, prompt: str, history_file: str, argv: list[str]) -> None:
     if not program_name:
         recline.PROGRAM_NAME = argv[0].split(os.path.sep)[-1]
     else:
@@ -258,7 +258,7 @@ def _setup_repl(program_name: str, prompt: str, history_file: str, argv: List[st
             pass
 
 
-def _run_command(command: str, cmd_args: List[str]) -> int:
+def _run_command(command: str, cmd_args: list[str]) -> int:
     namespace = command.parser.parse_args(args=cmd_args)
 
     args = [getattr(namespace, arg.name) for arg in command.required_args]

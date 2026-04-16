@@ -6,7 +6,7 @@ This module contains the abstract base class for all recline custom types
 
 from abc import ABC
 import argparse
-from typing import Any, List, Optional, Union
+from typing import Any
 
 
 class UniqueParam(argparse.Action):  # pylint: disable=too-few-public-methods
@@ -32,14 +32,14 @@ class ReclineType(ABC):
     def __init__(self):
         self.arg_name = None
 
-    def choices(self, eager=False) -> Optional[List[Any]]:  # pylint: disable=unused-argument,no-self-use
+    def choices(self, eager=False) -> list[Any] | None:  # pylint: disable=unused-argument,no-self-use
         """If an argument has a set list of choices that can be provided for it,
         then the type can specify to only allow that list
         """
 
         return None
 
-    def completer(self, *args, **kwargs) -> List[Any]:  # pylint: disable=unused-argument,no-self-use
+    def completer(self, *args, **kwargs) -> list[Any]:  # pylint: disable=unused-argument,no-self-use
         """The completer function should return a list of values that are valid
         for the argument. This function will usually be implemented such that it
         is dynamic based on some API call or some current application state. If
@@ -49,7 +49,7 @@ class ReclineType(ABC):
 
         return [None]
 
-    def nargs(self) -> Optional[Union[int, str]]:  # pylint: disable=no-self-use
+    def nargs(self) -> int | str | None:  # pylint: disable=no-self-use
         """The number of arguments that this type can accept. See the argparse
         documentation for details: https://docs.python.org/3/library/argparse.html#nargs
         """

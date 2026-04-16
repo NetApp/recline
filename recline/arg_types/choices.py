@@ -10,7 +10,7 @@ def make_cake(flavor: Choices.define(["chocolate", "vanilla", "marble"])) -> Non
     # We can assume flavor is one of the choices in the body of the function
 """
 
-from typing import Callable, List, Union
+from typing import Callable
 
 from recline.arg_types.recline_type import ReclineType
 from recline.arg_types.recline_type_error import ReclineTypeError
@@ -21,7 +21,7 @@ class Choices(ReclineType):
 
     @staticmethod
     def define(
-            available_choices: Union[List, Callable], cache_choices: bool = False,
+            available_choices: list | Callable, cache_choices: bool = False,
             inexact: bool = False, data_type=str,
         ) -> "Choices":
         """A `recline.commands.types.Choices` is a way to assert that an argument

@@ -6,6 +6,7 @@ the foreground only.
 """
 
 import asyncio
+from typing import Annotated
 
 import recline
 from recline.formatters.table_formatter import TableFormat
@@ -15,7 +16,7 @@ PERCENT_COMPLETE = None
 
 
 @recline.command
-async def deploy(duration: int = 30) -> TableFormat:
+async def deploy(duration: int = 30) -> Annotated[list[dict[str, int]], TableFormat]:
     """Runs a deployment operation over a period of time
 
     Args:
@@ -24,8 +25,8 @@ async def deploy(duration: int = 30) -> TableFormat:
 
     global PERCENT_COMPLETE
 
+    seconds_slept = 0
     try:
-        seconds_slept = 0
         while seconds_slept < duration:
             await asyncio.sleep(1)
             seconds_slept += 1
@@ -33,6 +34,7 @@ async def deploy(duration: int = 30) -> TableFormat:
         return [{'duration': duration}]
     except asyncio.CancelledError:
         print('I only managed to get %s out of %s seconds of sleep before you interrupted me' % (seconds_slept, duration))
+        return [{'duration': duration, 'seconds_slept': seconds_slept}]
 
 
 @recline.command(name="deploy status")
