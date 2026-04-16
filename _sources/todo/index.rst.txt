@@ -23,7 +23,7 @@ This could look something like this:
 .. code-block:: Python
 
     @recline.command(name='cake show')
-    def show_cake() ->  Union[TableFormat, CSVFormat, JSONFormat]
+    def show_cake() -> TableFormat | CSVFormat | JSONFormat:
         return cakes
 
 In this case, TableFormat would be the default if the user didn't choose anything

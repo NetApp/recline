@@ -15,6 +15,7 @@ program that we will highlight below:
     """
 
     import asyncio
+    from typing import Annotated
 
     import recline
     from recline.formatters.table_formatter import TableFormat
@@ -24,7 +25,7 @@ program that we will highlight below:
 
 
     @recline.command
-    async def deploy(duration: int = 30) -> TableFormat:
+    async def deploy(duration: int = 30) -> Annotated[list[dict[str, int]], TableFormat]:
         """Runs a deployment operation over a period of time
 
         Args:

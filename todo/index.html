@@ -109,7 +109,7 @@ a single output format type. It may make sense to support multiple output types
 for a single command and to have the application user select between them at runtime.</p>
 <p>This could look something like this:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nd">@recline</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cake show&#39;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">show_cake</span><span class="p">()</span> <span class="o">-&gt;</span>  <span class="n">Union</span><span class="p">[</span><span class="n">TableFormat</span><span class="p">,</span> <span class="n">CSVFormat</span><span class="p">,</span> <span class="n">JSONFormat</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_cake</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">TableFormat</span> <span class="o">|</span> <span class="n">CSVFormat</span> <span class="o">|</span> <span class="n">JSONFormat</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">cakes</span>
 </pre></div>
 </div>
