@@ -11,7 +11,9 @@ import pytest
 import recline
 from recline.arg_types.choices import Choices
 from recline.arg_types.flag import Flag
+from recline.arg_types.positional import Positional
 from recline.commands.cli_command import CLICommand
+from recline.formatters.output_formatter import OutputFormatter
 from recline.formatters.table_formatter import TableFormat
 
 
@@ -148,3 +150,123 @@ def test_register_exit():
             """Can only have one exit command"""
 
     recline.commands.EXIT_COMMAND = None
+
+
+class _SimpleFmt(OutputFormatter):  # pylint: disable=too-few-public-methods
+    """A simple formatter used for annotation coverage tests."""
+
+    def format_output(self, results):
+        pass
+
+
+def cmd_with_various_types(
+    float_arg: float,
+    dict_arg: dict,
+    list_type_arg: list[Choices.define(["a", "b"])],
+    pos_arg: Positional = ".",
+) -> _SimpleFmt:
+    """Command for testing various annotation types.
+
+    Args:
+        float_arg: A float argument.
+        dict_arg: A dict argument.
+        list_type_arg: A list of choices.
+        pos_arg: A positional argument.
+    """
+
+
+def test_output_formatter_direct_return_type():
+    """Verify CLICommand recognises an OutputFormatter subclass as return type directly."""
+
+    cmd = CLICommand(cmd_with_various_types)
+    assert cmd.output_formatter is not None
+
+
+def test_cli_command_str():
+    """Verify CLICommand.__str__ returns a useful string representation."""
+
+    cmd = CLICommand(cmd_with_various_types)
+    result = str(cmd)
+    assert "cmd_with_various_types" in result
+
+
+def test_float_and_dict_annotations():
+    """Verify CLICommand parses float and dict annotations without error."""
+
+    cmd = CLICommand(cmd_with_various_types)
+    float_spec = None
+    dict_spec = None
+    list_spec = None
+    for arg in cmd.required_args:
+        if arg.name == "float_arg":
+            float_spec = arg
+        if arg.name == "dict_arg":
+            dict_spec = arg
+        if arg.name == "list_type_arg":
+            list_spec = arg
+    assert float_spec is not None
+    assert dict_spec is not None
+    assert list_spec is not None
+
+
+def test_positional_arg_metavar_and_help():
+    """Verify get_arg_metavar and get_arg_help work for Positional args."""
+
+    cmd = CLICommand(cmd_with_various_types)
+    for arg in cmd.optional_args:
+        if arg.name == "pos_arg":
+            metavar = cmd.get_arg_metavar(arg)
+            assert f"<{arg.name}>" == metavar
+            help_text = cmd.get_arg_help(arg)
+            assert arg.name in help_text
+
+
+def test_get_arg_description_indent_none():
+    """Verify get_arg_description with indent=None returns inline description."""
+
+    cmd = CLICommand(cmd_with_various_types)
+    for arg in cmd.required_args:
+        if arg.name == "float_arg":
+            desc = cmd.get_arg_description(arg, indent=None)
+            assert "float" in desc.lower()
+    """Verify get_command_help handles a command with no docstring gracefully."""
+
+    def no_doc_cmd():
+        pass
+
+    cmd = CLICommand(no_doc_cmd)
+    help_text = cmd.get_command_help()
+    # Should not raise; short_description is None → skip
+    assert isinstance(help_text, str)
+
+
+def test_get_command_help_only_optional_args():
+    """Verify get_command_help handles a command with only optional args."""
+
+    def opt_only_cmd(opt: str = "default"):
+        """Command with only optional args.
+
+        Args:
+            opt: An optional argument.
+        """
+
+    cmd = CLICommand(opt_only_cmd)
+    help_text = cmd.get_command_help()
+    assert "Optional arguments" in help_text
+    assert "Required arguments" not in help_text
+
+
+def test_get_command_help_only_required_args():
+    """Verify get_command_help handles a command with only required args (no optional block)."""
+
+    def req_only_cmd(req: str):
+        """Command with only required args.
+
+        Args:
+            req: A required argument.
+        """
+
+    cmd = CLICommand(req_only_cmd)
+    help_text = cmd.get_command_help()
+    assert "Required arguments" in help_text
+    assert "Optional arguments" not in help_text

@@ -52,3 +52,23 @@ def test_choices_callable(valid_choices, cache, user_choice, expectation, func_a
     with expectation:
         choices.validate(user_choice)
         assert times_called == func_access
+
+
+def test_choices_invalid_data_type_conversion():
+    """Verify that when the value is valid according to the choices list but cannot
+    be converted to the expected data_type, a ReclineTypeError is raised.
+    """
+
+    choices = Choices.define(["abc", "def"], data_type=int)()
+    with pytest.raises(ReclineTypeError, match='Unable to convert'):
+        choices.validate("abc")
+
+
+def test_choices_inexact_invalid_data_type_conversion():
+    """Verify that with inexact=True, when the value passes the inexact check but
+    cannot be converted to the expected data_type, a ReclineTypeError is raised.
+    """
+
+    choices = Choices.define(["1", "2"], inexact=True, data_type=int)()
+    with pytest.raises(ReclineTypeError, match='Unable to convert'):
+        choices.validate("not_an_int")
