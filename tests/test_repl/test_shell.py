@@ -108,11 +108,22 @@ def test_run_motd(motd, expected, monkeypatch, capsys):
 def test_run_with_dash_c():
     """Verify only a single command is run when -c is passed in"""
 
-    @recline.command(name="single command")
-    def single_command():
+    command_name = "single command dash c"
+    preexisting = command_name in recline.commands.COMMAND_REGISTRY
+
+    @recline.command(name=command_name)
+    def single_cmd():
         return 73
 
-    assert shell.relax(argv=["ut_program", "-c", "single", "command"]) == 73
+    try:
+        assert shell.relax(argv=["ut_program", "-c", "single", "command", "dash", "c"]) == 73
+        assert command_name in recline.commands.COMMAND_REGISTRY
+    finally:
+        if not preexisting:
+            recline.commands.COMMAND_REGISTRY.pop(command_name, None)
+
+    if not preexisting:
+        assert command_name not in recline.commands.COMMAND_REGISTRY
 
 
 def test_run_non_repl():
@@ -120,11 +131,11 @@ def test_run_non_repl():
     a command from the input and exit
     """
 
-    @recline.command(name="single command")
-    def single_command():
+    @recline.command(name="single command non repl")
+    def single_cmd():
         return 73
 
-    assert shell.relax(argv=["ut_program", "single", "command"], repl_mode=False) == 73
+    assert shell.relax(argv=["ut_program", "single", "command", "non", "repl"], repl_mode=False) == 73
 
 
 def test_run_single_command():
@@ -132,11 +143,11 @@ def test_run_single_command():
     a command from the input and exit
     """
 
-    @recline.command(name="single command")
-    def single_command():
+    @recline.command(name="single command one shot")
+    def single_cmd():
         return 73
 
-    assert shell.relax(argv=["ut_program"], single_command="single command") == 73
+    assert shell.relax(argv=["ut_program"], single_command="single command one shot") == 73
 
 
 def test_relax_uses_sys_argv_when_none(monkeypatch):
@@ -144,11 +155,11 @@ def test_relax_uses_sys_argv_when_none(monkeypatch):
 
     import sys
 
-    @recline.command(name="single command")
-    def single_command():
+    @recline.command(name="single command sys argv")
+    def single_cmd():
         return 45
 
-    monkeypatch.setattr(sys, "argv", ["ut_program", "-c", "single", "command"])
+    monkeypatch.setattr(sys, "argv", ["ut_program", "-c", "single", "command", "sys", "argv"])
     result = shell.relax()
     assert result == 45
 
@@ -235,9 +246,12 @@ def test_relax_repl_loop_debug_interrupt(monkeypatch, capsys):
     def mock_execute(cmd):
         raise bc.DebugInterrupt()
 
+    def mock_debug():
+        debug_called[0] = True
+
     monkeypatch.setattr(builtins, "input", mock_input)
     monkeypatch.setattr(shell, "execute", mock_execute)
-    monkeypatch.setattr(bc, "debug", lambda: debug_called.__setitem__(0, True))
+    monkeypatch.setattr(bc, "debug", mock_debug)
 
     with pytest.raises(SystemExit):
         shell.relax(argv=["ut_program"])
@@ -354,7 +368,9 @@ def test_run_one_command_command_cancelled(monkeypatch):
     from recline.commands.async_command import CommandCancelled
     from recline.commands.cli_command import CLICommand
 
-    recline.commands.COMMAND_REGISTRY["__cancel_test"] = CLICommand(lambda: None, name="__cancel_test")
+    monkeypatch.setitem(
+        recline.commands.COMMAND_REGISTRY, "__cancel_test", CLICommand(lambda: None, name="__cancel_test")
+    )
 
     def _raise_cancelled(cmd, args):
         raise CommandCancelled(99)

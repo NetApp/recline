@@ -90,8 +90,9 @@ def test_generate_help_text(command_name, args, kwargs, short_doc, long_doc, exa
         Parameter(arg, Parameter.KEYWORD_ONLY, default=val)
         for arg, val in kwargs.items()
     ]
+    command_class.docstring.meta = []
     if args or kwargs:
-        command_class.docstring.meta = [DocstringMeta(["arg"], "")]
+        command_class.docstring.meta.append(DocstringMeta(["arg"], ""))
     for label, description in examples.items():
         command_class.docstring.meta.append(
             DocstringMeta(["examples", label], description)
