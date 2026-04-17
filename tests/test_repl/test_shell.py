@@ -76,7 +76,7 @@ def test_run_startup_exit_command(monkeypatch):
     monkeypatch.setattr(builtins, "input", mock_eof)
 
     @recline.command(atstart=True)
-    def startup():
+    def startup_test_command():
         nonlocal startup_command_ran
         startup_command_ran = True
 
@@ -132,7 +132,7 @@ def test_run_non_repl():
     """
 
     @recline.command(name="single command non repl")
-    def single_cmd():
+    def single_cmd_non_repl():
         return 73
 
     assert shell.relax(argv=["ut_program", "single", "command", "non", "repl"], repl_mode=False) == 73
@@ -144,7 +144,7 @@ def test_run_single_command():
     """
 
     @recline.command(name="single command one shot")
-    def single_cmd():
+    def single_cmd_one_shot():
         return 73
 
     assert shell.relax(argv=["ut_program"], single_command="single command one shot") == 73
