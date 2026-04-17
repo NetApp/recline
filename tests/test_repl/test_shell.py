@@ -76,7 +76,7 @@ def test_run_startup_exit_command(monkeypatch):
     monkeypatch.setattr(builtins, "input", mock_eof)
 
     @recline.command(atstart=True)
-    def startup():
+    def startup_test_command():
         nonlocal startup_command_ran
         startup_command_ran = True
 
