@@ -5,11 +5,21 @@ A test module for the recline.commands.async_command module
 """
 
 import asyncio
+import os
+import sys
+import termios
+import threading
+import time
 
 import pytest
 
 import recline
-from recline.commands.async_command import AsyncCommand
+from recline.commands.async_command import (
+    AsyncCommand,
+    CommandBackgrounded,
+    CommandCancelled,
+    set_terminal_echo,
+)
 
 
 @pytest.mark.usefixtures("clean_jobs")
@@ -111,8 +121,6 @@ def test_async_command_exception():
 def test_command_backgrounded_exception():
     """Verify CommandBackgrounded carries its job_pid attribute."""
 
-    from recline.commands.async_command import CommandBackgrounded
-
     exc = CommandBackgrounded(42)
     assert exc.job_pid == 42
 
@@ -120,8 +128,6 @@ def test_command_backgrounded_exception():
 @pytest.mark.usefixtures("clean_jobs")
 def test_command_cancelled_exception():
     """Verify CommandCancelled carries its job_pid attribute."""
-
-    from recline.commands.async_command import CommandCancelled
 
     exc = CommandCancelled(99)
     assert exc.job_pid == 99
@@ -159,8 +165,6 @@ def test_async_command_stop_dont_delete():
 def test_async_command_foreground_killed():
     """Verify that foreground() raises CommandCancelled when the thread was killed."""
 
-    from recline.commands.async_command import CommandCancelled
-
     i_was_started = False
 
     @recline.command(name="test")
@@ -190,9 +194,6 @@ def test_async_command_foreground_backgrounded():
     to the background while foreground() is waiting.
     """
 
-    import time
-    from recline.commands.async_command import CommandBackgrounded
-
     ready = [False]
 
     @recline.command(name="test")
@@ -211,7 +212,6 @@ def test_async_command_foreground_backgrounded():
         time.sleep(0.05)
         thread.background()
 
-    import threading
     t = threading.Thread(target=do_background)
     t.start()
 
@@ -227,9 +227,6 @@ def test_async_command_foreground_backgrounded():
 def test_set_terminal_echo_no_termios(monkeypatch):
     """Verify set_terminal_echo gracefully yields when termios is unavailable (e.g. Windows)."""
 
-    import sys
-    from recline.commands.async_command import set_terminal_echo
-
     # Setting termios to None in sys.modules causes 'import termios' to raise ImportError
     monkeypatch.setitem(sys.modules, "termios", None)
 
@@ -241,11 +238,6 @@ def test_set_terminal_echo_no_termios(monkeypatch):
 
 def test_set_terminal_echo_with_tty(monkeypatch):
     """Verify set_terminal_echo modifies echo when stdin is a real TTY."""
-
-    import os
-    import sys
-    import termios
-    from recline.commands.async_command import set_terminal_echo
 
     fake_attrs = [0, 0, 0, termios.ECHO, 0, 0, [b'\x00'] * 19]
     set_calls = []
@@ -265,11 +257,6 @@ def test_set_terminal_echo_with_tty(monkeypatch):
 def test_set_terminal_echo_enabled_true(monkeypatch):
     """Verify set_terminal_echo correctly enables ECHO (covering the enabled=True branch)."""
 
-    import os
-    import sys
-    import termios
-    from recline.commands.async_command import set_terminal_echo
-
     # Start with ECHO disabled (bit not set)
     fake_attrs = [0, 0, 0, 0, 0, 0, [b'\x00'] * 19]
     set_calls = []
@@ -287,10 +274,6 @@ def test_set_terminal_echo_enabled_true(monkeypatch):
 
 def test_set_terminal_echo_non_tty(monkeypatch):
     """Verify set_terminal_echo yields without changes when stdin is not a TTY."""
-
-    import os
-    import sys
-    from recline.commands.async_command import set_terminal_echo
 
     monkeypatch.setattr(sys.stdin, "fileno", lambda: 0)
     monkeypatch.setattr(os, "isatty", lambda fd: False)
