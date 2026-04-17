@@ -132,7 +132,7 @@ def test_run_non_repl():
     """
 
     @recline.command(name="single command non repl")
-    def single_cmd():
+    def single_cmd_non_repl():
         return 73
 
     assert shell.relax(argv=["ut_program", "single", "command", "non", "repl"], repl_mode=False) == 73
