@@ -4,12 +4,13 @@ Original © NetApp 2024
 A test module for the recline.commands.builtin_commands module
 """
 
+import curses
 import pdb
 import pudb
 import pytest
 
 import recline
-from recline.commands import builtin_commands
+from recline.commands import ReclineCommandError, builtin_commands
 from recline.commands.cli_command import CLICommand
 
 
@@ -124,8 +125,6 @@ def test_man_commands_returns_non_aliases():
 def test_exit_command_with_jobs_decline(monkeypatch):
     """Verify exit_command() with backgrounded jobs does NOT exit if user declines."""
 
-    import recline
-
     monkeypatch.setattr(recline, "JOBS", {1: object()})
     monkeypatch.setattr("builtins.input", lambda _: "n")
     # Should return without raising SystemExit
@@ -134,8 +133,6 @@ def test_exit_command_with_jobs_decline(monkeypatch):
 
 def test_exit_command_with_jobs_accept(monkeypatch):
     """Verify exit_command() with backgrounded jobs exits when user confirms."""
-
-    import recline
 
     class _FakeJob:
         def stop(self, dont_delete=False):
@@ -150,8 +147,6 @@ def test_exit_command_with_jobs_accept(monkeypatch):
 
 def test_exit_command_abort_jobs(monkeypatch):
     """Verify exit_command() with abort_jobs=True cleans up jobs and exits."""
-
-    import recline
 
     stopped = []
 
@@ -168,9 +163,6 @@ def test_exit_command_abort_jobs(monkeypatch):
 def test_fg_no_jobs(monkeypatch):
     """Verify fg() raises ReclineCommandError when there are no jobs."""
 
-    import recline
-    from recline.commands import ReclineCommandError
-
     monkeypatch.setattr(recline, "JOBS", {})
     with pytest.raises(ReclineCommandError, match="No running jobs"):
         builtin_commands.fg()
@@ -179,9 +171,6 @@ def test_fg_no_jobs(monkeypatch):
 def test_fg_invalid_job(monkeypatch):
     """Verify fg() raises ReclineCommandError for an unknown job ID."""
 
-    import recline
-    from recline.commands import ReclineCommandError
-
     monkeypatch.setattr(recline, "JOBS", {1: object()})
     with pytest.raises(ReclineCommandError, match="Could not find"):
         builtin_commands.fg(job=999)
@@ -189,8 +178,6 @@ def test_fg_invalid_job(monkeypatch):
 
 def test_fg_with_job_no_formatter(monkeypatch):
     """Verify fg() completes silently when the job's command has no output formatter."""
-
-    import recline
 
     class _FakeCommand:
         output_formatter = None
@@ -241,8 +228,6 @@ def test_debug_interrupt_handler_callable(monkeypatch):
 def test_fg_with_valid_job(monkeypatch):
     """Verify fg() calls foreground() and formats output for a known job."""
 
-    import recline
-
     formatted = []
 
     class _FakeFormatter:
@@ -273,8 +258,6 @@ def test_man_unknown_command(capsys):
 
 def test_man_command_large_window(monkeypatch):
     """Test man command with a large window so all text fits and (END) is displayed."""
-
-    import curses
 
     @recline.command(name="man large cmd")
     def _man_large():
@@ -312,8 +295,6 @@ def test_man_command_large_window(monkeypatch):
 
 def test_man_command_scrolling(monkeypatch):
     """Test man command with a small window to exercise KEY_DOWN and KEY_UP scrolling."""
-
-    import curses
 
     @recline.command(name="man scroll cmd")
     def _man_scroll():
