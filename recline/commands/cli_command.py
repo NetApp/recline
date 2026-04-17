@@ -21,7 +21,7 @@ from recline.arg_types.positional import Positional
 from recline.arg_types.flag import Flag
 from recline.arg_types.remainder import Remainder
 from recline.formatters.output_formatter import OutputFormatter
-from recline.vendor import docstring_parser
+import docstring_parser
 
 
 LOGGER = logging.getLogger(__name__)

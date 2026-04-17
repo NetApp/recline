@@ -10,7 +10,7 @@ import pytest
 
 from recline.commands import man_utils
 from recline.commands.cli_command import CLICommand
-from recline.vendor.docstring_parser.parser.common import DocstringMeta
+from docstring_parser import DocstringMeta
 
 
 @pytest.mark.parametrize("text, screen_width, prefix, output", [

@@ -34,6 +34,11 @@ $ poetry run python examples/cake.py
 $ poetry run pytest --cov=recline tests
 ```
 
+### Running the linter
+```
+$ poetry run ruff check
+```
+
 ### Building the package
 
 ```

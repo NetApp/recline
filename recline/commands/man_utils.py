@@ -8,9 +8,43 @@ width.
 
 import curses
 
+from docstring_parser.common import DocstringExample
+
 from recline.arg_types.positional import Positional
 from recline.arg_types.remainder import Remainder
 from recline.commands.cli_command import get_annotation_type
+
+
+def _iter_examples(docstring):
+    """Yield (name, description) tuples from a parsed docstring.
+
+    Handles two input forms:
+    - ``DocstringExample`` objects (google-style ``Examples:`` blocks), whose
+      ``description`` field contains lines like ``name:`` followed by indented
+      body lines.
+    - Generic ``DocstringMeta`` entries with ``args[0]`` in ``{"example",
+      "examples"}`` and the example name in ``args[1]`` (rest-style ``:example
+      name:`` entries).
+    """
+
+    for meta in docstring.meta:
+        if isinstance(meta, DocstringExample):
+            name = None
+            body_lines = []
+            for line in (meta.description or '').splitlines():
+                stripped = line.rstrip()
+                if stripped and not line[:1].isspace() and stripped.endswith(':'):
+                    if name is not None:
+                        yield name, '\n'.join(body_lines).strip('\n')
+                    name = stripped[:-1]
+                    body_lines = []
+                else:
+                    dedented = line[4:] if line.startswith('    ') else line
+                    body_lines.append(dedented)
+            if name is not None:
+                yield name, '\n'.join(body_lines).strip('\n')
+        elif meta.args and meta.args[0] in {'example', 'examples'} and len(meta.args) > 1:
+            yield meta.args[1], meta.description or ''
 
 
 def wrapped_string(text, screen_width, prefix=0):
@@ -111,7 +145,7 @@ def generate_help_text(screen_width, command_class):
         help_text.append(('\n',))
 
     # each command parameter with description, constraints, and defaults
-    if command_class.docstring.params:
+    if command_class.required_args or command_class.optional_args:
         def print_arg(arg):
             meta = command_class.get_arg_metavar(arg)
             description = command_class.get_arg_description(arg, indent=None)
@@ -139,15 +173,16 @@ def generate_help_text(screen_width, command_class):
             print_arg(arg)
 
     # each command example
-    if command_class.docstring.examples:
+    examples = list(_iter_examples(command_class.docstring))
+    if examples:
         help_text.append(('EXAMPLES\n', curses.A_BOLD))
-        for example in command_class.docstring.examples:
+        for name, description in examples:
             prefix = indent + '  '
             help_text.append((indent,))
-            help_text.append((f'{example.name}:', curses.A_UNDERLINE))
+            help_text.append((f'{name}:', curses.A_UNDERLINE))
             help_text.append((f'\n{prefix}',))
             description = wrapped_string(
-                example.description, screen_width, prefix=len(prefix),
+                description, screen_width, prefix=len(prefix),
             )
             for line in description.split('\n'):
                 help_text.append((f'{line}\n',))

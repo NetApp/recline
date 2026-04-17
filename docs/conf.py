@@ -39,7 +39,6 @@ extensions = [
 
 apidoc_module_dir = '../recline'
 apidoc_output_dir = 'api_reference'
-apidoc_excluded_paths = ['vendor']
 apidoc_separate_modules = True
 apidoc_extra_args = ["-H", "API Reference"]
 

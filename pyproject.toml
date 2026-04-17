@@ -22,6 +22,7 @@ packages = [
 
 [tool.poetry.dependencies]
 argcomplete = ">=3"
+docstring_parser = ">=0.16"
 python = ">=3.10.0,<4"
 windows-curses = {version = "^2.3.3", markers = "sys_platform == 'win32'"}
 pyreadline3 = {version = "^3.4.1", markers = "sys_platform == 'win32'"}
@@ -40,6 +41,4 @@ importlib-metadata = "^9.0.0"
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.ruff]
-exclude = ["recline/vendor"]
 
