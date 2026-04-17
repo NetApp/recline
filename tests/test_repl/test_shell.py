@@ -144,7 +144,7 @@ def test_run_single_command():
     """
 
     @recline.command(name="single command one shot")
-    def single_cmd():
+    def single_cmd_one_shot():
         return 73
 
     assert shell.relax(argv=["ut_program"], single_command="single command one shot") == 73
