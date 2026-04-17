@@ -21,7 +21,7 @@ def test_async_command_run():
     test_result = "This is the answer"
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         return test_result
 
     thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
@@ -42,7 +42,7 @@ def test_async_command_run_background():
     test_result = "This is the answer"
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         return test_result
 
     thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
@@ -62,7 +62,7 @@ def test_async_command_stop():
     i_was_started = False
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         nonlocal i_was_stopped, i_was_started
         try:
             while True:
@@ -94,7 +94,7 @@ def test_async_command_exception():
     test_result = "This is the exception"
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         raise RuntimeError(test_result)
 
     thread = AsyncCommand(recline.commands.COMMAND_REGISTRY["test"])
@@ -134,7 +134,7 @@ def test_async_command_stop_dont_delete():
     i_was_started = False
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         nonlocal i_was_started
         try:
             while True:
@@ -164,7 +164,7 @@ def test_async_command_foreground_killed():
     i_was_started = False
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         nonlocal i_was_started
         try:
             while True:
@@ -196,7 +196,7 @@ def test_async_command_foreground_backgrounded():
     ready = [False]
 
     @recline.command(name="test")
-    async def test_coro():  # pylint: disable=unused-variable
+    async def test_coro():
         while True:
             ready[0] = True
             await asyncio.sleep(0.001)

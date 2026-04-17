@@ -36,7 +36,6 @@ class CommandCancelled(Exception):
         super().__init__(*args, **kwargs)
 
 
-# pylint: disable=too-many-instance-attributes
 class AsyncCommand(Thread):
     """This is a custom Thread class meant to wrap an asynchronous recline command.
 
@@ -75,7 +74,7 @@ class AsyncCommand(Thread):
         self._task = asyncio.ensure_future(self.command.func(*self._args, **self._kwargs))
         try:
             self.result = self._loop.run_until_complete(self._task)
-        except Exception as ex:  # pylint: disable=broad-except
+        except Exception as ex:
             self.exception = ex
 
     def stop(self, dont_delete=False) -> None:

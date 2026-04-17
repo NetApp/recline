@@ -118,6 +118,9 @@ dmypy.json
 
 .DS_Store
 
+# lint
+.ruff_cache/
+
 # api_reference is an auto-generated part of the docs that is based on the source
 # code docstrings, so don't have git track these files
 docs/api_reference

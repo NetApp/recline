@@ -22,7 +22,7 @@ from collections import OrderedDict
 from recline.formatters.output_formatter import OutputFormatter
 
 
-class TableFormat(OutputFormatter):  # pylint: disable=too-few-public-methods
+class TableFormat(OutputFormatter):
     """A TableFormat object can be used as the return type for a CLI command. When
     specified, the returned value from the CLI command is assumed to be an interable
     of dictionary-like objects. All of the objects are assumed to be homogeneous
@@ -44,7 +44,7 @@ class TableFormat(OutputFormatter):  # pylint: disable=too-few-public-methods
             data.append(list(result.values()))
         self._print_table(columns, data)
 
-    def _print_table(self, headers, data):  # pylint: disable=no-self-use
+    def _print_table(self, headers, data):
         """Iterate the data and print lines for the headers and the cells"""
 
         col_data = OrderedDict()

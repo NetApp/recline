@@ -25,7 +25,6 @@ from recline.repl.completer import CommandCompleter, match_command_hook
         "\npart of  partial  partner  \npool     pony     \n> \r> ",
     ),
 ])
-# pylint: disable=too-many-arguments
 def test_match_command_hook(prompt, current_input, matches, expected_output, monkeypatch, capsys):
     """Verify our match hook for readline's set_completion_display_matches_hook()
     prints out the right output
@@ -77,7 +76,7 @@ def test_command_completer_completer(partial, index, commands, expected_output):
 
     for app_command in commands:
         @command(name=app_command)
-        def ut_command(arg: str):  # pylint: disable=unused-variable,unused-argument
+        def ut_command(arg: str):
             pass
 
     completer = CommandCompleter(recline.commands.COMMAND_REGISTRY)

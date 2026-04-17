@@ -144,7 +144,7 @@ class CommandCompleter:
 
         return sorted(matches)
 
-    def _parse_around_booleans(self, text):  # pylint: disable=no-self-use
+    def _parse_around_booleans(self, text):
         """In order to get completions for commands which might be part of a
         complex command line, we need to discard the parts of the complex command
         that we're not currently working on.
@@ -186,7 +186,7 @@ class CommandCompleter:
         # Return the state'th item from the match list, if we have that many
         try:
             response = self.matches[state]
-        except Exception:  # pylint: disable=broad-except
+        except Exception:
             return None
 
         current_line = readline.get_line_buffer()
@@ -201,7 +201,6 @@ def _already_added_match(parser, match, text):
         or if it is not a unique action and can be specified multiple times.
     """
 
-    # pylint: disable=protected-access
 
     match = match.strip().split(' ')[-1]
     match_already_added = False

@@ -5,9 +5,11 @@ A Choices type allows the CLI command writer to specify a static list of choices
 for a parameter. Once the body of the function is invoked, it is guaranteed that
 the validation was done on the parameter to make sure it matched one.
 
-@recline.command(name="cake make")
-def make_cake(flavor: Choices.define(["chocolate", "vanilla", "marble"])) -> None:
-    # We can assume flavor is one of the choices in the body of the function
+.. code-block:: python
+
+    @recline.command(name="cake make")
+    def make_cake(flavor: Choices.define(["chocolate", "vanilla", "marble"])) -> None:
+        # We can assume flavor is one of the choices in the body of the function
 """
 
 from typing import Callable
@@ -44,6 +46,7 @@ class Choices(ReclineType):
                 the "*", "|", or ".." query characters. If these characters are
                 present, then no validation will be done on the value (and validation
                 is assumed to be done on whatever the command is calling)
+
             data_type: The type of data that represents this argument
         """
 
@@ -57,12 +60,12 @@ class Choices(ReclineType):
                         )
                 try:
                     return data_type(arg)
-                except Exception:  # pylint: disable=broad-except
+                except Exception:
                     raise ReclineTypeError(f'Unable to convert "{arg}" to type {data_type}')
 
             def choices(self, eager=False):
                 if hasattr(self.__class__, '_cached_choices'):
-                    return self.__class__._cached_choices  # pylint: disable=protected-access
+                    return self.__class__._cached_choices
 
                 # don't call the completer function unless we're sure we want to
                 if not eager and not isinstance(available_choices, list):
@@ -74,7 +77,7 @@ class Choices(ReclineType):
 
                 current_choices = [str(c) for c in current_choices]
                 if cache_choices:
-                    self.__class__._cached_choices = current_choices  # pylint: disable=protected-access
+                    self.__class__._cached_choices = current_choices
                 self.__class__.metavar = f"<{'|'.join(current_choices)}>"
                 return current_choices
 

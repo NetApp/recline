@@ -18,7 +18,6 @@ from recline.formatters.table_formatter import TableFormat
 CAKES = []
 
 
-# pylint: disable=bad-continuation
 @recline.command(name="cake make")
 def make_cake(
     layers: RangedInt.define(min=2, max=10),

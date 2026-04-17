@@ -70,7 +70,6 @@ def man_commands(*_, **__):
 
 
 @command(group=_GROUPNAME)
-# pylint: disable=too-many-statements
 def man(command_name: Remainder.define(completer=man_commands)) -> None:
     """Display the full man page for a given command
 
@@ -186,7 +185,7 @@ def debug() -> None:
     """Drop into the Python debugger for development purposes"""
 
     try:
-        import pudb  # pylint: disable=import-outside-toplevel
+        import pudb
         # avoid pudb printing out an ugly message
         def no_native_int_support(*_x, **_y):
             pass
@@ -196,7 +195,7 @@ def debug() -> None:
         # the program pauses after this line
         pudb.set_trace()
     except ImportError:
-        import pdb  # pylint: disable=import-outside-toplevel
+        import pdb
         pdb.set_trace()
     finally:
         # remind the user that they can pause the program at any time
@@ -204,7 +203,7 @@ def debug() -> None:
 
 
 @command(group=_GROUPNAME)
-def fg(job: Choices.define(  # pylint: disable=invalid-name
+def fg(job: Choices.define(
         available_choices=lambda: list(recline.JOBS.keys()), data_type=int,
     )=None) -> None:
     """Bring a job to the foreground

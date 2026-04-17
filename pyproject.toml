@@ -28,7 +28,7 @@ pyreadline3 = {version = "^3.4.1", markers = "sys_platform == 'win32'"}
 
 [tool.poetry.group.dev.dependencies]
 pudb = "^2025.1.5"
-pylint = "^4.0.5"
+ruff = "^0.15.11"
 pytest = "^9.0.2"
 pytest-cov = "^7.1.0"
 sphinx = "^8.1.0"
@@ -39,4 +39,7 @@ importlib-metadata = "^9.0.0"
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+exclude = ["recline/vendor"]
 

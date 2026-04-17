@@ -72,7 +72,6 @@ def test_wrapped_string(text, screen_width, prefix, output):
         "testcommand", [], {}, "this is a test command", "", {},
     ),
 ])
-# pylint: disable=too-many-arguments
 def test_generate_help_text(command_name, args, kwargs, short_doc, long_doc, examples):
     """Verify that we generate an expected man page for a given command. I'm not
     going to verify all the formatting here, just the basics. Makes sure that

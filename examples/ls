@@ -129,7 +129,6 @@ def render_output(output_items):
         print(row)
 
 
-# pylint: disable=bad-continuation,invalid-name
 @recline.command
 def ls(
     path: Positional = ".",

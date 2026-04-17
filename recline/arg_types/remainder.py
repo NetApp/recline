@@ -5,10 +5,12 @@ A Remainder type allows the CLI command writer to specify that an argument shoul
 consume all of the rest of the input from the CLI and that it will be interpreted
 inside of the command handler function.
 
-@recline.command
-def search(query: Remainder) -> None:
-    # The user might use this command like "search stuff I want to know about"
-    # and the query parameter would be filled with the value "stuff I want to know about"
+.. code-block:: python
+
+    @recline.command
+    def search(query: Remainder) -> None:
+        # The user might use this command like "search stuff I want to know about"
+        # and the query parameter would be filled with the value "stuff I want to know about"
 """
 
 import argparse

@@ -28,13 +28,12 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.addHandler(logging.NullHandler())
 
 
-class CLICommand:  # pylint: disable=too-many-instance-attributes
+class CLICommand:
     """This is the implementation of a @recline.command. It sets up all of the
     parameter validation, help text generation, and return output formatting for
     commands defined in the application.
     """
 
-    # pylint: disable=too-many-arguments,bad-continuation
     def __init__(
         self, func,
         name=None,
@@ -133,7 +132,7 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
                 action.completer = type_instance.completer
             elif getattr(action, 'choices', None) is not None:
                 choices = action.choices[:]
-                action.completer = lambda *x, **y: choices  # pylint: disable=cell-var-from-loop
+                action.completer = lambda *x, **y: choices
 
         return parser
 
@@ -305,23 +304,22 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         usage = ' '.join(usage.split(' ')[2:])
         return self.name + ' ' + usage.strip()
 
-    def print_help(outer_self):  # pylint: disable=no-self-argument
+    def print_help(outer_self):
         """If the -help argument is passed to the command, then this method will
         print out the help for that command instead of the builtin argparse help printer.
         """
 
-        class HelpAction(argparse.Action):  # pylint: disable=too-few-public-methods
+        class HelpAction(argparse.Action):
             """This is a custom help action which implements the argparse action
             protocol.
             """
 
-            # pylint: disable=bad-continuation
             def __init__(
                 self,
                 option_strings,
                 dest=argparse.SUPPRESS,
                 default=argparse.SUPPRESS,
-                help=None  # pylint: disable=redefined-builtin
+                help=None
             ):
                 super().__init__(option_strings, dest=dest, default=default, nargs=0, help=help)
             def __call__(self, parser, namespace, values, option_string=None):
@@ -330,7 +328,6 @@ class CLICommand:  # pylint: disable=too-many-instance-attributes
         return HelpAction
 
 
-# pylint: disable=too-many-arguments,bad-continuation
 def command(
     func=None,
     name: str = None,
@@ -391,7 +388,6 @@ def command(
     return wrapper
 
 
-# pylint: disable=too-many-arguments
 def _register(func, name, group, aliases, atstart, atexit, hidden, is_async, is_background):
     if atstart:
         if commands.START_COMMAND:

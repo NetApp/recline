@@ -5,10 +5,12 @@ A RangedInt type allows the CLI command writer to specify an integer that is onl
 valid within a certain range. If the user provides a value outside of that range,
 then the parameter validation will fail and they will receive an error message.
 
-@recline.command(name="bake cake")
-def bake(minutes: RangedInt.define(min=15, max=60)) -> None:
-    # If the user tried to bake the cake for less than 15 minutes or more than
-    # 60 minutes, then this body wouldn't be called and they would get an error.
+.. code-block:: python
+
+    @recline.command(name="bake cake")
+    def bake(minutes: RangedInt.define(min=15, max=60)) -> None:
+        # If the user tried to bake the cake for less than 15 minutes or more than
+        # 60 minutes, then this body wouldn't be called and they would get an error.
 """
 
 from recline.arg_types.recline_type import ReclineType
@@ -20,12 +22,11 @@ class RangedInt(ReclineType):
     in which values are in the valid range.
     """
 
-    # pylint: disable=bad-continuation
     @staticmethod
     def define(
-        min: int = None,  # pylint: disable=redefined-builtin
-        max: int = None,  # pylint: disable=redefined-builtin
-    ) -> "_RangedInt":
+        min: int = None,
+        max: int = None,
+    ) -> "RangedInt":
         """A `recline.commands.types.RangedInt` is a way to annotate an integer with
         a min and max value.
 

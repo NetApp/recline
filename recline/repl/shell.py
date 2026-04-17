@@ -21,7 +21,6 @@ from recline.commands.async_command import AsyncCommand, CommandBackgrounded, Co
 from recline.repl import completer
 
 
-# pylint: disable=too-many-arguments,bad-continuation
 def relax(
     argv: str = None,
     program_name: str = None,
@@ -222,7 +221,7 @@ def run_one_command(current_input: str) -> int:
         # type one of the required parameters yet. We might also get here if they
         # printed the help output with -help
         return exc.code
-    except Exception as exc:  # pylint: disable=broad-except
+    except Exception as exc:
         print(f"Command execution error: {exc}")
         traceback.print_exc()
     return 1

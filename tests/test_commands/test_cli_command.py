@@ -17,7 +17,6 @@ from recline.formatters.output_formatter import OutputFormatter
 from recline.formatters.table_formatter import TableFormat
 
 
-# pylint: disable=bad-continuation,unused-argument
 def unit_test_command(
     types: Choices.define(["type1", "type2", "type3"]),
     names: list[str],
@@ -120,12 +119,12 @@ def test_register_start():
         """This command will run at the start of the application"""
 
     assert (
-        recline.commands.START_COMMAND.func == start_cmd  # pylint: disable=comparison-with-callable
+        recline.commands.START_COMMAND.func == start_cmd
     )
 
     with pytest.raises(RuntimeError):
         @recline.command(atstart=True)
-        def another_start_cmd():  # pylint: disable=unused-variable
+        def another_start_cmd():
             """Can only have one start command"""
 
     recline.commands.START_COMMAND = None
@@ -141,18 +140,18 @@ def test_register_exit():
         """This command will run at the exit of the application"""
 
     assert (
-        recline.commands.EXIT_COMMAND.func == exit_cmd  # pylint: disable=comparison-with-callable
+        recline.commands.EXIT_COMMAND.func == exit_cmd
     )
 
     with pytest.raises(RuntimeError):
         @recline.command(atexit=True)
-        def another_exit_cmd():  # pylint: disable=unused-variable
+        def another_exit_cmd():
             """Can only have one exit command"""
 
     recline.commands.EXIT_COMMAND = None
 
 
-class _SimpleFmt(OutputFormatter):  # pylint: disable=too-few-public-methods
+class _SimpleFmt(OutputFormatter):
     """A simple formatter used for annotation coverage tests."""
 
     def format_output(self, results):

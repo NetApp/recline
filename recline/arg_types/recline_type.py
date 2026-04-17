@@ -9,7 +9,7 @@ import argparse
 from typing import Any
 
 
-class UniqueParam(argparse.Action):  # pylint: disable=too-few-public-methods
+class UniqueParam(argparse.Action):
     """Utility class that throws an error if more than one occurrence of param is found."""
 
     def __call__(self, parser, namespace, values, option_string=None):
@@ -32,14 +32,14 @@ class ReclineType(ABC):
     def __init__(self):
         self.arg_name = None
 
-    def choices(self, eager=False) -> list[Any] | None:  # pylint: disable=unused-argument,no-self-use
+    def choices(self, eager=False) -> list[Any] | None:
         """If an argument has a set list of choices that can be provided for it,
         then the type can specify to only allow that list
         """
 
         return None
 
-    def completer(self, *args, **kwargs) -> list[Any]:  # pylint: disable=unused-argument,no-self-use
+    def completer(self, *args, **kwargs) -> list[Any]:
         """The completer function should return a list of values that are valid
         for the argument. This function will usually be implemented such that it
         is dynamic based on some API call or some current application state. If
@@ -49,14 +49,14 @@ class ReclineType(ABC):
 
         return [None]
 
-    def nargs(self) -> int | str | None:  # pylint: disable=no-self-use
+    def nargs(self) -> int | str | None:
         """The number of arguments that this type can accept. See the argparse
         documentation for details: https://docs.python.org/3/library/argparse.html#nargs
         """
 
         return None
 
-    def validate(self, arg: str) -> Any:  # pylint: disable=no-self-use
+    def validate(self, arg: str) -> Any:
         """The validate function has two uses. First, a type should verify that
         the user's input matches the data that the type accepts. Second, it should
         transform the data if necessary. For example, it might try to cast a string

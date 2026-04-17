@@ -5,10 +5,12 @@ A Positional type allows the CLI command writer to specify an argument that the
 user will provide positionally. That is, instead of the user typing
 "-arg_name argvalue", they can just type "argvalue". For example:
 
-@recline.command
-def ls(path: Positional = ".") -> None:
-    # If the user provided "ls my_dir", then path will be set to "my_dir". If the
-    # user just said "ls", then path will be set to ".".
+.. code-block:: python
+
+    @recline.command
+    def ls(path: Positional = ".") -> None:
+        # If the user provided "ls my_dir", then path will be set to "my_dir". If the
+        # user just said "ls", then path will be set to ".".
 """
 
 from recline.arg_types.recline_type import ReclineType

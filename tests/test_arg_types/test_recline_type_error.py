@@ -3,7 +3,6 @@ Tests for recline.arg_types.recline_type_error
 """
 
 import inspect
-import unittest.mock as mock
 
 import pytest
 

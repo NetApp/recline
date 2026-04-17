@@ -7,7 +7,7 @@ inherit from
 
 from abc import ABC, abstractmethod
 
-class OutputFormatter(ABC):  # pylint: disable=too-few-public-methods
+class OutputFormatter(ABC):
     """All output formatters should inherit from this class"""
 
     @abstractmethod

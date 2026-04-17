@@ -31,7 +31,7 @@ def test_shell_execute(user_input, expected_marker, expected_output, capsys):
     ut_marker = None
 
     @recline.command(name="ut command")
-    def ut_command(arg: int):  # pylint: disable=unused-variable
+    def ut_command(arg: int):
         if arg == 5:
             raise ValueError("This is a UT failure")
         nonlocal ut_marker
@@ -52,7 +52,7 @@ def test_shell_execute_async_command(user_input, expected_marker):
     ut_marker = None
 
     @recline.command(name="ut async command")
-    async def ut_command(arg: int):  # pylint: disable=unused-variable
+    async def ut_command(arg: int):
         loops = 0
         while loops < arg:
             loops += 1
@@ -76,7 +76,7 @@ def test_run_startup_exit_command(monkeypatch):
     monkeypatch.setattr(builtins, "input", mock_eof)
 
     @recline.command(atstart=True)
-    def startup():  # pylint: disable=unused-variable
+    def startup():
         nonlocal startup_command_ran
         startup_command_ran = True
 
@@ -109,7 +109,7 @@ def test_run_with_dash_c():
     """Verify only a single command is run when -c is passed in"""
 
     @recline.command(name="single command")
-    def single_command():  # pylint: disable=unused-variable
+    def single_command():
         return 73
 
     assert shell.relax(argv=["ut_program", "-c", "single", "command"]) == 73
@@ -121,7 +121,7 @@ def test_run_non_repl():
     """
 
     @recline.command(name="single command")
-    def single_command():  # pylint: disable=unused-variable
+    def single_command():
         return 73
 
     assert shell.relax(argv=["ut_program", "single", "command"], repl_mode=False) == 73
@@ -133,7 +133,7 @@ def test_run_single_command():
     """
 
     @recline.command(name="single command")
-    def single_command():  # pylint: disable=unused-variable
+    def single_command():
         return 73
 
     assert shell.relax(argv=["ut_program"], single_command="single command") == 73
@@ -145,7 +145,7 @@ def test_relax_uses_sys_argv_when_none(monkeypatch):
     import sys
 
     @recline.command(name="single command")
-    def single_command():  # pylint: disable=unused-variable
+    def single_command():
         return 45
 
     monkeypatch.setattr(sys, "argv", ["ut_program", "-c", "single", "command"])
@@ -181,7 +181,7 @@ def test_relax_repl_loop_executes_command(monkeypatch):
     calls = [0]
 
     @recline.command(name="loop test command")
-    def loop_test():  # pylint: disable=unused-variable
+    def loop_test():
         ran[0] = True
 
     def mock_input(prompt):
@@ -286,7 +286,7 @@ def test_run_one_command_question_mark_becomes_help(capsys):
     """Verify that a trailing ? in a command is converted to -help."""
 
     @recline.command(name="ut help command")
-    def ut_help_command(arg: int):  # pylint: disable=unused-variable
+    def ut_help_command(arg: int):
         """A command for testing help substitution"""
 
     # '?' should trigger the help output and cause a non-fatal SystemExit
@@ -301,12 +301,12 @@ def test_run_one_command_with_output_formatter(capsys):
     from recline.formatters.output_formatter import OutputFormatter
     from typing import Annotated
 
-    class _FmtFormatter(OutputFormatter):  # pylint: disable=too-few-public-methods
+    class _FmtFormatter(OutputFormatter):
         def format_output(self, results):
             print(f"formatted:{results}")
 
     @recline.command(name="fmt command")
-    def fmt_command() -> Annotated[str, _FmtFormatter]:  # pylint: disable=unused-variable
+    def fmt_command() -> Annotated[str, _FmtFormatter]:
         return "hello"
 
     result = shell.run_one_command("fmt command")
@@ -321,7 +321,7 @@ def test_run_one_command_backgrounded(capsys):
     import asyncio
 
     @recline.command(name="bg async command")
-    async def bg_async():  # pylint: disable=unused-variable
+    async def bg_async():
         await asyncio.sleep(10)
 
     result = shell.run_one_command("bg async command -background")
@@ -339,7 +339,7 @@ def test_run_one_command_recline_command_error(capsys):
     from recline.commands import ReclineCommandError
 
     @recline.command(name="err command")
-    def err_command():  # pylint: disable=unused-variable
+    def err_command():
         raise ReclineCommandError("intended error")
 
     result = shell.run_one_command("err command")
@@ -423,10 +423,9 @@ def test_setup_repl_registers_exit_command(monkeypatch):
     """Verify that an atexit command is registered in _setup_repl."""
 
     import builtins
-    import atexit
 
     @recline.command(name="at exit cmd", atexit=True)
-    def at_exit_cmd():  # pylint: disable=unused-variable
+    def at_exit_cmd():
         pass
 
     def mock_eof(prompt):
@@ -446,7 +445,7 @@ def test_setup_repl_start_command_backgrounded(monkeypatch):
     import builtins
 
     @recline.command(name="bg startup", atstart=True, background=True)
-    async def bg_startup():  # pylint: disable=unused-variable
+    async def bg_startup():
         await asyncio.sleep(10)
 
     def mock_eof(prompt):

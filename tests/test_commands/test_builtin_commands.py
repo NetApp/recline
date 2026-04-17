@@ -46,14 +46,14 @@ from recline.commands.cli_command import CLICommand
         [
             {
                 "name": "builtincommand",
-                "group": builtin_commands._GROUPNAME,  # pylint: disable=protected-access
+                "group": builtin_commands._GROUPNAME,
                 "is_alias": False, "hidden": False,
             },
             {"name": "othercommand", "group": "group1", "is_alias": False, "hidden": False},
             {"name": "othercommand2", "group": "group1", "is_alias": False, "hidden": True},
         ],
         ["builtincommand", "othercommand"],
-        [builtin_commands._GROUPNAME, "group1"],  # pylint: disable=protected-access
+        [builtin_commands._GROUPNAME, "group1"],
     ),
 ])
 def test_help_command(commands, expected_commands, expected_groups, capsys):
@@ -211,12 +211,12 @@ def test_help_command_skips_alias_builtin(capsys):
 
     recline.commands.COMMAND_REGISTRY["real_builtin"] = CLICommand(
         lambda: None, name="real_builtin",
-        group=builtin_commands._GROUPNAME,  # pylint: disable=protected-access
+        group=builtin_commands._GROUPNAME,
         is_alias=False, hidden=False,
     )
     recline.commands.COMMAND_REGISTRY["alias_builtin"] = CLICommand(
         lambda: None, name="alias_builtin",
-        group=builtin_commands._GROUPNAME,  # pylint: disable=protected-access
+        group=builtin_commands._GROUPNAME,
         is_alias=True, hidden=False,
     )
 
@@ -277,7 +277,7 @@ def test_man_command_large_window(monkeypatch):
     import curses
 
     @recline.command(name="man large cmd")
-    def _man_large():  # pylint: disable=unused-variable
+    def _man_large():
         """Short description for large-window man test."""
 
     class _LargeWindow:
@@ -316,7 +316,7 @@ def test_man_command_scrolling(monkeypatch):
     import curses
 
     @recline.command(name="man scroll cmd")
-    def _man_scroll():  # pylint: disable=unused-variable
+    def _man_scroll():
         """Short desc for scroll test.
 
         Longer description that adds more content to the man page for scrolling.
