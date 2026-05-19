@@ -36,5 +36,5 @@ jobs:
           poetry run pytest --cov=recline --cov-report=xml tests
           poetry build
       - name: Publish Package
-        if: startsWith(github.event.ref, 'refs/tags') || (github.event_name == 'workflow_dispatch' && inputs.publish_package)
+        if: (github.event_name == 'push' && startsWith(github.ref, 'refs/tags')) || (github.event_name == 'workflow_dispatch' && inputs.publish_package)
         uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b # v1.14.0
