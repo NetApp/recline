@@ -2,6 +2,11 @@ name: build
 on:
   push:
   workflow_dispatch:
+    inputs:
+      publish_package:
+        description: "Publish package to PyPI"
+        required: true
+        default: "false"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,5 +35,5 @@ jobs:
           poetry run pytest --cov=recline --cov-report=xml tests
           poetry build
       - name: Publish Package
-        if: startsWith(github.event.ref, 'refs/tags') || github.event_name == 'workflow_dispatch'
+        if: startsWith(github.event.ref, 'refs/tags') || (github.event_name == 'workflow_dispatch' && github.event.inputs.publish_package == 'true')
         uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b # v1.14.0
