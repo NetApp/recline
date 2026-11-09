@@ -1093,22 +1093,23 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 
 [[package]]
 name = "urwid"
-version = "4.0.0"
+version = "4.0.7"
 description = "A full-featured console (xterm et al.) user interface library"
 optional = false
 python-versions = ">=3.9.0"
 groups = ["dev"]
 files = [
-    {file = "urwid-4.0.0-py3-none-any.whl", hash = "sha256:f6f0381d5656b8b24ee960969927021d858c1f7320771cf8f3ec5b94a139b9b7"},
-    {file = "urwid-4.0.0.tar.gz", hash = "sha256:58ddc5c65eb3109b69e2e95469553f9f86070645cc1b553d6ee3fe8dbac2e0ba"},
+    {file = "urwid-4.0.7-py3-none-any.whl", hash = "sha256:b85618b42f48ce3028405002743238c511185439cb356c3c68190c44cde4778a"},
+    {file = "urwid-4.0.7.tar.gz", hash = "sha256:c31aff787741428028b20bac3b0774fbe4f10de00ae00fe07722244d09462248"},
 ]
 
 [package.dependencies]
+typing-extensions = "*"
 wcwidth = ">=0.4"
 
 [package.extras]
 curses = ["windows-curses ; sys_platform == \"win32\""]
-glib = ["PyGObject"]
+glib = ["pygobject"]
 lcd = ["pyserial"]
 serial = ["pyserial"]
 tornado = ["tornado (>=5.0)"]
